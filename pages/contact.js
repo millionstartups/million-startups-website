@@ -140,7 +140,7 @@ const ContactPage = ({contact, sitecontact}) => {
   const handleOnSubmit = (values, actions) => {
     axios({
       method: "POST",
-      url: process.env.NEXT_FORMSPREE_ENDPOINT,
+      url: "https://formspree.io/f/mjvplplw",
       data: values
     })
       .then(response => {
