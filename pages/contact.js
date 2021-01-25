@@ -205,20 +205,23 @@ const ContactPage = ({contact, sitecontact}) => {
               </p>
             )}
               <div className='group'>
-               <label className='shrink' htmlFor="name">Name</label>
-               <input className='' id="fullname" type="text" name="fullname" />
-               </div>
+               <label className='shrink' htmlFor="fullname">Full Name</label>
+               <Field id="fullname" type="text" name="fullname" />
                <ErrorMessage name="fullname" className="errorMsg" component="p" />
+               </div>
+               
                <div className='group'>
                <label className="shrink" htmlFor="email">Email</label>
                <Field id="email" type="email" name="email" />
-               </div>
                <ErrorMessage name="email" className="errorMsg" component="p" />
+               </div>
+               
                <div className='group'>
                <label className="shrink" htmlFor="message">Message</label>
                <Field id="message" name="message" component="textarea" />
+               <ErrorMessage name="message" className="errorMsg" component="p" />
                </div>
-               <ErrorMessage name="message" className="errorMsg"  component="p" />
+              
                <button className="custom-button" type="submit" disabled={isSubmitting}>
                  Submit
                </button>
