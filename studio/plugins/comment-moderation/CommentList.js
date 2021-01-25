@@ -67,7 +67,7 @@ export default function CommentList({ approvalStatus }) {
                 </Stack>
               </Box>
               <Flex justify={'center'} align={'center'}>
-                <Stack space={3}>
+                <Stack tone="transparent" space={3}>
                   <Label>Approved?</Label>
                   <Switch 
                     name={doc._id}

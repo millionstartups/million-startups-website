@@ -5,7 +5,6 @@ import Logo from './Logo'
 const ImgLogo = () => (
         <div className={styles.flexBox}>
             <Logo />
-            
         </div>
    ) 
 

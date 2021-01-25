@@ -17,7 +17,9 @@
     "comment-moderation",
     "media",
     "mslogo",
-    "asset-source-unsplash"
+    "asset-source-unsplash",
+    "dark-theme-blue",
+    "@sanity/vision"
   ],
   "env": {
     "development": {

@@ -1,22 +1,30 @@
 import Container from '../../components/container'
 import MoreStories from '../../components/more-stories'
 import HeroPost from '../../components/hero-post'
-import Intro from '../../components/intro'
-import Layout from '../../components/layout'
+import { groq } from 'next-sanity'
+import Image from 'next/image'
+import { getClient, imageBuilder } from '../../lib/sanity'
 import { getAllPostsForHome } from '../../lib/api'
 import Head from 'next/head'
+import MainContainer from '../../components/layout/MainContainer'
 
-export default function Index({ allPosts, preview }) {
+const siteBlogQuery = groq`*[_type == "siteConfig"][0]{
+  'siteTitle':title,
+  logo
+}`
+
+
+export default function Index({ siteblog, allPosts, preview }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)
+  const {logo} = siteblog
   return (
     <>
-      <Layout preview={preview}>
+      <MainContainer logo={logo} navpagetitle='Blog' preview={preview}>
         <Head>
           <title>The Million Startups Blog</title>
         </Head>
         <Container>
-          <Intro />
           {heroPost && (
             <HeroPost
               title={heroPost.title}
@@ -29,15 +37,16 @@ export default function Index({ allPosts, preview }) {
           )}
           {morePosts.length > 0 && <MoreStories posts={morePosts} />}
         </Container>
-      </Layout>
+      </MainContainer>
     </>
   )
 }
 
 export async function getStaticProps({ preview = false }) {
   const allPosts = await getAllPostsForHome(preview)
+  const siteblog = await getClient().fetch(siteBlogQuery);
   return {
-    props: { allPosts, preview },
+    props: { allPosts, siteblog, preview },
     revalidate: 1
   }
 }
