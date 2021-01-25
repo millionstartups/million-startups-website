@@ -123,7 +123,7 @@ $main-color: white;
 `
 
 const formSchema = Yup.object().shape({
-  name: Yup.string().required("Required"),
+  fullname: Yup.string().required("Required"),
   email: Yup.string()
     .email("Invalid email")
     .required("Required"),
@@ -193,7 +193,7 @@ const ContactPage = ({contact, sitecontact}) => {
            <ContainerLeft60>
            <FormWrapper>
            <Formik
-           initialValues={{ name: "", email: "", message: "" }}
+           initialValues={{ fullname: "", email: "", message: "" }}
            onSubmit={handleOnSubmit}
            validationSchema={formSchema}
          >
@@ -206,9 +206,9 @@ const ContactPage = ({contact, sitecontact}) => {
             )}
               <div className='group'>
                <label className='shrink' htmlFor="name">Name</label>
-               <input className='' id="name" type="text" name="fullname" />
+               <input className='' id="fullname" type="text" name="fullname" />
                </div>
-               <ErrorMessage name="name" className="errorMsg" component="p" />
+               <ErrorMessage name="fullname" className="errorMsg" component="p" />
                <div className='group'>
                <label className="shrink" htmlFor="email">Email</label>
                <Field id="email" type="email" name="email" />
