@@ -30,7 +30,7 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | Next.js Blog Example with {CMS_NAME}
+                  {post.title} | The Million Startups Blog
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>

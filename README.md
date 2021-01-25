@@ -1,9 +1,20 @@
-# Next.js blog with comment section
+# The Million Startups Website
 
-This is a demo of how to add a simple comment section to blog post using [Next.js](https://nextjs.org), [Sanity.io](https://www.sanity.io), and [Vercel](https://vercel.com).
+Built by [Edwin at Devhart.io](https://devhart.io)
+
+Tech Stack 
+- [Next.js](https://nextjs.org)
+- [Sanity.io](https://www.sanity.io)
+- [Vercel](https://vercel.com).
+- [Styled Components](https://styled-components.com/)
 
 
-### Running the front-end
+Report issues at the git hub repository's [issue section](https://github.com/millionstartups/million-startups-website/issues)
+
+
+### To begin development
+
+You will need a Sanity account and Node installed locally.
 
 Rename the `.env.test` file to `.env` and store the environment variables that Next and Sanity will use to pull data from the Sanity API. You can get or create the tokens, ids, and secrets from [manage.sanity.io](https://manage.sanity.io).
 

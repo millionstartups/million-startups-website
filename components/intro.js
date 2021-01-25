@@ -1,4 +1,4 @@
-import { CMS_NAME, CMS_URL } from '../lib/constants'
+import Link from 'next/link'
 
 export default function Intro() {
   return (
@@ -7,21 +7,10 @@ export default function Intro() {
         Blog.
       </h1>
       <h4 className="text-center md:text-left text-lg mt-5 md:pl-8">
-        A statically generated blog example using{' '}
-        <a
-          href="https://nextjs.org/"
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Next.js
-        </a>{' '}
-        and{' '}
-        <a
-          href={CMS_URL}
-          className="underline hover:text-success duration-200 transition-colors"
-        >
-          Sanity.io
-        </a>
-        .
+      <Link href='/'><a>Home</a></Link>{ '    '}
+      <Link href='/blog'><a>Blog</a></Link>{ '    '}
+      <Link href='/'><a>Episodes</a></Link>{ '    '}
+      <Link href='/contact'><a>Contact Us</a></Link>{ '    '}
       </h4>
     </section>
   )
