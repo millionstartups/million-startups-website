@@ -228,9 +228,10 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
         </Head>
         <Nav>
          <Wrapper>
-          <Brand>  
+          <Brand>
+          {logo && (
           <Link href='/'><a>   
-          {logo &&
+          
                      
             <Image
               src={imageBuilder(logo)
@@ -242,8 +243,8 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
               width={40}
               height={40}
               layout='fixed'
-            />}
-            </a></Link> 
+            />
+            </a></Link>)}
         </Brand>
           {navpagetitle &&  <NavPageTitle>{navpagetitle}</NavPageTitle>}
           <Spacer/>

@@ -1,5 +1,6 @@
 import {Fragment} from 'react'
 import styled from 'styled-components'
+import { motion, AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
 import { Flex, Container30, ContainerLeft60, ImageContainer, TitleHeading } from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
@@ -15,7 +16,7 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
   logo
 }`
 
-const Card = styled.div`
+const Card = styled(motion.div)`
 color: black;
 border-radius: 2rem;
 display: flexbox;
@@ -32,6 +33,20 @@ height: 400px;
 background-color: white;
 `
 
+const animatedcard = {
+  loaded: { 
+      y: 0,
+      transition: {
+      duration: .7,
+    } 
+  },
+  removed: { 
+      y: '-100%',
+      transition: {
+      duration: .7,
+    }  
+  },
+}
 
 const EpisodesPage = ({siteepisode, episode}) => {
   const {logo} = siteepisode
@@ -42,7 +57,14 @@ const EpisodesPage = ({siteepisode, episode}) => {
         </Head>
         <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
-           <Card>coming soon...</Card>
+          <AnimatePresence>
+           <Card initial={{ opacity: 0, scale: .69, x:'+100%', transition: {
+            duration: .8}}}
+           animate={{ opacity: 1, scale: 1, x: 0,transition: {
+            duration: .8} }}
+           exit={{ opacity: 0, scale: .69, x:'-100%', transition: {
+            duration: .8} }}>coming soon...</Card>
+           </AnimatePresence>
           </Flex>
          </MainContainer>
          </Fragment>
