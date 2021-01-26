@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react'
+import {GA_TRACKING_ID} from '../../lib/gtag'
 import Head from 'next/head'
 import styled from 'styled-components'
 import Link from 'next/link'
@@ -178,6 +179,22 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
     return (
         <Fragment>
         <Head>
+        <script
+        async
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_TRACKING_ID}', {
+            page_path: window.location.pathname,
+          });
+          `,
+          }}
+          />
         <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
