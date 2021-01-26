@@ -21,7 +21,10 @@
     "asset-source-unsplash",
     "dark-theme-blue",
     "dashboard-widget-document-list",
-    "dashboard-widget-vercel"
+    "dashboard-widget-vercel",
+    "seo-tools",
+    "content-calendar",
+    "minesweeper"
   ],
   "env": {
     "development": {
@@ -37,7 +40,7 @@
     },
     {
       "implements": "part:@sanity/dashboard/config",
-      "path": "./src/dashboardConfig.js"
+      "path": "./src/dashboardConfig"
     },
     {
       "implements": "part:@sanity/desk-tool/structure",

@@ -25,10 +25,30 @@ export default {
           height: 'small'
         }
     },
+    {
+      name: 'document-list',
+        options: {
+          title: 'Most recent episodes',
+          order: '_updatedAt desc',
+          types: ['episode'],
+          createButtonText: 'Post a new episode',
+     },
+     layout: {
+        width: 'small',
+        height: 'small'
+      }
+  },
+  {
+    name: 'minesweeper',
+    layout: {
+      width: 'small',
+      height: 'small'
+    }
+  },
       {
         name: 'project-info',
         layout: {
-            width: 'small',
+            width: 'medium',
             height: 'small'
           }
       },
