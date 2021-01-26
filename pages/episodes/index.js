@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+import styled from 'styled-components'
 import Head from 'next/head'
 import { Flex, Container30, ContainerLeft60, ImageContainer, TitleHeading } from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
@@ -14,6 +15,20 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
   logo
 }`
 
+const Card = styled.div`
+display: grid;
+width: 85%;
+@media (max-width: 950px) {
+  width: 90%;
+} 
+@media (max-width: 850px) {
+  width: 100%;
+} 
+height: 100%;
+background-color: white;
+`
+
+
 const EpisodesPage = ({siteepisode, episode}) => {
   const {logo} = siteepisode
     return (
@@ -21,20 +36,9 @@ const EpisodesPage = ({siteepisode, episode}) => {
         <Head>
         <title>Episodes - Million Startups Podcast</title>
         </Head>
-        <MainContainer logo={logo}>
+        <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
-           <ContainerLeft60>
-             <TitleHeading>million<br/>startups</TitleHeading>
-             <p>
-            under construction
-             </p> 
-            </ContainerLeft60>
-            <Container30>
-            Coming soon...
-              <ImageContainer>
-                <img src="/listening-walking.svg" alt='walking' style={{height: '100%', width: '100%'}} />
-              </ImageContainer>
-            </Container30>
+           <Card>Hi</Card>
           </Flex>
          </MainContainer>
          </Fragment>

@@ -16,8 +16,8 @@ export default {
       title: 'Slug',
       type: 'slug',
       options: {
-        source: 'name',
-        maxLength: 96
+        source: 'title',
+        maxLength: 45
       }
     },
     {
@@ -33,11 +33,25 @@ export default {
         hotspot: true,
         lqip: true
       }
+    },
+    {
+      name: 'description',
+      title: 'Description',
+      type: 'array',
+      of: [
+        {
+          title: 'Block',
+          type: 'block',
+          styles: [{title: 'Normal', value: 'normal'}],
+          lists: []
+        }
+      ]
     }
   ],
   preview: {
     select: {
       title: 'title',
+      subtitle: 'episodeNumber',
       media: 'image'
     }
   }

@@ -1,5 +1,6 @@
 import { groq } from 'next-sanity'
 import Image from 'next/image'
+import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../lib/sanity'
 import {Fragment} from 'react'
 import Head from 'next/head'
@@ -24,19 +25,13 @@ const IndexPage = ({index, site}) => {
     return (
         <Fragment>
         <Head>
-        <title>Million Startups Podcast</title>
+        <title>{title}</title>
         </Head>
         <MainContainer logo={logo}>
           <Flex>
            <ContainerLeft60>
              <TitleHeading>million<br/>startups</TitleHeading>
-             <p>
-             Most startups get funded because of the founding team.
-             "Million Startups" is a daily podcast where startup founders come
-             to pitch their companies and talk about their esperience on the
-             founding and development process in hopes that listeners invest 
-             in them.
-             </p> 
+             <BlockContent blocks={body} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
             </ContainerLeft60>
             <Container30>
               <ImageContainer>

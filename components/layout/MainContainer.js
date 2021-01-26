@@ -1,4 +1,5 @@
 import {Fragment, useState} from 'react'
+import CookieConsent from "react-cookie-consent";
 import {GA_TRACKING_ID} from '../../lib/gtag'
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -8,6 +9,8 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { imageBuilder } from '../../lib/sanity'
 import Footer from './Footer'
 import Image from 'next/image'
+
+const isProduction = process.env.NODE_ENV === "production";
 
 const Nav = styled.nav`
 display: flex;
@@ -122,7 +125,14 @@ button, .mobile {
     margin: 2.4rem 2.2rem;
     border: 1px;
     border-radius: 50%;
-    background-color: #ccc;
+    background-color: rgba(192,192,192,.2);
+    transition: all 0.5s ease-out;
+  :hover{
+    transform: scale(1.122)
+  }
+  :active{
+    transform: scale(.989)
+  }
 }
 `
 
@@ -138,8 +148,12 @@ a{
   font-size: 2rem;
   line-height: 3.9rem;
   display: block;
+  transition: all 0.5s ease-out;
   :hover{
     transform: scale(1.122)
+  }
+  :active{
+    transform: scale(.989)
   }
 }
 `
@@ -179,6 +193,8 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
     return (
         <Fragment>
         <Head>
+        {isProduction && (
+        <>
         <script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
@@ -194,7 +210,10 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
           });
           `,
           }}
-          />
+          /> 
+          </>
+        )}
+
         <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
@@ -209,7 +228,8 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
         </Head>
         <Nav>
          <Wrapper>
-          <Brand>      
+          <Brand>  
+          <Link href='/'><a>   
           {logo &&
                      
             <Image
@@ -223,6 +243,7 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
               height={40}
               layout='fixed'
             />}
+            </a></Link> 
         </Brand>
           {navpagetitle &&  <NavPageTitle>{navpagetitle}</NavPageTitle>}
           <Spacer/>
@@ -274,7 +295,17 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
 
             <Main>{children}</Main>
             <Footer/>
-
+            <CookieConsent
+            location="bottom"
+            buttonText="Ok, I like cookies."
+            cookieName="my-cookieConsent"
+            style={{ background: "dodgerblue" }}
+            enableDeclineButton
+            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+            expires={150}
+          >
+            We use cookies to make our website better for you. Please tell us your preference.
+          </CookieConsent>
             </Fragment>
     )
 }
