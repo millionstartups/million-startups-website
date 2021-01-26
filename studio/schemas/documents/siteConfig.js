@@ -32,6 +32,12 @@ export default {
       ],
     },
     {
+      name: 'linkedin',
+      type: 'url',
+      title: 'Linkedin',
+      description: 'URL to the website Linkedin profile'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',

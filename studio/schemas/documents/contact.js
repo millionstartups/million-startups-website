@@ -2,7 +2,7 @@ export default {
     name: 'contact',
     type: 'document',
     title: 'Contact',
-    __experimental_actions: ['update',  'create',  'delete', 'publish'],
+    __experimental_actions: ['update', /* 'create',  'delete', */ 'publish'],
     fields: [
       {
         name: 'title',
@@ -13,7 +13,7 @@ export default {
         name: 'slug',
         title: 'Slug',
         type: 'slug',
-        //readOnly: 'true',
+        readOnly: 'true',
         description: 'Slug for the frontend. Contact your developer to change this setting.',
         options: {
           source: 'title',

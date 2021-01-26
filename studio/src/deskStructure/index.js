@@ -1,5 +1,6 @@
 import S from "@sanity/desk-tool/structure-builder";
-import { MdWeb, MdSettings, MdWebAsset, MdLooks } from "react-icons/md";
+import { MdWeb, MdSettings, MdWebAsset, MdContactMail } from "react-icons/md";
+import {BiWorld} from 'react-icons/bi'
 import { BsFillPersonLinesFill } from "react-icons/bs";
 // Hide document types that we already have a structure definition for
 const hiddenDocTypes = (listItem) =>
@@ -19,7 +20,7 @@ export default () =>
     .items([
       S.listItem()
         .title("Web Content")
-        .icon(MdWeb)
+        .icon(BiWorld)
         .child(
           S.list()
             .title("Web Content")
@@ -44,7 +45,7 @@ export default () =>
                 ),
                 S.listItem()
                 .title("Contact")
-                .icon(MdWebAsset)
+                .icon(MdContactMail)
                 .child(
                   S.document()
                     .title("Contact")
@@ -62,9 +63,9 @@ export default () =>
             .items([
               S.documentTypeListItem("post").title("Posts"),
               S.documentTypeListItem("category").title("Categories"),
-              S.documentTypeListItem("comment").icon(MdWebAsset).title("Comments"),
+              S.documentTypeListItem("comment").title("Comments"),
 
-              S.documentTypeListItem("author").icon(MdWebAsset).title("Author"),
+              S.documentTypeListItem("author").title("Author"),
             ]),
         ),
     ]);

@@ -1,7 +1,11 @@
+import {BsFillChatQuoteFill} from 'react-icons/bs'
+
 export default {
     name: 'comment',
     type: 'document',
     title: 'Comment',
+    __experimental_actions: ['update', /* 'create', */ 'delete',  'publish'],
+    icon: BsFillChatQuoteFill,
     fields: [
       {
         name: 'name',

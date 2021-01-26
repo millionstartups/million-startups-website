@@ -1,11 +1,12 @@
 import React from 'react'
-import styles from './LogoStyles.css'
 import Logo from './Logo'
-
+import { Flex, studioTheme, ThemeProvider} from '@sanity/ui'
 const ImgLogo = () => (
-        <div className={styles.flexBox}>
-            <Logo />
-        </div>
+       <ThemeProvider theme={studioTheme}>
+        <Flex justify='center' align='center'>
+          <Logo/>
+        </Flex>
+      </ThemeProvider>
    ) 
 
 export default ImgLogo

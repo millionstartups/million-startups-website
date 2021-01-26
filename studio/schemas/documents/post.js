@@ -1,6 +1,8 @@
+import {BsFilePost} from 'react-icons/bs'
 export default {
   name: 'post',
   title: 'Post',
+  icon: BsFilePost,
   type: 'document',
   fields: [
     {

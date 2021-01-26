@@ -1,7 +1,10 @@
+import {ImUser} from 'react-icons/im'
+
 export default {
   name: 'author',
   title: 'Author',
   type: 'document',
+  icon: ImUser,
   fields: [
     {
       name: 'name',

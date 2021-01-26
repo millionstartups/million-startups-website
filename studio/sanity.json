@@ -5,7 +5,7 @@
     "dataset": "PLACEHOLDER_ENV_VARIABLES_WILL_HANDLE_FOR_US"
   },
   "project": {
-    "name": "Next.js Comment-enabled blog",
+    "name": "Sanity Studio - The Million Startups",
     "basePath": "/studio"
   },
   "plugins": [
@@ -13,13 +13,15 @@
     "@sanity/components",
     "@sanity/default-layout",
     "@sanity/default-login",
+    "@sanity/dashboard",
     "@sanity/desk-tool",
     "comment-moderation",
     "media",
     "mslogo",
     "asset-source-unsplash",
     "dark-theme-blue",
-    "@sanity/vision"
+    "dashboard-widget-document-list",
+    "dashboard-widget-vercel"
   ],
   "env": {
     "development": {
@@ -32,6 +34,10 @@
     {
       "name": "part:@sanity/base/schema",
       "path": "./schemas/schema"
+    },
+    {
+      "implements": "part:@sanity/dashboard/config",
+      "path": "./src/dashboardConfig.js"
     },
     {
       "implements": "part:@sanity/desk-tool/structure",
