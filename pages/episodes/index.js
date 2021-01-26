@@ -16,7 +16,11 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
 }`
 
 const Card = styled.div`
-display: grid;
+color: black;
+border-radius: 2rem;
+display: flexbox;
+justify-content: center;
+align-items: center;
 width: 85%;
 @media (max-width: 950px) {
   width: 90%;
@@ -24,7 +28,7 @@ width: 85%;
 @media (max-width: 850px) {
   width: 100%;
 } 
-height: 100%;
+height: 400px;
 background-color: white;
 `
 
@@ -38,7 +42,7 @@ const EpisodesPage = ({siteepisode, episode}) => {
         </Head>
         <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
-           <Card>Hi</Card>
+           <Card>coming soon...</Card>
           </Flex>
          </MainContainer>
          </Fragment>
