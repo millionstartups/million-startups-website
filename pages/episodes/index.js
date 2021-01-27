@@ -8,6 +8,7 @@ import { groq } from 'next-sanity'
 import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../../lib/sanity'
+import { FaBorderNone } from 'react-icons/fa'
 
 
 const Heading = styled.h1`
@@ -24,7 +25,8 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
 
 
 const animatedcard = {
-  initial: { 
+  initial: {
+      transitionStart: {display: 'none'}, 
       x: 60,
       transition: {
       duration: .7,
@@ -34,7 +36,8 @@ const animatedcard = {
       x: 0,
       transition: {
       duration: .7,
-    }  
+    },
+    transitionEnd: {display: 'flex'}  
   },
 }
 
