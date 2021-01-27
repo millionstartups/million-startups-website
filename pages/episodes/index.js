@@ -25,7 +25,7 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
 
 const animatedcard = {
   initial: { 
-      x: 59,
+      x: 60,
       transition: {
       duration: .7,
     } 

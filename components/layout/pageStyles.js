@@ -76,6 +76,13 @@ line-height: clamp(70%, 150%, 80%);
 font-size: clamp(3.4rem, -0.875rem + 10vw, 5.9em);
 margin-bottom: 2rem;
 `
+
+const PlaceholderDiv = styled.div`
+max-width: 860px;
+height: 95vh;
+`
+
+
 export const Card = styled(motion.div)`
 color: black;
 background-color: white;

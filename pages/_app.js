@@ -1,4 +1,4 @@
-import '../styles/index.css'
+
 import NextApp from 'next/app'
 import {AnimatePresence} from 'framer-motion'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
@@ -16,6 +16,7 @@ const GlobalStyle = createGlobalStyle`
       background-color: #000000;
       color: whitesmoke;
       line-height: 1.3rem;
+      overflow-x: hidden;
   }
   a{
     text-decoration: none;
