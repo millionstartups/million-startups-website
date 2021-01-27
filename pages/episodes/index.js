@@ -1,6 +1,6 @@
 import {Fragment} from 'react'
 import styled from 'styled-components'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimateSharedLayout } from 'framer-motion'
 import Head from 'next/head'
 import { Flex, Container30, ContainerLeft60, ImageContainer, TitleHeading } from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
@@ -18,6 +18,7 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
 
 const Card = styled(motion.div)`
 color: black;
+background-color: white;
 border-radius: 2rem;
 display: flexbox;
 justify-content: center;
@@ -30,7 +31,6 @@ width: 85%;
   width: 100%;
 } 
 height: 400px;
-background-color: white;
 `
 
 const animatedcard = {
@@ -57,14 +57,14 @@ const EpisodesPage = ({siteepisode, episode}) => {
         </Head>
         <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
-          <AnimatePresence>
+          <AnimateSharedLayout>
            <Card initial={{ opacity: 0, scale: .69, x:'+100%', transition: {
             duration: .8}}}
            animate={{ opacity: 1, scale: 1, x: 0,transition: {
             duration: .8} }}
            exit={{ opacity: 0, scale: .69, x:'-100%', transition: {
             duration: .8} }}>coming soon...</Card>
-           </AnimatePresence>
+           </AnimateSharedLayout>
           </Flex>
          </MainContainer>
          </Fragment>
