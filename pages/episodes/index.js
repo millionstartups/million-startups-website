@@ -1,6 +1,6 @@
 import {Fragment, useEffect} from 'react'
 import styled from 'styled-components'
-import {motion, AnimatePresence } from 'framer-motion'
+import {motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
 import { Flex, Card} from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
@@ -11,7 +11,7 @@ import { getClient, imageBuilder } from '../../lib/sanity'
 import { FaBorderNone } from 'react-icons/fa'
 
 
-const Heading = styled.h1`
+const Heading = styled(motion.h1)`
 font-size: 2rem;
 `
 
@@ -27,12 +27,14 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
 const animatedcard = {
   initial: {
       transitionStart: {display: 'none'}, 
-      x: 60,
+      opacity: 0,
+      x: 99,
       transition: {
       duration: .7,
     } 
   },
   animate: { 
+      opacity: 1,
       x: 0,
       transition: {
       duration: .7,
@@ -51,12 +53,13 @@ const EpisodesPage = ({siteepisode, episode}) => {
         </Head>
         <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
+          <AnimatePresence>
            <Card variants={animatedcard}
             >
             <Flex layout>
             
             {image && 
-              <div className='left'> 
+              <motion.div layout className='left'> 
               <Image
                 layout 
                 src={imageBuilder(image)
@@ -68,14 +71,15 @@ const EpisodesPage = ({siteepisode, episode}) => {
                 width={500}
                 layout='intrinsic'
                 alt={image.alt}
-              /></div>    
+              /></motion.div>    
                 }
-                <div className='right'>
-                <Heading>{title}</Heading>Episode number:{episodeNumber}
-                <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
+                <div layout className='right'>
+                <Heading layout initial={{opacity:0, y:55, transition: {duration: 1}}} animate={{opacity: 1, y:0}}>{title}</Heading>Episode number:{episodeNumber}
+                <BlockContent layout blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
                </div>
              </Flex>
             </Card>
+            </AnimatePresence>
           </Flex>
          </MainContainer>
          </Fragment>

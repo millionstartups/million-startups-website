@@ -1,3 +1,4 @@
+import {Fragment} from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import Container from '../../components/container'
@@ -7,7 +8,6 @@ import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Comments from '../../components/comments'
 import SectionSeparator from '../../components/section-separator'
-import Layout from '../../components/layout'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
 import PostTitle from '../../components/post-title'
 import Head from 'next/head'
@@ -26,7 +26,7 @@ export default function Post({ post, morePosts, preview }) {
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <>
+          <Fragment>
             <article>
               <Head>
                 <title>
@@ -48,7 +48,7 @@ export default function Post({ post, morePosts, preview }) {
 
             <SectionSeparator />
             {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-          </>
+          </Fragment>
         )}
       </Container>
     </MainContainer>

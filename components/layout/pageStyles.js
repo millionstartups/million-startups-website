@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
+import { shrinkLabel } from '../../styles/mixin'
 
 export const Main = styled(motion.main)`
 display: flex;
@@ -106,7 +107,109 @@ img {
 }
 `
 
-export const ContentCollaspe = styled(motion.div)`
 
+export const FormWrapper = styled.div`
+$sub-color: dodgerblue;
+$main-color: white;
+
+
+.group {
+  position: relative;
+  margin: 45px 0;
+
+  input {
+    background: none;
+    background-color: none;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ label {
+      ${shrinkLabel};
+    }
+  }
+
+  textarea {
+    background: none;
+    background-color: none;
+    color: $sub-color;
+    font-size: 18px;
+    padding: 10px 10px 10px 5px;
+    display: block;
+    width: 100%;
+    border: none;
+    resize: none;
+    border-radius: 0;
+    border-bottom: 1px solid white;
+    margin: 25px 0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &:focus ~ label {
+      ${shrinkLabel};
+    }
+  }
+
+  label {
+    color: $sub-color;
+    font-size: 16px;
+    font-weight: normal;
+    position: absolute;
+    pointer-events: none;
+    left: 5px;
+    top: 10px;
+    transition: 300ms ease all;
+
+    &.shrink {
+      ${shrinkLabel};
+    }
+  }
+}
+.custom-button {
+  min-width: 165px;
+  width: auto;
+  height: 50px;
+  letter-spacing: 0.5px;
+  line-height: 50px;
+  padding: 0 35px 0 35px;
+  font-size: 15px;
+  background-color: white;
+  color: black;
+  text-transform: uppercase;
+  border-radius: 1rem;
+  font-weight: bolder;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+
+  &:hover {
+    background-color: dodgerblue;
+    color: black;
+    border: 1px solid white;
+  }
+}
+.errorMsg {
+  color: tomato;
+
+}
 `
-
+export const CircleImage = styled.div`
+padding: 1rem;
+img{
+width: 3rem;
+border-radius: 9999px;
+margin-right: 1rem;}
+`

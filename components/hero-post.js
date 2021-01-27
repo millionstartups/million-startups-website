@@ -1,4 +1,4 @@
-import Avatar from '../components/avatar'
+import Avatar from './blog/avatar'
 import Date from '../components/date'
 import CoverImage from '../components/cover-image'
 import Link from 'next/link'

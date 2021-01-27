@@ -1,3 +1,4 @@
+import {FormWrapper} from './layout/pageStyles'
 import {useState} from 'react'
 import { useForm } from 'react-hook-form'
 
@@ -41,6 +42,7 @@ export default function Form ({_id}) {
   }
 
   return (
+    <FormWrapper>
     <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg" disabled>
       <input ref={register} type="hidden" name="_id" value={_id} />
       <label className="block mb-5">
@@ -59,5 +61,6 @@ export default function Form ({_id}) {
       {errors.exampleRequired && <span>This field is required</span>}
       <input type="submit" className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" />
     </form>
+    </FormWrapper>
 )
 }
