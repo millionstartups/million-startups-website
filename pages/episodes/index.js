@@ -1,47 +1,37 @@
-import {Fragment} from 'react'
+import {Fragment, useEffect} from 'react'
 import styled from 'styled-components'
-import { motion, AnimateSharedLayout } from 'framer-motion'
+import {motion, AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
-import { Flex, Container30, ContainerLeft60, ImageContainer, TitleHeading } from '../../components/layout/pageStyles'
+import { Flex, Card} from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
 import { groq } from 'next-sanity'
 import Image from 'next/image'
+import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../../lib/sanity'
 
-const episodeQuery = groq`*[_type == "frontpage"][0]{
-  image
+
+const Heading = styled.h1`
+font-size: 2rem;
+`
+
+const episodeQuery = groq`*[_type == "episode"][0]{
+  title, description, image, episodeNumber
 }`
 
 const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
   logo
 }`
 
-const Card = styled(motion.div)`
-color: black;
-background-color: white;
-border-radius: 2rem;
-display: flexbox;
-justify-content: center;
-align-items: center;
-width: 85%;
-@media (max-width: 950px) {
-  width: 90%;
-} 
-@media (max-width: 850px) {
-  width: 100%;
-} 
-height: 400px;
-`
 
 const animatedcard = {
-  loaded: { 
-      y: 0,
+  initial: { 
+      x: 59,
       transition: {
       duration: .7,
     } 
   },
-  removed: { 
-      y: '-100%',
+  animate: { 
+      x: 0,
       transition: {
       duration: .7,
     }  
@@ -50,6 +40,7 @@ const animatedcard = {
 
 const EpisodesPage = ({siteepisode, episode}) => {
   const {logo} = siteepisode
+  const {title, episodeNumber, image, description} = episode
     return (
         <Fragment>
         <Head>
@@ -57,14 +48,31 @@ const EpisodesPage = ({siteepisode, episode}) => {
         </Head>
         <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
-          <AnimateSharedLayout>
-           <Card initial={{ opacity: 0, scale: .69, x:'+100%', transition: {
-            duration: .8}}}
-           animate={{ opacity: 1, scale: 1, x: 0,transition: {
-            duration: .8} }}
-           exit={{ opacity: 0, scale: .69, x:'-100%', transition: {
-            duration: .8} }}>coming soon...</Card>
-           </AnimateSharedLayout>
+           <Card variants={animatedcard}
+            >
+            <Flex layout>
+            
+            {image && 
+              <div className='left'> 
+              <Image
+                layout 
+                src={imageBuilder(image)
+                      .height(500)
+                      .width(500)
+                      .url()}
+                priority 
+                height={500}
+                width={500}
+                layout='intrinsic'
+                alt={image.alt}
+              /></div>    
+                }
+                <div className='right'>
+                <Heading>{title}</Heading>Episode number:{episodeNumber}
+                <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
+               </div>
+             </Flex>
+            </Card>
           </Flex>
          </MainContainer>
          </Fragment>

@@ -1,5 +1,6 @@
 import '../styles/index.css'
 import NextApp from 'next/app'
+import {AnimatePresence} from 'framer-motion'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   * {
@@ -36,11 +37,13 @@ const theme = {
 
 export default class App extends NextApp {
   render() {
-    const { Component, pageProps } = this.props;
+    const { Component, pageProps, router } = this.props;
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-              <Component {...pageProps} />
+              <AnimatePresence exitBeforeEnter>
+              <Component {...pageProps} key={router.route} />
+              </AnimatePresence>
         </ThemeProvider>
     );
   }

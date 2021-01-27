@@ -1,6 +1,7 @@
 import styled from 'styled-components'
+import { motion } from 'framer-motion'
 
-export const Main = styled.main`
+export const Main = styled(motion.main)`
 display: flex;
 justify-content: center;
 align-items: center;
@@ -75,3 +76,30 @@ line-height: clamp(70%, 150%, 80%);
 font-size: clamp(3.4rem, -0.875rem + 10vw, 5.9em);
 margin-bottom: 2rem;
 `
+export const Card = styled(motion.div)`
+color: black;
+background-color: white;
+border-radius: .7rem;
+display: flexbox;
+justify-content: center;
+align-items: center;
+max-width: 860px;
+
+.right{
+  padding: 1rem;
+}
+
+.left{
+margin: .5rem;
+img {
+  border-radius: .3rem;
+  width: 90%;
+  height: 90%
+}
+}
+`
+
+export const ContentCollaspe = styled(motion.div)`
+
+`
+
