@@ -13,12 +13,30 @@ export default {
         name: 'slug',
         title: 'Slug',
         type: 'slug',
-        //readOnly: 'true',
+        readOnly: 'true',
         description: 'Slug for the frontend. Contact your developer to change this setting.',
         options: {
           source: 'title',
           maxLength: 20
         }
+      },
+      {
+        title: "Main Logo",
+        description: "SVGs are best for fast page loads.",
+        name: "mainlogo",
+        type: "image",
+        options: { hotspot: true, lqip: true, },
+        fields: [
+          {
+            name: "alt",
+            type: "string",
+            title: "Alternative text",
+            description: "Important for SEO and accessiblity.",
+            options: {
+              isHighlighted: true,
+            },
+          },
+        ],
       },
       {
         name: 'body',

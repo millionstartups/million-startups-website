@@ -11,7 +11,8 @@ import MainContainer from '../components/layout/MainContainer'
 const indexQuery = groq`*[_type == "frontpage"][0]{
    title,
    body,
-   image
+   image,
+   mainlogo
  }`
 
  const siteQuery = groq`*[_type == "siteConfig"][0]{
@@ -20,7 +21,7 @@ const indexQuery = groq`*[_type == "frontpage"][0]{
  }`
 
 const IndexPage = ({index, site}) => {
-    const {body, image, title} = index
+    const {body, image, title, mainlogo} = index
     const {logo} = site
     return (
         <Fragment>
@@ -30,7 +31,7 @@ const IndexPage = ({index, site}) => {
         <MainContainer logo={logo}>
           <Flex>
            <ContainerLeft60>
-             <TitleHeading>million<br/>startups</TitleHeading>
+            <div><TitleHeading>million<br/>startups</TitleHeading></div>
              <BlockContent blocks={body} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
             </ContainerLeft60>
             <Container30>

@@ -21,7 +21,8 @@
     "build:web": "next build",
     "start": "next start",
     "build:sanity": "cd studio && sanity build ../public/studio -y && cd ..",
-    "studio": "cp .env ./studio/.env.development && cd studio && sanity start"
+    "studio": "cp .env ./studio/.env.development && cd studio && sanity start",
+    "upgrade:studio": "cd studio && sanity upgrade && cd .. && yarn"
   },
   "dependencies": {
     "@sanity/block-content-to-react": "2.0.7",

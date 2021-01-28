@@ -1178,9 +1178,9 @@
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@sanity/asset-utils/-/asset-utils-1.1.2.tgz#d6b4b875bee4189cb56f274a7fb5494174463cb2"
 
-"@sanity/base@2.2.4", "@sanity/base@^2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@sanity/base/-/base-2.2.4.tgz#bb1c7faed9560d31e838b31985da575bb801f5da"
+"@sanity/base@2.2.5", "@sanity/base@^2.2.5":
+  version "2.2.5"
+  resolved "https://registry.npmjs.org/@sanity/base/-/base-2.2.5.tgz#3432c53f97199177cd5e8b9a730872003e4757ac"
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@reach/auto-id" "^0.10.5"
@@ -1467,11 +1467,11 @@
     "@sanity/generate-help-url" "0.140.0"
     "@sanity/rich-date-input" "0.140.34"
 
-"@sanity/default-layout@^2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@sanity/default-layout/-/default-layout-2.2.4.tgz#d3f57d707239b474f5831c7da745c59a7c95a478"
+"@sanity/default-layout@^2.2.5":
+  version "2.2.5"
+  resolved "https://registry.npmjs.org/@sanity/default-layout/-/default-layout-2.2.5.tgz#957683e20fb1a01756b9b089589d4ff8575720e4"
   dependencies:
-    "@sanity/base" "2.2.4"
+    "@sanity/base" "2.2.5"
     "@sanity/generate-help-url" "2.1.4"
     "@sanity/util" "2.2.3"
     classnames "^2.2.5"
@@ -1489,17 +1489,17 @@
     prop-types "^15.6.0"
     rxjs "^6.5.3"
 
-"@sanity/desk-tool@^2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@sanity/desk-tool/-/desk-tool-2.2.4.tgz#1de6bfcfaadb25c477df0382cf6d61818b0297d1"
+"@sanity/desk-tool@^2.2.5":
+  version "2.2.5"
+  resolved "https://registry.npmjs.org/@sanity/desk-tool/-/desk-tool-2.2.5.tgz#5df83813fe93071670ba1f01d87b2ab625f60c23"
   dependencies:
     "@popperjs/core" "^2.5.4"
     "@reach/auto-id" "^0.10.5"
-    "@sanity/base" "2.2.4"
+    "@sanity/base" "2.2.5"
     "@sanity/data-aspects" "2.1.4"
     "@sanity/diff" "2.1.4"
-    "@sanity/field" "2.2.4"
-    "@sanity/form-builder" "2.2.4"
+    "@sanity/field" "2.2.5"
+    "@sanity/form-builder" "2.2.5"
     "@sanity/generate-help-url" "2.1.4"
     "@sanity/mutator" "2.1.4"
     "@sanity/react-hooks" "2.2.3"
@@ -1579,12 +1579,12 @@
     simple-get "^4.0.0"
     split2 "^3.2.2"
 
-"@sanity/field@2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@sanity/field/-/field-2.2.4.tgz#b276ec54d14d164df13acf5f9c665ce5c9c24e03"
+"@sanity/field@2.2.5":
+  version "2.2.5"
+  resolved "https://registry.npmjs.org/@sanity/field/-/field-2.2.5.tgz#1e5f6162d543a698437678a76e26c1ed51c5e76d"
   dependencies:
     "@sanity/asset-utils" "^1.1.2"
-    "@sanity/base" "2.2.4"
+    "@sanity/base" "2.2.5"
     "@sanity/diff" "2.1.4"
     "@sanity/react-hooks" "2.2.3"
     "@sanity/types" "2.2.3"
@@ -1592,11 +1592,11 @@
     date-fns "^2.16.1"
     sanity-diff-patch "^1.0.9"
 
-"@sanity/form-builder@2.2.4":
-  version "2.2.4"
-  resolved "https://registry.yarnpkg.com/@sanity/form-builder/-/form-builder-2.2.4.tgz#6edfc79a1aa63a203e1921952766d96c325f4925"
+"@sanity/form-builder@2.2.5":
+  version "2.2.5"
+  resolved "https://registry.npmjs.org/@sanity/form-builder/-/form-builder-2.2.5.tgz#969d1d82d3e8d350dcf22fbe7848ffd2add790af"
   dependencies:
-    "@sanity/base" "2.2.4"
+    "@sanity/base" "2.2.5"
     "@sanity/block-tools" "2.2.0"
     "@sanity/generate-help-url" "2.1.4"
     "@sanity/icons" "^1.0.1"
@@ -3543,7 +3543,6 @@ cliui@^3.2.0:
 cliui@^5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/cliui/-/cliui-5.0.0.tgz#deefcfdb2e800784aa34f46fa08e06851c7bbbc5"
-  integrity sha512-PYeGSEmmHM6zvoef2w8TPzlrnNpXIjTipYK780YswmIP9vjxmd6Y2a3CB2Ks6/AU8NHjZugXvo8w3oWM2qnwXA==
   dependencies:
     string-width "^3.1.0"
     strip-ansi "^5.2.0"
@@ -3737,7 +3736,6 @@ concat-stream@^2.0.0:
 concurrently@^5.3.0:
   version "5.3.0"
   resolved "https://registry.yarnpkg.com/concurrently/-/concurrently-5.3.0.tgz#7500de6410d043c912b2da27de3202cb489b1e7b"
-  integrity sha512-8MhqOB6PWlBfA2vJ8a0bSFKATOdWlHiQlk11IfmQBPaHVP8oP2gsh2MObE6UR3hqDHqvaIvLTyceNW6obVuFHQ==
   dependencies:
     chalk "^2.4.2"
     date-fns "^2.0.1"
@@ -4659,7 +4657,6 @@ elliptic@^6.5.3:
 emoji-regex@^7.0.1:
   version "7.0.3"
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-7.0.3.tgz#933a04052860c85e83c122479c4748a8e4c72156"
-  integrity sha512-CwBLREIQ7LvYFB0WyRvwhq5N5qPhc6PMjD6bYggFlI5YyDgl+0vxq5VHbMOFqLg7hfWzmu8T5Z1QofhmTIhItA==
 
 emoji-regex@^8.0.0:
   version "8.0.0"
@@ -9610,7 +9607,6 @@ read-pkg@^2.0.0:
 read-pkg@^4.0.1:
   version "4.0.1"
   resolved "https://registry.yarnpkg.com/read-pkg/-/read-pkg-4.0.1.tgz#963625378f3e1c4d48c85872b5a6ec7d5d093237"
-  integrity sha1-ljYlN48+HE1IyFhytabsfV0JMjc=
   dependencies:
     normalize-package-data "^2.3.2"
     parse-json "^4.0.0"
@@ -9847,7 +9843,6 @@ require-main-filename@^1.0.1:
 require-main-filename@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/require-main-filename/-/require-main-filename-2.0.0.tgz#d0b329ecc7cc0f61649f62215be69af54aa8989b"
-  integrity sha512-NKN5kMDylKuldxYLSUfrbo5Tuzh4hd+2E8NPPX02mZtn1VuREQToYe/ZdlJy+J3uCpfaiGF05e7B8W0iXbQHmg==
 
 require-uncached@^1.0.3:
   version "1.0.3"
@@ -10465,7 +10460,6 @@ space-separated-tokens@^1.0.0:
 spawn-command@^0.0.2-1:
   version "0.0.2-1"
   resolved "https://registry.yarnpkg.com/spawn-command/-/spawn-command-0.0.2-1.tgz#62f5e9466981c1b796dc5929937e11c9c6921bd0"
-  integrity sha1-YvXpRmmBwbeW3Fkpk34RycaSG9A=
 
 spdx-correct@^3.0.0:
   version "3.1.1"
@@ -10644,7 +10638,6 @@ string-width@^1.0.1:
 string-width@^3.0.0, string-width@^3.1.0:
   version "3.1.0"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-3.1.0.tgz#22767be21b62af1081574306f69ac51b62203961"
-  integrity sha512-vafcv6KjVZKSgz06oM/H6GDBrAtz8vdhQakGjFIvNrHA6y3HCF1CInLy+QLq8dTJPQ1b+KDUqDFctkdRW44e1w==
   dependencies:
     emoji-regex "^7.0.1"
     is-fullwidth-code-point "^2.0.0"
@@ -11143,7 +11136,6 @@ traverse@0.6.6:
 tree-kill@^1.2.2:
   version "1.2.2"
   resolved "https://registry.yarnpkg.com/tree-kill/-/tree-kill-1.2.2.tgz#4ca09a9092c88b73a7cdc5e8a01b507b0790a0cc"
-  integrity sha512-L0Orpi8qGpRG//Nd+H90vFB+3iHnue1zSSGmNOOCh1GLJ7rUKVwV2HvijphGQS2UmhUZewS9VgvxYIdgr+fG1A==
 
 ts-easing@^0.2.0:
   version "0.2.0"
@@ -11745,7 +11737,6 @@ wrap-ansi@^2.0.0:
 wrap-ansi@^5.1.0:
   version "5.1.0"
   resolved "https://registry.yarnpkg.com/wrap-ansi/-/wrap-ansi-5.1.0.tgz#1fd1f67235d5b6d0fee781056001bfb694c03b09"
-  integrity sha512-QC1/iN/2/RPVJ5jYK8BGttj5z83LmSKmvbvrXPNCLZSEb32KKVDJDl/MOt2N01qU2H/FkzEa9PKto1BqDjtd7Q==
   dependencies:
     ansi-styles "^3.2.0"
     string-width "^3.0.0"
@@ -11839,7 +11830,6 @@ yaml@^1.7.2:
 yargs-parser@^13.1.2:
   version "13.1.2"
   resolved "https://registry.yarnpkg.com/yargs-parser/-/yargs-parser-13.1.2.tgz#130f09702ebaeef2650d54ce6e3e5706f7a4fb38"
-  integrity sha512-3lbsNRf/j+A4QuSZfDRA7HRSfWrzO0YjqTJd5kjAq37Zep1CEgaYmrH9Q3GwPiB9cHyd1Y1UwggGhJGoxipbzg==
   dependencies:
     camelcase "^5.0.0"
     decamelize "^1.2.0"
@@ -11857,7 +11847,6 @@ yargs-parser@^7.0.0:
 yargs@^13.3.0:
   version "13.3.2"
   resolved "https://registry.yarnpkg.com/yargs/-/yargs-13.3.2.tgz#ad7ffefec1aa59565ac915f82dccb38a9c31a2dd"
-  integrity sha512-AX3Zw5iPruN5ie6xGRIDgqkT+ZhnRlZMLMHAs8tg7nRruy2Nb+i5o9bwghAogtM08q1dpr2LVoS8KSTMYpWXUw==
   dependencies:
     cliui "^5.0.0"
     find-up "^3.0.0"

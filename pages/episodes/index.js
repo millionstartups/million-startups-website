@@ -64,7 +64,7 @@ const EpisodesPage = ({siteepisode, episode}) => {
           <AnimatePresence>
            <Card variants={animatedcard}
             >
-            <Flex>
+            <Flex smFlexDir='column-reverse'>
             {image && 
               <motion.div layout className='left' initial={{opacity:0, y:35, transition: {duration: 1.5}}} animate={{opacity: 1, y:0, transition: {duration: 1.5}}}> 
              

@@ -1,6 +1,7 @@
 import {Fragment} from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
+import {Flex} from '../../components/layout/pageStyles'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import MoreStories from '../../components/more-stories'
@@ -30,10 +31,11 @@ export default function Post({ post, morePosts, preview }) {
             <article>
               <Head>
                 <title>
-                  {post.title} | The Million Startups Blog
+                  {post.title} | The Million Startups
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
+        
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}

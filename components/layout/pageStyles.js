@@ -15,7 +15,7 @@ justify-content: center;
 align-items: center;
 width: 90vw;
 @media (max-width: 768px) {
-    flex-direction: column-reverse;
+    flex-direction: ${props => props.smFlexDir || `column`};;
   }
 `
 export const HalfContainer = styled.div`
