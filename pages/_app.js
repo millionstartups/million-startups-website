@@ -1,6 +1,6 @@
 
 import NextApp from 'next/app'
-import {AnimatePresence} from 'framer-motion'
+import {AnimateSharedLayout} from 'framer-motion'
 import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
 const GlobalStyle = createGlobalStyle`
   * {
@@ -42,9 +42,9 @@ export default class App extends NextApp {
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-              <AnimatePresence exitBeforeEnter>
+              <AnimateSharedLayout  type='crossfade'>
               <Component {...pageProps} key={router.route} />
-              </AnimatePresence>
+              </AnimateSharedLayout>
         </ThemeProvider>
     );
   }

@@ -26,20 +26,21 @@ const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
 
 const animatedcard = {
   initial: {
-      transitionStart: {display: 'none'}, 
       opacity: 0,
-      x: 99,
+      y: 99,
       transition: {
       duration: .7,
     } 
   },
   animate: { 
       opacity: 1,
-      x: 0,
+      y: 0,
       transition: {
       duration: .7,
     },
-    transitionEnd: {display: 'flex'}  
+    stagger: {
+      staggerChildren: .2
+    }
   },
 }
 
@@ -56,26 +57,25 @@ const EpisodesPage = ({siteepisode, episode}) => {
           <AnimatePresence>
            <Card variants={animatedcard}
             >
-            <Flex layout>
+            <Flex>
             
             {image && 
               <motion.div layout className='left'> 
               <Image
                 layout 
                 src={imageBuilder(image)
-                      .height(500)
-                      .width(500)
+                      .height(450)
+                      .width(450)
                       .url()}
-                priority 
-                height={500}
-                width={500}
+                height={450}
+                width={450}
                 layout='intrinsic'
                 alt={image.alt}
               /></motion.div>    
                 }
-                <div layout className='right'>
-                <Heading layout initial={{opacity:0, y:55, transition: {duration: 1}}} animate={{opacity: 1, y:0}}>{title}</Heading>Episode number:{episodeNumber}
-                <BlockContent layout blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
+                <div className='right'>
+                <Heading initial={{opacity:0, y:35, transition: {duration: 1}}} animate={{opacity: 1, y:0, transition: {duration: 1}}}>{title}</Heading>Episode number:{episodeNumber}
+                <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
                </div>
              </Flex>
             </Card>

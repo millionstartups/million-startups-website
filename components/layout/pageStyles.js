@@ -213,3 +213,6 @@ width: 3rem;
 border-radius: 9999px;
 margin-right: 1rem;}
 `
+export const Grid = styled.div`
+display: grid;
+`
