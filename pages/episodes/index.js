@@ -40,6 +40,13 @@ const animatedcard = {
     },
     stagger: {
       staggerChildren: .2
+    }, 
+    exit: {
+      opacity: 0,
+      y: 99,
+      transition: {
+      duration: .7,
+    } 
     }
   },
 }
@@ -58,9 +65,9 @@ const EpisodesPage = ({siteepisode, episode}) => {
            <Card variants={animatedcard}
             >
             <Flex>
-            
             {image && 
-              <motion.div layout className='left'> 
+              <motion.div layout className='left' initial={{opacity:0, y:35, transition: {duration: 1.5}}} animate={{opacity: 1, y:0, transition: {duration: 1.5}}}> 
+             
               <Image
                 layout 
                 src={imageBuilder(image)

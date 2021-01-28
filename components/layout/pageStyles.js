@@ -15,7 +15,7 @@ justify-content: center;
 align-items: center;
 width: 90vw;
 @media (max-width: 768px) {
-    flex-direction: column;
+    flex-direction: column-reverse;
   }
 `
 export const HalfContainer = styled.div`
@@ -72,15 +72,10 @@ height: auto;
 `
 
 
-export const TitleHeading = styled.div`
+export const TitleHeading = styled.h1`
 line-height: clamp(70%, 150%, 80%);
 font-size: clamp(3.4rem, -0.875rem + 10vw, 5.9em);
 margin-bottom: 2rem;
-`
-
-const PlaceholderDiv = styled.div`
-max-width: 860px;
-height: 95vh;
 `
 
 
@@ -88,33 +83,41 @@ export const Card = styled(motion.div)`
 color: black;
 background-color: white;
 border-radius: .7rem;
+flex-direction: column-reverse;
 display: flexbox;
 justify-content: center;
-align-items: center;
-max-width: 860px;
+align-items: flex-start;
+max-width: 960px;
 min-height: 550px;
+padding: 1rem;
 
-.right{
-  width: 35%;
+
+.right{ 
   padding: 1rem;
-  @media (max-width: 768){
-    width: none;
+
+  @media (min-width: 768px){
+    max-width: 40%;
+    padding: 1rem;
   }
+}
+
 
 .left{
+  @media (min-width: 768px){
+    max-width: 40%;
+    padding: 1rem;
+  }
 margin: .5rem;
 img {
   border-radius: .3rem;
   width: 90%;
-  height: 90%
+  height: 90%;
 }
 }
 `
 
 
 export const FormWrapper = styled.div`
-$sub-color: dodgerblue;
-$main-color: white;
 
 
 .group {
@@ -124,7 +127,7 @@ $main-color: white;
   input {
     background: none;
     background-color: none;
-    color: $sub-color;
+    color: whitesmoke;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -146,7 +149,7 @@ $main-color: white;
   textarea {
     background: none;
     background-color: none;
-    color: $sub-color;
+    color: whitesmoke;
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
@@ -161,7 +164,7 @@ $main-color: white;
       outline: none;
     }
 
-    &:focus ~ label {
+    &:active ~ label {
       ${shrinkLabel};
     }
   }
