@@ -92,10 +92,14 @@ display: flexbox;
 justify-content: center;
 align-items: center;
 max-width: 860px;
+min-height: 550px;
 
 .right{
+  width: 35%;
   padding: 1rem;
-}
+  @media (max-width: 768){
+    width: none;
+  }
 
 .left{
 margin: .5rem;
