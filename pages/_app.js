@@ -8,15 +8,12 @@ const GlobalStyle = createGlobalStyle`
     padding: 0;
   }
 
-  html {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-}
  
   body{
       background-color: #000000;
       color: whitesmoke;
-      line-height: 1.3rem;
       overflow-x: hidden;
+      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   }
   a{
     text-decoration: none;

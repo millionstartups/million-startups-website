@@ -193,6 +193,8 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
     return (
         <Fragment>
         <Head>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@300&display=optional" rel="stylesheet"/>
         {isProduction && (
         <>
         <script

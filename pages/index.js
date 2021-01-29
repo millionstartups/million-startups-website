@@ -31,7 +31,7 @@ const IndexPage = ({index, site}) => {
         <MainContainer logo={logo}>
           <Flex>
            <ContainerLeft60>
-            <div><TitleHeading>million<br/>startups</TitleHeading></div>
+            <TitleHeading><div className='spacing'>million Startups</div></TitleHeading>
              <BlockContent blocks={body} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
             </ContainerLeft60>
             <Container30>

@@ -73,9 +73,14 @@ height: auto;
 
 
 export const TitleHeading = styled.h1`
-line-height: clamp(70%, 150%, 80%);
-font-size: clamp(3.4rem, -0.875rem + 10vw, 5.9em);
-margin-bottom: 2rem;
+font-family: 'Fraunces', serif;
+font-size: 90px;
+text-shadow: 1px 2px 5px dodgerblue;
+.spacing {
+  margin-bottom: 50px;
+  width: 50%;
+  line-height: 70px;
+}
 `
 
 
