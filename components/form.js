@@ -20,21 +20,21 @@ export default function CommentForm ({_id}) {
   const handleServerResponse = (ok, msg) => {
     setServerState({ok, msg});
   };
-  const handleOnSubmit = (values, actions) => {
-    axios({
-      method: "POST",
-      url: "https://formspree.io/f/mjvplplw",
-      data: values
-    })
-      .then(response => {
-        actions.setSubmitting(false);
-        actions.resetForm();
-        handleServerResponse(true, "Thanks! Your comment will show after moderation.");
+  const handleOnSubmit = async (values, actions) => {
+    try {
+      response = await fetch('/api/createComment', {
+        method: 'POST',
+        body: JSON.stringify(values),
+        type: 'application/json'
       })
-      .catch(error => {
-        actions.setSubmitting(false);
-        handleServerResponse(false, error.response.data.error);
-      });
+      .then(
+      actions.setSubmitting(false),
+      actions.resetForm(),
+      handleServerResponse(true, "Thanks! Your comment will show after moderation."))
+    } catch (err) {
+      actions.setSubmitting(false);
+      handleServerResponse(false, error.response.data.error);
+    }
   };
   return (
     <FormWrapper>
@@ -45,11 +45,7 @@ export default function CommentForm ({_id}) {
          >
            {({ isSubmitting }) => (
              <Form id="fs-frm" noValidate>
-             {serverState && (
-              <p className={!serverState.ok ? "errorMsg" : ""}>
-                {serverState.msg}
-              </p>
-            )}
+             
               <div className='group'>
               <Field type="hidden" name="_id" value={_id}/>
                <label className='shrink' htmlFor="name">Name</label>
@@ -68,10 +64,15 @@ export default function CommentForm ({_id}) {
                <Field id="comment" name="comment" component="textarea" />
                <ErrorMessage name="comment" className="errorMsg" component="p" />
                </div>
-              
+               {serverState && (
+                <p className={!serverState.ok ? "errorMsg" : ""}>
+                  {serverState.msg}
+                </p>
+              )}
                <button className="custom-button" type="submit" disabled={isSubmitting}>
                  Submit
                </button>
+               
              </Form>
            )}
          </Formik>
