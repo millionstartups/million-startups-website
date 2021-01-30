@@ -4,7 +4,7 @@ export default {
         name: 'document-list',
           options: {
             title: 'Most recent episodes',
-            order: '_updatedAt desc',
+            order: 'episodeNumber desc',
             types: ['episode'],
             createButtonText: 'Post a new episode',
        },

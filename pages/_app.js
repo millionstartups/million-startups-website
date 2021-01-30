@@ -10,8 +10,9 @@ const GlobalStyle = createGlobalStyle`
 
  
   body{
-      background-color: #000000;
-      color: whitesmoke;
+      background-color: #181818;
+      color: #E4E6EB;
+      font-size: 1.07rem;
       overflow-x: hidden;
       font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   }

@@ -73,13 +73,13 @@ height: auto;
 
 
 export const TitleHeading = styled.h1`
-font-family: 'Fraunces', serif;
-font-size: 90px;
-text-shadow: 1px 2px 5px dodgerblue;
+font-family: 'Open Sans', sans-serif;
+font-size: 64px;
+text-shadow: 1px 3px 4px #800000;
 .spacing {
   margin-bottom: 50px;
   width: 50%;
-  line-height: 70px;
+  line-height: 47px;
 }
 `
 

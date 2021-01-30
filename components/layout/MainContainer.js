@@ -1,7 +1,7 @@
 import {Fragment, useState} from 'react'
 import CookieConsent from "react-cookie-consent";
 import {GA_TRACKING_ID} from '../../lib/gtag'
-import Head from 'next/head'
+import NextHead from 'next/head'
 import styled from 'styled-components'
 import Link from 'next/link'
 import {Main} from './pageStyles'
@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { imageBuilder } from '../../lib/sanity'
 import Footer from './Footer'
 import Image from 'next/image'
+
 
 const isProduction = process.env.NODE_ENV === "production";
 
@@ -192,9 +193,9 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
   const [isOpen, setIsOpen] = useState(false);
     return (
         <Fragment>
-        <Head>
+        <NextHead>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@700&family=Montserrat:wght@300&display=optional" rel="stylesheet"/>
+        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet"/> 
         {isProduction && (
         <>
         <script
@@ -227,7 +228,7 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
         <meta name="msapplication-TileColor" content="#da532c"/>
         <meta name="msapplication-config" content="/favicons/browserconfig.xml"/>
         <meta name="theme-color" content="#ffffff"/>
-        </Head>
+        </NextHead>
         <Nav>
          <Wrapper>
           <Brand>

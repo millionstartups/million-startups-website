@@ -1,4 +1,5 @@
 import React from 'react'
+import {IntentLink} from 'part:@sanity/base/router'
 import {Stack, Box, Card, Text, Flex, Grid, Spinner, Label, Switch} from '@sanity/ui'
 import QueryContainer from 'part:@sanity/base/query-container'
 
@@ -58,12 +59,15 @@ export default function CommentList({ approvalStatus }) {
       return (
         <Stack as={'ul'}>
         {documents.map(doc => (
-          <Card radius={2} key={doc._id} borderBottom as={'li'} padding={4}>
+          <Card tone='transparent' radius={2} key={doc._id} borderBottom as={'li'} padding={4}>
             <Grid columns={5} justify={'space-between'} align={'center'}>
               <Box column={4}>
                 <Stack flex={1} space={3}>
                   <Text size={2}>{doc.comment}</Text>
-                  <Text muted size={1}>By: {doc.name} - Post: {doc.post?.title}</Text> 
+                  <Text muted size={1}>By: {doc.name} - Post: {doc.post?.title}</Text>
+                  <IntentLink intent="edit" params={{id: doc._id, type: 'comment'}}>
+                  Edit / Delete
+                  </IntentLink>
                 </Stack>
               </Box>
               <Flex justify={'center'} align={'center'}>

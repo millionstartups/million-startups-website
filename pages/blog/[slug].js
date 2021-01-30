@@ -1,6 +1,8 @@
 import {Fragment} from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
+import {groq} from 'next-sanity'
+import {getClient} from '../../lib/sanity'
 import {Flex} from '../../components/layout/pageStyles'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
@@ -15,13 +17,20 @@ import Head from 'next/head'
 import MainContainer from '../../components/layout/MainContainer'
 import Form from '../../components/form'
 
-export default function Post({ post, morePosts, preview }) {
+const sitePostQuery = groq`*[_type == "siteConfig"][0]{
+  logo
+}`
+
+
+export default function Post({ post, morePosts, preview }, sitepost) {
   const router = useRouter()
+  const {logo} = sitepost
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <MainContainer preview={preview}>
+    <MainContainer logo={logo} navpagetitle='Blog' preview={preview}>
+    {console.log(logo)}
       <Container>
         <Header />
         {router.isFallback ? (
@@ -35,13 +44,14 @@ export default function Post({ post, morePosts, preview }) {
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
+              <Flex>
         
               <PostHeader
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-              />
+              /></Flex>
               <PostBody content={post.body} />
             </article>
 
@@ -59,9 +69,11 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
+  const sitepost = await getClient().fetch(sitePostQuery);
   return {
     props: {
       preview,
+      sitepost: sitepost,
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },

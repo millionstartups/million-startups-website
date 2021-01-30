@@ -1,3 +1,12 @@
 {
-    "types": []
+  "types": [
+      {
+          "type": "post",
+          "field": "publishedAt"
+      },
+      {
+          "type": "frontpage",
+          "field": "publishedAt"
+      }
+  ]
 }
