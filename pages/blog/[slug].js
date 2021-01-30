@@ -22,9 +22,8 @@ const sitePostQuery = groq`*[_type == "siteConfig"][0]{
 }`
 
 
-export default function Post({ post, morePosts, preview }, sitepost) {
+export default function Post({ post, morePosts, preview, logo }) {
   const router = useRouter()
-  const {logo} = sitepost
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }

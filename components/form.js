@@ -1,11 +1,14 @@
 import {FormWrapper} from './layout/pageStyles'
 import { useState } from 'react'
 import styled from 'styled-components'
-import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup";    
 
-
+const Container = styled.div`
+max-width: 860px;
+margin-bottom: 2rem;
+align-self: center;
+`
 
 const formSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
@@ -37,7 +40,9 @@ export default function CommentForm ({_id}) {
     }
   };
   return (
+    
     <FormWrapper>
+      <Container>
            <Formik
            initialValues={{ name: "", email: "", comment: "", _id: _id }}
            onSubmit={handleOnSubmit}
@@ -75,7 +80,9 @@ export default function CommentForm ({_id}) {
                
              </Form>
            )}
-         </Formik>
+         </Formik> 
+         </Container>
          </FormWrapper>
+        
 )
 }

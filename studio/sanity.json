@@ -44,6 +44,10 @@
     {
       "implements": "part:@sanity/desk-tool/structure",
       "path": "./src/deskStructure"
+    },
+    {
+      "implements": "part:@sanity/base/theme/variables/override-style",
+      "path": "./src/styles/variableOverrides.css"
     }
   ]
 }

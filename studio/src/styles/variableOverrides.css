@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
+
+    :root {
+        --black: #dacfcf;
+        --white: #000000;
+        --brand-darkest: var(--black);
+        --brand-darkest--inverted: color(var(--brand-darkest) contrast(80%));
+        --brand-lightest: var(--white);
+        --brand-primary: #2276fc;
+        --brand-primary--inverted: color(var(--brand-primary) contrast(80%));
+        --brand-secondary: #f03e2f;
+        --brand-secondary--inverted: var(--brand-lightest);
+      
+        /* Base */
+        --brand-faded: color(var(--brand-primary) blend(var(--white) 60%));
+        --gray-base: color(var(--black) blend(var(--brand-faded) 50%));
+
+        --font-family-base: 'Montserrat', sans-serif;
+        --sanity-color-black: #cdcdd3;
+        --sanity-color-white: #1a1717;
+        --sanity-color-blue-500: #1e90ff;
+        --sanity-color-red-500: #800000;
+        --sanity-color-yellow-100: #816b11;
+        --sanity-color-gray-50: #262f3d;
+        --sanity-color-gray-100: #3c4758;
+        --sanity-color-gray-200: #66758d;
+        --sanity-color-gray-400: #7b8ca8;
+        --sanity-color-gray-500: #95a3b9;
+        --sanity-color-gray-600: #cad1dc;
+        --sanity-color-gray-800: #e4e8ed;
+        --sanity-color-gray-900: #f1f3f6;
+      
+        /* Base theme colors */
+        --black: var(--sanity-color-black);
+        --white: var(--sanity-color-white);
+        --gray-base: var(--sanity-color-gray-500);
+      
+        /* Gray */
+        --gray-darkest: var(--sanity-color-gray-900);
+        --gray-darker: var(--sanity-color-gray-800);
+        --gray-dark: var(--sanity-color-gray-600);
+        --gray: var(--sanity-color-gray-500);
+        --gray-light: var(--sanity-color-gray-400);
+        --gray-lighter: var(--sanity-color-gray-200);
+        --gray-lightest: var(--sanity-color-gray-100);
+      
+        /* Brand */
+        --brand-primary: var(--sanity-color-blue-500);
+        --brand-primary--inverted: var(--sanity-color-white);
+        --brand-secondary: var(--sanity-color-red-500);
+        --brand-secondary--inverted: var(--sanity-color-white);
+      
+        /* Focus */
+        --focus-color: var(--sanity-color-blue-500);
+      
+        /* Navbar */
+        --main-navigation-color: var(--white);
+        --main-navigation-color--inverted: var(--sanity-color-black);
+      
+        /* Selectable item */
+        --selectable-item-color-hover: var(--sanity-color-gray-50);
+        --selectable-item-color-focus: var(--sanity-color-gray-100);
+        --selectable-item-color-active: var(--sanity-color-gray-50);
+        --selectable-item-color-highlighted: var(--sanity-color-gray-100);
+      
+        /* Timeline event */
+        --timeline-event-enabled-icon-edited-bg: var(--sanity-color-yellow-100);
+
+
+          }
+ 

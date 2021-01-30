@@ -1,9 +1,16 @@
 import Date from './date'
+import styled from 'styled-components'
+
+const CommentH2 = styled.h2`
+font-size: 1.7rem;
+margin-top: 2rem;
+`
+
 
 export default function Comments({ comments = [] }) {
   return (
     <>
-      <h2 className="mt-10 mb-4 text-4xl lg:text-6xl leading-tight">Comments:</h2>
+      <CommentH2>Comments:</CommentH2>
       <ul>
         {comments?.map(({ _id, _createdAt, name, email, comment }) => (
           <li key={_id} className="mb-5">
