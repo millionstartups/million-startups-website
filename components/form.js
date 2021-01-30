@@ -39,7 +39,7 @@ export default function CommentForm ({_id}) {
   return (
     <FormWrapper>
            <Formik
-           initialValues={{ name: "", email: "", comment: "" }}
+           initialValues={{ name: "", email: "", comment: "", _id: _id }}
            onSubmit={handleOnSubmit}
            validationSchema={formSchema}
          >
