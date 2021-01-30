@@ -1,66 +1,80 @@
 import {FormWrapper} from './layout/pageStyles'
-import {useState} from 'react'
-import { useForm } from 'react-hook-form'
+import { useState } from 'react'
+import styled from 'styled-components'
+import axios from "axios";
+import { Formik, Form, Field, ErrorMessage } from 'formik'
+import * as Yup from "yup";    
 
-export default function Form ({_id}) {
-  const [formData, setFormData] = useState()
-  const [isSubmitting, setIsSubmitting] = useState(false)
-  const [hasSubmitted, setHasSubmitted] = useState(false)
-  const { register, handleSubmit, watch, errors } = useForm()
-  const onSubmit = async data => {
-    setIsSubmitting(true)
-    let response
-    setFormData(data)
-    try {
-      response = await fetch('/api/createComment', {
-        method: 'POST',
-        body: JSON.stringify(data),
-        type: 'application/json'
+
+
+const formSchema = Yup.object().shape({
+  name: Yup.string().required("Required"),
+  email: Yup.string()
+    .email("Invalid email")
+    .required("Required"),
+  comment: Yup.string().required("Required")
+});
+
+export default function CommentForm ({_id}) {
+  const [serverState, setServerState] = useState();
+  const handleServerResponse = (ok, msg) => {
+    setServerState({ok, msg});
+  };
+  const handleOnSubmit = (values, actions) => {
+    axios({
+      method: "POST",
+      url: "https://formspree.io/f/mjvplplw",
+      data: values
+    })
+      .then(response => {
+        actions.setSubmitting(false);
+        actions.resetForm();
+        handleServerResponse(true, "Thanks! Your comment will show after moderation.");
       })
-      setIsSubmitting(false)
-      setHasSubmitted(true)
-    } catch (err) {
-      setFormData(err)
-    }
-  }
-
-  if (isSubmitting) {
-    return <h3>Submitting comment…</h3>
-  }
-  if (hasSubmitted) {
-    return (
-    <>
-      <h3>Thanks for your comment!</h3>
-      <ul>
-        <li>
-          Name: {formData.name} <br />
-          Email: {formData.email} <br />
-          Comment: {formData.comment}
-        </li>
-      </ul>
-    </>)
-  }
-
+      .catch(error => {
+        actions.setSubmitting(false);
+        handleServerResponse(false, error.response.data.error);
+      });
+  };
   return (
     <FormWrapper>
-    <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg" disabled>
-      <input ref={register} type="hidden" name="_id" value={_id} />
-      <label className="block mb-5">
-        <span className="text-gray-700">Name</span>
-        <input name="name" ref={register({required: true})} className="shadow border rounded py-2 px-3 form-input mt-1 block w-full" placeholder="John Appleseed"/>
-      </label>
-      <label className="block mb-5">
-        <span className="text-gray-700">Email</span>
-        <input name="email" type="email" ref={register({required: true})} className="shadow border rounded py-2 px-3 form-input mt-1 block w-full" placeholder="your@email.com"/>
-      </label>
-      <label className="block mb-5">
-        <span className="text-gray-700">Comment</span>
-        <textarea ref={register({required: true})} name="comment" className="shadow border rounded py-2 px-3  form-textarea mt-1 block w-full" rows="8" placeholder="Enter some long form content."></textarea>
-      </label>
-      {/* errors will return when field validation fails  */}
-      {errors.exampleRequired && <span>This field is required</span>}
-      <input type="submit" className="shadow bg-purple-500 hover:bg-purple-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded" />
-    </form>
-    </FormWrapper>
+           <Formik
+           initialValues={{ name: "", email: "", comment: "" }}
+           onSubmit={handleOnSubmit}
+           validationSchema={formSchema}
+         >
+           {({ isSubmitting }) => (
+             <Form id="fs-frm" noValidate>
+             {serverState && (
+              <p className={!serverState.ok ? "errorMsg" : ""}>
+                {serverState.msg}
+              </p>
+            )}
+              <div className='group'>
+              <Field type="hidden" name="_id" value={_id}/>
+               <label className='shrink' htmlFor="name">Name</label>
+               <Field id="name" type="text" name="name" />
+               <ErrorMessage name="name" className="errorMsg" component="p" />
+               </div>
+               
+               <div className='group'>
+               <label className="shrink" htmlFor="email">Email</label>
+               <Field id="email" type="email" name="email" />
+               <ErrorMessage name="email" className="errorMsg" component="p" />
+               </div>
+               
+               <div className='group'>
+               <label className="shrink" htmlFor="comment">Comment</label>
+               <Field id="comment" name="comment" component="textarea" />
+               <ErrorMessage name="comment" className="errorMsg" component="p" />
+               </div>
+              
+               <button className="custom-button" type="submit" disabled={isSubmitting}>
+                 Submit
+               </button>
+             </Form>
+           )}
+         </Formik>
+         </FormWrapper>
 )
 }
