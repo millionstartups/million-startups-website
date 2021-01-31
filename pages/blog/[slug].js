@@ -27,7 +27,7 @@ export default function Post({ post, morePosts, preview, logo }) {
     return <ErrorPage statusCode={404} />
   }
   return (
-    <MainContainer logo={logo} navpagetitle='Blog' preview={preview}>
+    <MainContainer navpagetitle='Blog' preview={preview}>
     {console.log(logo)}
       <Container>
         {router.isFallback ? (
