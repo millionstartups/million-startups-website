@@ -18,7 +18,7 @@ align-items: center;
 }
 
 .content {
-  min-width: 500px; 
+  min-width: 50%; 
   @media (max-width: 768px) {
     text-align: center;
   }
@@ -33,6 +33,7 @@ align-items: center;
 }
 
 p{
+  margin: 10px 0;
   max-width: 490px;
 }
 
@@ -41,7 +42,14 @@ font-size: 2rem;
 }
 
 .readMore {
+  font-size: clamp(.5rem, 10vw + 1rem, 1rem);
   margin: 30px 0;
+  @media (max-width: 768px) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+  }
 }
 
 `
