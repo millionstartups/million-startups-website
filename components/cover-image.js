@@ -6,11 +6,11 @@ import { imageBuilder } from '../lib/sanity'
 export default function CoverImage({ title, url, imageObject, slug }) {
   const image = (
     <Image
-      width={190}
-      height={120}
+      width={410}
+      height={380}
       layout='intrinsic'
       alt={`Cover Image for ${title}`}
-      src={imageBuilder(imageObject).width(1240).height(540).url()}
+      src={imageBuilder(imageObject).auto('format').width(410).height(380).url()}
     />
   )
 

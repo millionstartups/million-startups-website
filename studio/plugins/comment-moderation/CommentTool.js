@@ -1,7 +1,6 @@
 import React from 'react'
 
 import { Container, Card, Grid, Heading, studioTheme, ThemeProvider } from '@sanity/ui'
-import styles from './CommentTool.css'
 import CommentCard from './CommentCard'
 
 
@@ -10,7 +9,7 @@ export default function CommentTool() {
   return (
     <ThemeProvider theme={studioTheme}>
     <Container width={3}>
-      <Card radius={4} shadow={1} tone="transparent" margin={3} padding={5}>
+      <Card radius={4} margin={3} padding={5}>
         <Heading marginBottom={1} size={5} as={"h1"}>Comment Moderation Dashboard</Heading>
         <p>Comments are moderated to avoid spam or unwanted comments. The top 5 latest comments will display for each section.</p>
       </Card>

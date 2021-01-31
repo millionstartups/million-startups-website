@@ -38,6 +38,12 @@ export default {
       description: 'URL to the website Linkedin profile'
     },
     {
+      name: 'facebook',
+      type: 'url',
+      title: 'Facebook',
+      description: 'URL to the website Facebook page'
+    },
+    {
       name: 'description',
       type: 'text',
       title: 'Description',
