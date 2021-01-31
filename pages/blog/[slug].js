@@ -7,7 +7,6 @@ import {Flex} from '../../components/layout/pageStyles'
 import Container from '../../components/container'
 import PostBody from '../../components/post-body'
 import MoreStories from '../../components/more-stories'
-import Header from '../../components/header'
 import PostHeader from '../../components/post-header'
 import Comments from '../../components/comments'
 import SectionSeparator from '../../components/section-separator'
@@ -31,7 +30,6 @@ export default function Post({ post, morePosts, preview, logo }) {
     <MainContainer logo={logo} navpagetitle='Blog' preview={preview}>
     {console.log(logo)}
       <Container>
-        <Header />
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (

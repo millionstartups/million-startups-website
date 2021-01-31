@@ -7,16 +7,16 @@ import PostTitle from '../components/post-title'
 import {imageBuilder} from '../lib/sanity'
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
-    <Flex smFlexDir='column-reverse'>
-      <div className='left'>
+    <Fragment>
+      <div>
         <PostTitle>{title}</PostTitle>
         <Avatar name={author?.name} picture={author?.picture} />
           <Date dateString={date} />
         </div>
-      <div className='right'>
+      <div>
         <CoverImage title={title} imageObject={coverImage} url={coverImage} />
       </div>
-      </Flex>
+      </Fragment>
  
   )
 }

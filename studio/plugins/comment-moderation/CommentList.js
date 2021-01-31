@@ -59,7 +59,7 @@ export default function CommentList({ approvalStatus }) {
       return (
         <Stack as={'ul'}>
         {documents.map(doc => (
-          <Card tone='transparent' radius={2} key={doc._id} borderBottom as={'li'} padding={4}>
+          <Card radius={2} key={doc._id} borderBottom as={'li'} padding={4}>
             <Grid columns={5} justify={'space-between'} align={'center'}>
               <Box column={4}>
                 <Stack flex={1} space={3}>
@@ -71,7 +71,7 @@ export default function CommentList({ approvalStatus }) {
                 </Stack>
               </Box>
               <Flex justify={'center'} align={'center'}>
-                <Stack tone="transparent" space={3}>
+                <Stack space={3}>
                   <Label>Approved?</Label>
                   <Switch 
                     name={doc._id}
