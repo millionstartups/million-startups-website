@@ -16,19 +16,14 @@ import Head from 'next/head'
 import MainContainer from '../../components/layout/MainContainer'
 import Form from '../../components/form'
 
-const sitePostQuery = groq`*[_type == "siteConfig"][0]{
-  logo
-}`
 
-
-export default function Post({ post, morePosts, preview, logo }) {
+export default function Post({ post, morePosts, preview }) {
   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
   return (
     <MainContainer navpagetitle='Blog' preview={preview}>
-    {console.log(logo)}
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -66,11 +61,9 @@ export default function Post({ post, morePosts, preview, logo }) {
 
 export async function getStaticProps({ params, preview = false }) {
   const data = await getPostAndMorePosts(params.slug, preview)
-  const sitepost = await getClient().fetch(sitePostQuery);
   return {
     props: {
       preview,
-      sitepost: sitepost,
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },

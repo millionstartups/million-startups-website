@@ -7,7 +7,7 @@ import PostTitle from '../components/post-title'
 import {imageBuilder} from '../lib/sanity'
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
-    <Fragment>
+    <div>
       <div>
         <PostTitle>{title}</PostTitle>
         <Avatar name={author?.name} picture={author?.picture} />
@@ -16,7 +16,7 @@ export default function PostHeader({ title, coverImage, date, author }) {
       <div>
         <CoverImage title={title} imageObject={coverImage} url={coverImage} />
       </div>
-      </Fragment>
+      </div>
  
   )
 }

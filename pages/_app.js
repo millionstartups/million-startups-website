@@ -12,11 +12,12 @@ const GlobalStyle = createGlobalStyle`
   body{
       background-color: #181818;
       color: #E4E6EB;
-      font-size: 1.07rem;
+      font-size: 1.02rem;
       overflow-x: hidden;
       font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   }
   a{
+    color: #a7a9be;
     text-decoration: none;
     :active{
         color: dodgerblue;
