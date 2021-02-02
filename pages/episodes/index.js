@@ -1,6 +1,6 @@
-import {Fragment, useEffect} from 'react'
+import {Fragment} from 'react'
 import styled from 'styled-components'
-import {motion, AnimateSharedLayout, AnimatePresence } from 'framer-motion'
+import {motion, AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
 import { Flex, Card} from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
@@ -8,11 +8,15 @@ import { groq } from 'next-sanity'
 import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../../lib/sanity'
-import { FaBorderNone } from 'react-icons/fa'
-
+import {SiGooglepodcasts, SiSpotify} from 'react-icons/si'
 
 const Heading = styled(motion.h1)`
 font-size: 2rem;
+`
+
+const PodcastIcons = styled(motion.div)`
+font-size: 2rem;
+margin: 2rem 0;
 `
 
 const episodeQuery = groq`*[_type == "episode"][0]{
@@ -37,19 +41,27 @@ const animatedcard = {
       y: 0,
       transition: {
       duration: .7,
-    },
-    stagger: {
-      staggerChildren: .2
-    }, 
-    exit: {
-      opacity: 0,
-      y: 99,
-      transition: {
-      duration: .7,
-    } 
     }
-  },
+  }
 }
+
+const animatedicons = {
+  initial: {
+      opacity: 0,
+      x: 20,
+      transition: {
+      duration: 1.2,
+    } 
+  },
+  animate: { 
+      opacity: 1,
+      x: 0,
+      transition: {
+      duration: 1.2,
+    }
+  }
+}
+
 
 const EpisodesPage = ({siteepisode, episode}) => {
   const {logo} = siteepisode
@@ -57,7 +69,7 @@ const EpisodesPage = ({siteepisode, episode}) => {
     return (
         <Fragment>
         <Head>
-        <title>Episodes - Million Startups Podcast</title>
+        <title>Episodes - Million Startups</title>
         </Head>
         <MainContainer navpagetitle='Episodes' logo={logo}>
           <Flex>
@@ -83,7 +95,12 @@ const EpisodesPage = ({siteepisode, episode}) => {
                 <div className='right'>
                 <Heading initial={{opacity:0, y:35, transition: {duration: 1}}} animate={{opacity: 1, y:0, transition: {duration: 1}}}>{title}</Heading>Episode number:{episodeNumber}
                 <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
-               </div>
+                <PodcastIcons variants={animatedicons}>
+                <h6>Listen to the Episode</h6>
+                <SiGooglepodcasts/> <SiSpotify/>
+                </PodcastIcons>
+                </div>
+                
              </Flex>
             </Card>
             </AnimatePresence>

@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import styled from 'styled-components'
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup";    
@@ -40,7 +39,7 @@ const ContactPage = ({contact, sitecontact}) => {
   const handleOnSubmit = (values, actions) => {
     axios({
       method: "POST",
-      url: "https://formspree.io/f/mjvplplw",
+      url: `${process.env.NEXT_FORMSPREE_ENDPOINT}`,
       data: values
     })
       .then(response => {
