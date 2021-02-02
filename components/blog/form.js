@@ -1,4 +1,4 @@
-import {FormWrapper} from './layout/pageStyles'
+import {FormWrapper} from '../layout/pageStyles'
 import { useState } from 'react'
 import styled from 'styled-components'
 import { Formik, Form, Field, ErrorMessage } from 'formik'

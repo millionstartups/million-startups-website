@@ -1,8 +1,9 @@
-import Avatar from './blog/avatar'
+
 import styled from 'styled-components'
 import BlockContent from '@sanity/block-content-to-react'
-import Date from '../components/date'
-import CoverImage from '../components/cover-image'
+import Date from './date'
+import CoverImage from './cover-image'
+import Avatar from './avatar'
 import Link from 'next/link'
 
 const Section = styled.section`

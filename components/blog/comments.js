@@ -1,5 +1,5 @@
-import Date from './date'
 import styled from 'styled-components'
+import Date from './date'
 
 const CommentH2 = styled.h2`
 font-size: 1.7rem;

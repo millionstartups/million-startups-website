@@ -1,4 +1,4 @@
-import Container from './container'
+import Container from '../blog/container'
 import cn from 'classnames'
 
 export default function Alert({ preview }) {

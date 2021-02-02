@@ -1,7 +1,7 @@
 import { Fragment } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { imageBuilder } from '../lib/sanity'
+import { imageBuilder } from '../../lib/sanity'
 
 export default function CoverImage({ title, url, imageObject, slug }) {
   const image = (

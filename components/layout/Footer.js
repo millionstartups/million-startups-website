@@ -1,6 +1,9 @@
 import styled from 'styled-components'
 import {FaFacebookSquare, FaTwitterSquare, FaLinkedin } from 'react-icons/fa'
 import Link from 'next/link'
+import { useState } from 'react'
+import Modal from "../ui/Modal";
+import OpenModalButton from "../ui/OpenModalButton";
 
 const Wrapper = styled.div`
 display: flex;
@@ -14,6 +17,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 width: 100%;
+margin: 2rem 0;
 padding-top: 1rem;
 `
 
@@ -29,7 +33,16 @@ a{
 }
 `
 
+
+
 const Footer = () => {
+    const [isModal, toggle] = useState(false);
+
+    function handlOpenModal(open) {
+    console.log("close modal");
+    toggle(open);
+    }
+
     return (
         
         <FooterSection>
@@ -39,7 +52,12 @@ const Footer = () => {
           <span><Link href='#'><a><FaTwitterSquare /></a></Link></span>
           <span><Link href='#'><a><FaLinkedin /></a></Link></span>
         </Social>
-       <div>Join our mail list</div>
+        <OpenModalButton handlClick={() => handlOpenModal(true)}>
+        Join the mailing list
+      </OpenModalButton>
+      <Modal isOpen={isModal} handleClose={() => handlOpenModal(false)}>
+          Mailing list here
+      </Modal>
        </Wrapper>
         </FooterSection>
     )

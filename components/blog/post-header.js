@@ -1,10 +1,10 @@
 import {Fragment} from 'react'
-import {Flex} from './layout/pageStyles'
-import Avatar from './blog/avatar'
-import Date from '../components/date'
-import CoverImage from '../components/cover-image'
-import PostTitle from '../components/post-title'
-import {imageBuilder} from '../lib/sanity'
+import {Flex} from '../layout/pageStyles'
+import Avatar from './avatar'
+import Date from './date'
+import CoverImage from './cover-image'
+import PostTitle from './post-title'
+import {imageBuilder} from '../../lib/sanity'
 export default function PostHeader({ title, coverImage, date, author }) {
   return (
     <div>

@@ -1,8 +1,8 @@
-import Avatar from './blog/avatar'
-import Date from '../components/date'
+import Avatar from './avatar'
+import Date from './date'
 import CoverImage from './cover-image'
 import Link from 'next/link'
-import {imageBuilder} from '../lib/sanity'
+import {imageBuilder} from '../../lib/sanity'
 export default function PostPreview({
   title,
   coverImage,
@@ -21,11 +21,11 @@ export default function PostPreview({
           <a className="hover:underline">{title}</a>
         </Link>
       </h3>
+      <Avatar name={author?.name} picture={author?.picture} />
       <div className="text-lg mb-4">
         <Date dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-      <Avatar name={author?.name} picture={author?.picture} />
     </div>
   )
 }
