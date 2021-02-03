@@ -21,6 +21,11 @@ export default {
       }
     },
     {
+      name: 'publishedAt',
+      title: 'Published at',
+      type: 'datetime'
+    },
+    {
       name: 'episodeNumber',
       title: 'Episode Number',
       type: 'number'
