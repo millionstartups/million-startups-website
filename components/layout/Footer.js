@@ -54,9 +54,6 @@ const Footer = () => {
           <span><Link href='#'><a><FaFacebookSquare /></a></Link></span>
           <span><Link href='#'><a><FaTwitterSquare /></a></Link></span>
           <span><Link href='#'><a><FaLinkedin /></a></Link></span>
-          <span><Link href='#'><a><SiGooglepodcasts /></a></Link></span>
-          <span><Link href='#'><a><SiSpotify /></a></Link></span>
-          <span><Link href='#'><a><SiApplepodcasts /></a></Link></span>
         </Social>
         <OpenModalButton handlClick={() => handlOpenModal(true)}>
         Join the mailing list
