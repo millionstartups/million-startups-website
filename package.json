@@ -35,7 +35,6 @@
     "formik": "^2.2.6",
     "framer-motion": "^3.2.2-rc.1",
     "next": "^10.0.6",
-    "next-pwa": "^5.0.5",
     "next-sanity": "^0.1.8",
     "node-mailjet": "^3.3.1",
     "react": "^17.0.1",
