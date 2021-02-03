@@ -5,7 +5,7 @@ import {Flex} from '../../components/layout/pageStyles'
 import Container from '../../components/blog/container'
 import PostBody from '../../components/blog/post-body'
 import MoreStories from '../../components/blog/more-stories'
-import PostHeader from '../../components/blog/post-header'
+import HeroPost from '../../components/blog/hero-post'
 import Comments from '../../components/blog/comments'
 import SectionSeparator from '../../components/blog/section-separator'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
@@ -36,7 +36,7 @@ export default function Post({ post, morePosts, preview }) {
               </Head>
               <Flex>
         
-              <PostHeader
+              <HeroPost
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}

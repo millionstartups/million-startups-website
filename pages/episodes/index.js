@@ -9,7 +9,7 @@ import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../../lib/sanity'
 import { getAllEpisodesForHome } from '../../lib/api'
-import {SiGooglepodcasts, SiSpotify} from 'react-icons/si'
+import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
 const Heading = styled(motion.h1)`
 font-size: 2rem;
@@ -103,7 +103,7 @@ const EpisodesPage = ({siteepisode, allEpisodes, preview}) => {
               <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
               <PodcastIcons variants={animatedicons}>
               <h6>Listen to the Episode</h6>
-              <SiGooglepodcasts/> <SiSpotify/>
+              <SiGooglepodcasts/> <SiSpotify/> <SiApplepodcasts/>
               </PodcastIcons>
               </div>
               

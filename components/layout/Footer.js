@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import {FaFacebookSquare, FaTwitterSquare, FaLinkedin } from 'react-icons/fa'
+import {FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaSpotify } from 'react-icons/fa'
+import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 import Link from 'next/link'
 import { useState } from 'react'
 import Modal from "../ui/Modal";
@@ -28,6 +29,7 @@ justify-content: space-evenly;
 color: white;
 span {
     font-size: 2.5rem;
+    margin: 0 .3rem;
 }
 a{
     color: white;
@@ -52,6 +54,9 @@ const Footer = () => {
           <span><Link href='#'><a><FaFacebookSquare /></a></Link></span>
           <span><Link href='#'><a><FaTwitterSquare /></a></Link></span>
           <span><Link href='#'><a><FaLinkedin /></a></Link></span>
+          <span><Link href='#'><a><SiGooglepodcasts /></a></Link></span>
+          <span><Link href='#'><a><SiSpotify /></a></Link></span>
+          <span><Link href='#'><a><SiApplepodcasts /></a></Link></span>
         </Social>
         <OpenModalButton handlClick={() => handlOpenModal(true)}>
         Join the mailing list

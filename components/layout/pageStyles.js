@@ -208,7 +208,11 @@ export const FormWrapper = styled.div`
   }
 }
 .errorMsg {
-  color: tomato;
+  color: rgba(255,99,71,.7);
+  position: absolute;
+  top: 14px;
+  left: 4px;
+  z-index: -1;
 
 }
 `

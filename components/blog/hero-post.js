@@ -40,6 +40,7 @@ p{
 
 .title {
 font-size: 2rem;
+padding-right: 1rem;
 }
 
 .readMore {
@@ -78,13 +79,18 @@ export default function HeroPost({
         <div className='author-block'>
           <Avatar name={author?.name} picture={author?.picture} />
         </div>
-        <p>{excerpt}</p>
+        {excerpt && (
+        <>
+           <p>{excerpt}</p>
         <div className='readMore'>
         <Link as={`/blog/${slug}`} href="/blog/[slug]">
         <a>Read more</a>
-        
       </Link>
       </div>
+      </>
+        )}
+       
+        
       </div>
       <div className='margin'>
       <CoverImage slug={slug} imageObject={coverImage} title={title} url={coverImage} />
