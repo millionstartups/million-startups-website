@@ -92,9 +92,14 @@ flex-direction: column-reverse;
 display: flexbox;
 justify-content: center;
 align-items: center;
-max-width: 960px;
+max-width: 1260px;
 min-height: 550px;
 padding: 1rem;
+
+.left {
+  width: auto;
+  height: auto;
+}
 
 
 .right{ 
@@ -102,30 +107,12 @@ padding: 1rem;
   justify-self: flex-start;
   margin: 0 .5rem;
   padding: 0 .5rem;
-  align-self: flex-start;
-  padding: 0;
-
+  min-width: 50%;
   @media (min-width: 768px){
     max-width: 300px;
   }
 }
 
-
-.left{
-  margin: 0 .5rem;
-  align-self: flex-start;
-  justify-self: flex-start;
-  
-  @media (min-width: 768px){
-    max-width: 400px;
-    padding: 1rem 0;
-  }
-img {
-  border-radius: .3rem;
-  width: 90%;
-  height: 90%;
-}
-}
 `
 
 

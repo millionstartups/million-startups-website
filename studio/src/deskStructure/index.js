@@ -70,12 +70,10 @@ export default () =>
             ]),
         ),
         S.listItem()
-        .title("Episodes")
+        .title('Episodes')
         .icon(ImHeadphones)
         .child(
-          S.document()
-            .title("Episodes")
-            .schemaType("episode")
-            .documentId("episode")
-        ),
+          S.documentTypeList('episode'),
+          S.documentTypeListItem('episode')
+        ),  
     ]);

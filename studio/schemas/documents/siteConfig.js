@@ -44,22 +44,6 @@ export default {
       description: 'URL to the website Facebook page'
     },
     {
-      name: 'description',
-      type: 'text',
-      title: 'Description',
-      description: 'Describe your blog for search engines and social media.'
-    },
-    {
-      name: 'keywords',
-      type: 'array',
-      title: 'Keywords',
-      description: 'Add keywords that describes your blog. Press Enter after each keyword.',
-      of: [{type: 'string'}],
-      options: {
-        layout: 'tags'
-      }
-    },
-    {
       name: 'author',
       type: 'reference',
       description: 'Publish an author and set a reference to them here.',

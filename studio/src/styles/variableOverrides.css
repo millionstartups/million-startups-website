@@ -2,7 +2,7 @@
 :root {
   --sanity-color-white: #121923;
   --sanity-color-black: #fff;
-  --sanity-color-blue-500: #2276fc;
+  --sanity-color-blue-500: #095fe7;
   --sanity-color-red-500: #f03e2f;
   --sanity-color-yellow-100: #fdefb6;
   --sanity-color-gray-900: #f1f3f6;
@@ -12,7 +12,7 @@
   --sanity-color-gray-400: #7b8ca8;
   --sanity-color-gray-200: #66758d;
   --sanity-color-gray-100: #3c4758;
-  --sanity-color-gray-50: #262f3d;
+  --sanity-color-gray-50: #151b25;
 
   /* Base theme colors */
   --black: var(--sanity-color-black);
@@ -35,7 +35,7 @@
   --brand-secondary--inverted: var(--sanity-color-white);
 
   /* Body */
-  --body-bg: var(--sanity-color-gray-50);
+  --body-bg: #151b25;
   --body-text: #d3d3d3;
   
 
@@ -54,4 +54,12 @@
 
   /* Timeline event */
   --timeline-event-enabled-icon-edited-bg: var(--sanity-color-yellow-100);
+
+  /* Component */
+  --component-bg: var( --sanity-color-gray-50);
+  --component-text-color: var(--gray-darkest);
+  --component-border-color: var(--hairline-color);
+
+
 }
+

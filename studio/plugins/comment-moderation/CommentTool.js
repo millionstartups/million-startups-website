@@ -1,15 +1,20 @@
 import React from 'react'
 
-import { Container, Card, Grid, Heading, studioTheme, ThemeProvider } from '@sanity/ui'
+import { Container, Card, Grid, Heading, studioTheme, ThemeProvider,  usePrefersDark } from '@sanity/ui'
 import CommentCard from './CommentCard'
+import styles from './CommentTool.css'
 
 
 export default function CommentTool() {
+  const prefersDark = usePrefersDark()
+  
+  // The theme system supports either "dark" or "light"
+  const scheme = prefersDark ? 'dark' : 'dark'
 
   return (
-    <ThemeProvider theme={studioTheme}>
+    <ThemeProvider scheme={scheme} theme={studioTheme}>
     <Container width={3}>
-      <Card radius={4} margin={3} padding={5}>
+      <Card className={styles.card} radius={4} margin={3} padding={5}>
         <Heading marginBottom={1} size={5} as={"h1"}>Comment Moderation Dashboard</Heading>
         <p>Comments are moderated to avoid spam or unwanted comments. The top 5 latest comments will display for each section.</p>
       </Card>

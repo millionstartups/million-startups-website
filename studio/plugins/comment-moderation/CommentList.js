@@ -43,11 +43,11 @@ export default function CommentList({ approvalStatus }) {
 
       if (loading) {
         return (
-          <div>
+          <>
             <Flex align="center" justify="center">
                 <Spinner muted />
             </Flex>
-          </div>
+          </>
         )
       }
 

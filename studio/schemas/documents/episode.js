@@ -35,6 +35,11 @@ export default {
       }
     },
     {
+      name: 'videoClip',
+      title: 'Episode Video Clip',
+      type: 'videoEmbed'
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'array',
@@ -45,7 +50,8 @@ export default {
           styles: [{title: 'Normal', value: 'normal'}],
           lists: []
         }
-      ]
+      ],
+      
     }
   ],
   preview: {

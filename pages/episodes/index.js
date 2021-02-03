@@ -14,6 +14,14 @@ const Heading = styled(motion.h1)`
 font-size: 2rem;
 `
 
+const AnimatedImage = styled(motion.img)`
+  margin: 0 .5rem;
+  align-self: flex-start;
+  justify-self: flex-start;
+  border-radius: .3rem;
+  padding: 0 .5rem;
+`
+
 const PodcastIcons = styled(motion.div)`
 font-size: 2rem;
 margin: 2rem 0;
@@ -44,6 +52,8 @@ const animatedcard = {
     }
   }
 }
+
+
 
 const animatedicons = {
   initial: {
@@ -77,11 +87,15 @@ const EpisodesPage = ({siteepisode, episode}) => {
            <Card variants={animatedcard}
             >
             <Flex smFlexDir='column-reverse'>
-            {image && 
-              <motion.div layout className='left' initial={{opacity:0, y:35, transition: {duration: 1.5}}} animate={{opacity: 1, y:0, transition: {duration: 1.5}}}> 
+            <motion.div 
+             className='left'
+             initial={{opacity:0, y:35, transition: {duration: 1.5}}} 
+             animate={{opacity: 1, y:0, transition: {duration: 1.5}}}
+             >
+             {image && 
              
-              <Image
-                layout 
+             
+             <Image
                 src={imageBuilder(image)
                       .height(450)
                       .width(450)
@@ -90,8 +104,9 @@ const EpisodesPage = ({siteepisode, episode}) => {
                 width={450}
                 layout='intrinsic'
                 alt={image.alt}
-              /></motion.div>    
+              />  
                 }
+                </motion.div>
                 <div className='right'>
                 <Heading initial={{opacity:0, y:35, transition: {duration: 1}}} animate={{opacity: 1, y:0, transition: {duration: 1}}}>{title}</Heading>Episode number:{episodeNumber}
                 <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />

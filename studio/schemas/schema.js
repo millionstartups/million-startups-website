@@ -6,6 +6,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 
 // We import object schemas
 import blockContent from './objects/blockContent'
+import videoEmbed from './objects/videoEmbed'
 
 // We import document schemas
 import episode from './documents/episode'
@@ -36,6 +37,7 @@ export default createSchema({
     // When added to this list, object types can be used as
     // { type: 'typename' } in other document schemas
     blockContent,
+    videoEmbed,
     comment
   ])
 })
