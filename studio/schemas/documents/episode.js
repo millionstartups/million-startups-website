@@ -40,6 +40,11 @@ export default {
       type: 'videoEmbed'
     },
     {
+      name: 'materials',
+      title: 'Presentation Materials',
+      type: 'file'
+    },
+    {
       name: 'description',
       title: 'Description',
       type: 'array',

@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { useState } from 'react'
 import Modal from "../ui/Modal";
 import OpenModalButton from "../ui/OpenModalButton";
+import MailingListForm from '../ui/MailingListForm';
 
 const Wrapper = styled.div`
 display: flex;
@@ -56,7 +57,7 @@ const Footer = () => {
         Join the mailing list
       </OpenModalButton>
       <Modal isOpen={isModal} handleClose={() => handlOpenModal(false)}>
-          Mailing list here
+          <MailingListForm/>
       </Modal>
        </Wrapper>
         </FooterSection>

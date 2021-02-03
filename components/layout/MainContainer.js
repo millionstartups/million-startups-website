@@ -297,7 +297,7 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
             )}
             </AnimatePresence>
 
-            <Main exit={{x: 0, y: 0, opacity: 0}} initial='initial' animate='animate'>{children}</Main>
+            <Main exit={{opacity: 0}} initial='initial' animate='animate'>{children}</Main>
             <Footer/>
             <CookieConsent
             location="bottom"

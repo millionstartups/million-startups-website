@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap');
 :root {
+  --font-family-base: 'Montserrat';
   --sanity-color-white: #121923;
   --sanity-color-black: #fff;
-  --sanity-color-blue-500: #095fe7;
+  --sanity-color-blue-500: #74a4f1;
   --sanity-color-red-500: #f03e2f;
   --sanity-color-yellow-100: #fdefb6;
   --sanity-color-gray-900: #f1f3f6;
@@ -35,7 +36,7 @@
   --brand-secondary--inverted: var(--sanity-color-white);
 
   /* Body */
-  --body-bg: #151b25;
+  --body-bg: #1b2029;
   --body-text: #d3d3d3;
   
 
