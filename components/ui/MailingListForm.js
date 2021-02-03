@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { shrinkLabel } from '../../styles/mixin'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -148,7 +148,10 @@ export default function MailingListForm () {
            onSubmit={handleOnSubmit}
            validationSchema={formSchema}
          >
+        
            {({ isSubmitting }) => (
+              <Fragment>
+              {!serverState && (
              <Form id="fs-frm" noValidate>
              
               <div className='group'>
@@ -163,17 +166,22 @@ export default function MailingListForm () {
                <ErrorMessage name="email" className="errorMsg" component="p" />
                </div>
             
-               {serverState && (
-                <p className={!serverState.ok ? "errorMsg" : ""}>
-                  {serverState.msg}
-                </p>
-              )}
+           
                <button className="custom-button" type="submit" disabled={isSubmitting}>
                  Sign Up
                </button>
                
              </Form>
-           )}
+              )}
+
+             {serverState && (
+              <p className={!serverState.ok ? "errorMsg" : ""}>
+                {serverState.msg}
+              </p>
+            )}
+           </Fragment>
+           )} 
+           
          </Formik> 
          </Container>
          </MailFormWrapper>
