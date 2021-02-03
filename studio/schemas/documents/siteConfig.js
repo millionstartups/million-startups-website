@@ -44,6 +44,48 @@ export default {
       description: 'URL to the website Facebook page'
     },
     {
+      name: 'youtube',
+      type: 'url',
+      title: 'YouTube',
+      description: 'URL to the website YouTube page'
+    },
+    {
+      name: 'Twitter',
+      type: 'url',
+      title: 'Twitter',
+      description: 'URL to the website Twitter page'
+    },
+    {
+      name: 'ticktok',
+      type: 'url',
+      title: 'TikTok',
+      description: 'URL to the website TikTok page'
+    },
+    {
+      name: 'spotify',
+      type: 'url',
+      title: 'Spotify',
+      description: 'URL to the website Spotify page'
+    },
+    {
+      name: 'applepodcast',
+      type: 'url',
+      title: 'Apple Podcast',
+      description: 'URL to the website Apple Podcast page'
+    },
+    {
+      name: 'googlepodcast',
+      type: 'url',
+      title: 'Google Podcast',
+      description: 'URL to the website Google Podcast page'
+    },
+    {
+      name: 'amazonmusic',
+      type: 'url',
+      title: 'Amazon Music',
+      description: 'URL to the website Amazon Music page'
+    },
+    {
       name: 'author',
       type: 'reference',
       description: 'Publish an author and set a reference to them here.',

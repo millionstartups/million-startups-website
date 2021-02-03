@@ -137,6 +137,11 @@ button, .mobile {
 }
 `
 
+const Space = styled.div`
+min-width: 100%;
+min-height: 95px;
+`
+
 const MobileLinks = styled.div`
 display: flex;
 justify-content: top;
@@ -298,6 +303,7 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
             </AnimatePresence>
 
             <Main exit={{opacity: 0}} initial='initial' animate='animate'>{children}</Main>
+            <Space/>
             <Footer/>
             <CookieConsent
             location="bottom"
