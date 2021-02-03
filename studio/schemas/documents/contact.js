@@ -49,12 +49,12 @@ export default {
         type: 'seo-tools',
         description: 'Runs an audit on the Contact Page', // use seo-tools type
         options: {
-            baseUrl: 'https://themillionstartups.com/', // (REQUIRED) This is the baseUrl for your site
+            baseUrl: 'https://themillionstartups.com/contact', // (REQUIRED) This is the baseUrl for your site
             baseUrl(doc) {
-                return 'https://themillionstartups.com/'; // for dynamic baseUrls
+                return 'https://themillionstartups.com/contact/'; // for dynamic baseUrls
             },
             slug(doc) { // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl
-                return `${doc.slug.current}`;
+                return '';
             },
             fetchRemote: true, // Can be set to false to disable fetching the remote source (you will need to pass the content helpers for analysis)
             content(doc) {

@@ -61,12 +61,12 @@ export default {
       type: 'seo-tools',
       description: 'Runs an audit on the blog post', // use seo-tools type
       options: {
-          baseUrl: 'https://themillionstartups.com/', // (REQUIRED) This is the baseUrl for your site
+          baseUrl: 'https://themillionstartups.com/blog/', // (REQUIRED) This is the baseUrl for your site
           baseUrl(doc) {
-              return 'https://themillionstartups.com/'; // for dynamic baseUrls
+              return 'https://themillionstartups.com/blog/'; // for dynamic baseUrls
           },
           slug(doc) { // (REQUIRED) a function to return the sug of the current page, which will be appended to the baseUrl
-              return `blog/${doc.slug.current}`;
+              return doc.slug.current;
           },
           fetchRemote: true, // Can be set to false to disable fetching the remote source (you will need to pass the content helpers for analysis)
           content(doc) {
