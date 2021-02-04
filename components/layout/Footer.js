@@ -26,17 +26,31 @@ padding-top: 1rem;
 const Social= styled.div`
 display: flex;
 justify-content: space-evenly;
-color: white;
-span {
-    font-size: 2.5rem;
-    margin: 0 .3rem;
-}
+
 a{
     color: white;
+    font-size: 2.5rem;
+    margin: 0 .3rem;
+  &:hover {
+    color: dodgerblue;
+    transform: scale(1.07);
+  }
+  
 }
 `
 
+const MobileHidden = styled.div`
 
+      @media (max-width: 768px) {
+          display: none;
+       }
+`
+const MobileShow = styled.div`
+
+      @media (min-width: 768px) {
+          display: flex;
+       }
+`
 
 const Footer = () => {
     const [isModal, toggle] = useState(false);
@@ -51,9 +65,14 @@ const Footer = () => {
         <FooterSection>
         <Wrapper>
         <Social>
-          <span><Link href='#'><a><FaFacebookSquare /></a></Link></span>
-          <span><Link href='#'><a><FaTwitterSquare /></a></Link></span>
-          <span><Link href='#'><a><FaLinkedin /></a></Link></span>
+          <Link href='#'><a><FaFacebookSquare /></a></Link>
+          <Link href='#'><a><FaTwitterSquare /></a></Link>
+          <Link href='#'><a><FaLinkedin /></a></Link>
+          <MobileHidden>
+          <Link href='#'><a><SiGooglepodcasts /></a></Link>
+          <Link href='#'><a><SiSpotify /></a></Link> 
+          <Link href='#'><a><SiApplepodcasts /></a></Link> 
+          </MobileHidden>
         </Social>
         <OpenModalButton handlClick={() => handlOpenModal(true)}>
         Join the mailing list
