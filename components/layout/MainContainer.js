@@ -194,7 +194,7 @@ const overlay = {
     },
   }
 
-const MainContainer = ({preview, children, logo, navpagetitle}) => { 
+const MainContainer = ({preview, children, logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, navpagetitle}) => { 
   const [isOpen, setIsOpen] = useState(false);
     return (
         <Fragment>
@@ -304,7 +304,17 @@ const MainContainer = ({preview, children, logo, navpagetitle}) => {
 
             <Main exit={{opacity: 0}} initial='initial' animate='animate'>{children}</Main>
             <Space/>
-            <Footer/>
+            <Footer
+              facebook={facebook}
+              twitter={twitter}
+              linkedin={linkedin}
+              youtube={youtube}
+              googlepodcast={googlepodcast}
+              applepodcast={applepodcast} 
+              spotify={spotify} 
+              tiktok={tiktok} 
+              amazonmusic={amazonmusic}
+            />
             <CookieConsent
             location="bottom"
             buttonText="Ok, I like cookies."

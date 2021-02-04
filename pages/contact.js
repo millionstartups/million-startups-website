@@ -17,7 +17,17 @@ const contactQuery = groq`*[_type == "contact"][0]{
 }`
 
 const siteContactQuery = groq`*[_type == "siteConfig"][0]{
-  logo
+  'siteTitle':title,
+  logo,
+  facebook, 
+  twitter, 
+  linkedin, 
+  youtube,
+  googlepodcast, 
+  applepodcast, 
+  spotify, 
+  tiktok, 
+  amazonmusic
 }`
 
 
@@ -31,7 +41,7 @@ const formSchema = Yup.object().shape({
 
 const ContactPage = ({contact, sitecontact}) => {
   const {image} = contact
-  const { logo } = sitecontact
+  const { logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic } = sitecontact
   const [serverState, setServerState] = useState();
   const handleServerResponse = (ok, msg) => {
     setServerState({ok, msg});
@@ -57,7 +67,19 @@ const ContactPage = ({contact, sitecontact}) => {
         <Head>
         <title>Contact - Million Startups Podcast</title>
         </Head>
-        <MainContainer logo={logo} navpagetitle='Contact us'>
+        <MainContainer 
+          logo={logo} 
+          navpagetitle='Contact us'
+          facebook={facebook}
+          twitter={twitter}
+          youtube={youtube}
+          linkedin={linkedin}
+          googlepodcast={googlepodcast}
+          applepodcast={applepodcast} 
+          spotify={spotify} 
+          tiktok={tiktok} 
+          amazonmusic={amazonmusic}
+        >
           <Flex>
           <Container30>
            <ImageContainer>

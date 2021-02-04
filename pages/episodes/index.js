@@ -21,7 +21,16 @@ margin: 2rem 0;
 `
 
 const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
-  logo
+  logo,
+  facebook, 
+   twitter, 
+   linkedin, 
+   youtube,
+   googlepodcast, 
+   applepodcast, 
+   spotify, 
+   tiktok, 
+   amazonmusic
 }`
 
 
@@ -63,7 +72,7 @@ const animatedicons = {
 
 
 const EpisodesPage = ({siteepisode, allEpisodes, preview}) => {
-  const {logo} = siteepisode
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = siteepisode
   const homeEpisode = allEpisodes[0]
   const episode = homeEpisode
   const {title, episodeNumber, image, description} = episode
@@ -72,7 +81,19 @@ const EpisodesPage = ({siteepisode, allEpisodes, preview}) => {
         <Head>
         <title>Episodes - Million Startups</title>
         </Head>
-        <MainContainer navpagetitle='Episodes' logo={logo}>
+        <MainContainer 
+          navpagetitle='Episodes' 
+          logo={logo}
+          facebook={facebook}
+          twitter={twitter}
+          youtube={youtube}
+          linkedin={linkedin}
+          googlepodcast={googlepodcast}
+          applepodcast={applepodcast} 
+          spotify={spotify} 
+          tiktok={tiktok} 
+          amazonmusic={amazonmusic}
+        >
         <Flex>
         <AnimatePresence>
          <Card variants={animatedcard}

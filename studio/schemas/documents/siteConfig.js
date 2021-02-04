@@ -50,13 +50,13 @@ export default {
       description: 'URL to the website YouTube page'
     },
     {
-      name: 'Twitter',
+      name: 'twitter',
       type: 'url',
       title: 'Twitter',
       description: 'URL to the website Twitter page'
     },
     {
-      name: 'ticktok',
+      name: 'tiktok',
       type: 'url',
       title: 'TikTok',
       description: 'URL to the website TikTok page'

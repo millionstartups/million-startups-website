@@ -11,7 +11,16 @@ import MainContainer from '../../components/layout/MainContainer'
 
 const siteBlogQuery = groq`*[_type == "siteConfig"][0]{
   'siteTitle':title,
-  logo
+  logo,
+  facebook, 
+  twitter, 
+  linkedin, 
+  youtube, 
+  googlepodcast, 
+  applepodcast, 
+  spotify, 
+  tiktok, 
+  amazonmusic
 }`
 
 
@@ -19,10 +28,23 @@ export default function Index({ siteblog, allPosts, preview }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)//1,4
   const TablePosts = allPosts
-  const { logo } = siteblog
+  const { logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic } = siteblog
   return (
     <>
-      <MainContainer logo={logo} navpagetitle='Blog' preview={preview}>
+      <MainContainer 
+        logo={logo} 
+        navpagetitle='Blog' 
+        preview={preview}
+        facebook={facebook}
+        twitter={twitter}
+        youtube={youtube}
+        linkedin={linkedin}
+        googlepodcast={googlepodcast}
+        applepodcast={applepodcast} 
+        spotify={spotify} 
+        tiktok={tiktok} 
+        amazonmusic={amazonmusic} 
+      >
         <Head>
           <title>Blog - The Million Startups</title>
         </Head>

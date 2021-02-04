@@ -1,7 +1,6 @@
 import styled from 'styled-components'
-import {FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaSpotify } from 'react-icons/fa'
-import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
-import Link from 'next/link'
+import {FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaAmazon, FaYoutube } from 'react-icons/fa'
+import {SiGooglepodcasts, SiSpotify, SiApplepodcasts, SiTiktok} from 'react-icons/si'
 import { useState } from 'react'
 import Modal from "../ui/Modal";
 import OpenModalButton from "../ui/OpenModalButton";
@@ -25,8 +24,14 @@ padding-top: 1rem;
 
 const Social= styled.div`
 display: flex;
+@media (max-width: 705px) {
+         max-width: 250px;
+       }
+@media (max-width: 305px) {
+      max-width: 160px;
+      }
 justify-content: space-evenly;
-
+flex-wrap: wrap;
 a{
     color: white;
     font-size: 2.5rem;
@@ -34,25 +39,10 @@ a{
   &:hover {
     color: dodgerblue;
     transform: scale(1.07);
-  }
-  
+  } 
 }
 `
-
-const MobileHidden = styled.div`
-
-      @media (max-width: 768px) {
-          display: none;
-       }
-`
-const MobileShow = styled.div`
-
-      @media (min-width: 768px) {
-          display: flex;
-       }
-`
-
-const Footer = () => {
+const Footer = ({facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic }) => {
     const [isModal, toggle] = useState(false);
 
     function handlOpenModal(open) {
@@ -65,14 +55,16 @@ const Footer = () => {
         <FooterSection>
         <Wrapper>
         <Social>
-          <Link href='#'><a><FaFacebookSquare /></a></Link>
-          <Link href='#'><a><FaTwitterSquare /></a></Link>
-          <Link href='#'><a><FaLinkedin /></a></Link>
-          <MobileHidden>
-          <Link href='#'><a><SiGooglepodcasts /></a></Link>
-          <Link href='#'><a><SiSpotify /></a></Link> 
-          <Link href='#'><a><SiApplepodcasts /></a></Link> 
-          </MobileHidden>
+        {facebook && ( <a href={facebook}　rel="noreferrer noopener"　target="_blank"><FaFacebookSquare /></a>)}  
+        {twitter && ( <a href={twitter} rel="noreferrer noopener"　target="_blank"><FaTwitterSquare /></a> )}
+        {linkedin && ( <a href={linkedin} rel="noreferrer noopener"　target="_blank"><FaLinkedin /></a> )}
+        {youtube && ( <a href={youtube} rel="noreferrer noopener"　target="_blank"><FaYoutube /></a> )}
+        {tiktok && ( <a href={tiktok} rel="noreferrer noopener"　target="_blank"><SiTiktok /></a> )}
+          {googlepodcast && ( <a href={googlepodcast} rel="noreferrer noopener"　target="_blank"><SiGooglepodcasts /></a> )}
+          {spotify && ( <a href={spotify} rel="noreferrer noopener"　target="_blank"><SiSpotify /></a> )}
+          {applepodcast && ( <a href={applepodcast} rel="noreferrer noopener"　target="_blank"><SiApplepodcasts /></a> )}
+          {amazonmusic && ( <a href={amazonmusic} rel="noreferrer noopener"　target="_blank"><FaAmazon /></a> )}
+        
         </Social>
         <OpenModalButton handlClick={() => handlOpenModal(true)}>
         Join the mailing list

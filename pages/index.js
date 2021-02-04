@@ -17,18 +17,38 @@ const indexQuery = groq`*[_type == "frontpage"][0]{
 
  const siteQuery = groq`*[_type == "siteConfig"][0]{
    'siteTitle':title,
-   logo
+   logo,
+   facebook, 
+   twitter, 
+   linkedin, 
+   youtube,
+   googlepodcast, 
+   applepodcast, 
+   spotify, 
+   tiktok, 
+   amazonmusic
  }`
 
 const IndexPage = ({index, site}) => {
-    const {body, image, title, mainlogo} = index
-    const {logo} = site
+    const {body, image, title} = index
+    const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = site
     return (
         <Fragment>
         <Head>
         <title>{title}</title>
         </Head>
-        <MainContainer logo={logo}>
+        <MainContainer 
+          logo={logo}
+          facebook={facebook}
+          twitter={twitter}
+          youtube={youtube}
+          linkedin={linkedin}
+          googlepodcast={googlepodcast}
+          applepodcast={applepodcast} 
+          spotify={spotify} 
+          tiktok={tiktok} 
+          amazonmusic={amazonmusic}
+        >
           <Flex>
            <ContainerLeft60>
             <TitleHeading><div className='spacing'>million Startups</div></TitleHeading>

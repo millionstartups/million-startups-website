@@ -8,20 +8,25 @@ import MoreStories from '../../components/blog/more-stories'
 import HeroPost from '../../components/blog/hero-post'
 import Comments from '../../components/blog/comments'
 import SectionSeparator from '../../components/blog/section-separator'
-import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
+import { getAllPostsWithSlug, getPostAndMorePosts, getSiteData } from '../../lib/api'
 import PostTitle from '../../components/blog/post-title'
 import Head from 'next/head'
 import MainContainer from '../../components/layout/MainContainer'
 import Form from '../../components/blog/form'
 
 
+
 export default function Post({ post, morePosts, preview }) {
-  const router = useRouter()
+   const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-  return (
-    <MainContainer navpagetitle='Blog' preview={preview}>
+   return (
+    <MainContainer 
+     navpagetitle='Blog'
+     preview={preview} 
+  
+    >
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -57,11 +62,12 @@ export default function Post({ post, morePosts, preview }) {
   )
 }
 
-export async function getStaticProps({ params, preview = false }) {
-  const data = await getPostAndMorePosts(params.slug, preview)
+export async function getStaticProps({ params }) {
+  const siteblogslug = await getSiteData(params.slug)
+  const data = await getPostAndMorePosts(params.slug)
   return {
     props: {
-      preview,
+      sitedata: siteblogslug?.sitedata || null,
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },

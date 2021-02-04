@@ -130,7 +130,7 @@ export const FormWrapper = styled.div`
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 100%;
+    width: 85%;
     border: none;
     border-radius: 0;
     border-bottom: 1px solid white;
@@ -152,7 +152,7 @@ export const FormWrapper = styled.div`
     font-size: 18px;
     padding: 10px 10px 10px 5px;
     display: block;
-    width: 100%;
+    width: 85%;
     border: none;
     resize: none;
     border-radius: 0;
@@ -210,8 +210,8 @@ export const FormWrapper = styled.div`
 .errorMsg {
   color: rgba(255,99,71,.7);
   position: absolute;
-  top: 14px;
-  left: 4px;
+  top: -18px;
+  left: 75px;
   z-index: -1;
 
 }

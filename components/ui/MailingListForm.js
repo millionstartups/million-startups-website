@@ -107,8 +107,8 @@ export const MailFormWrapper = styled.div`
 .errorMsg {
   color: rgba(255,99,71,.7);
   position: absolute;
-  top: 14px;
-  left: 4px;
+  top: -18px;
+  left: 75px;
   z-index: -1;
 }
 `
