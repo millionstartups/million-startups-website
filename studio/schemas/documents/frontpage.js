@@ -29,19 +29,7 @@ export default {
         title: "Image",
         description: "SVGs are best for fast page loads.",
         name: "image",
-        type: "image",
-        options: { hotspot: true, lqip: true, },
-        fields: [
-          {
-            name: "alt",
-            type: "string",
-            title: "Alternative text",
-            description: "Important for SEO and accessiblity.",
-            options: {
-              isHighlighted: true,
-            },
-          },
-        ],
+        type: "mainImage",
       },
       {
         name: 'seo',

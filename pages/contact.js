@@ -1,4 +1,7 @@
 import { useState } from 'react'
+import { QueryClient, useQuery } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
+import { getSiteData } from '../lib/api'
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup";    
@@ -16,19 +19,6 @@ const contactQuery = groq`*[_type == "contact"][0]{
   image
 }`
 
-const siteContactQuery = groq`*[_type == "siteConfig"][0]{
-  'siteTitle':title,
-  logo,
-  facebook, 
-  twitter, 
-  linkedin, 
-  youtube,
-  googlepodcast, 
-  applepodcast, 
-  spotify, 
-  tiktok, 
-  amazonmusic
-}`
 
 
 const formSchema = Yup.object().shape({
@@ -39,9 +29,8 @@ const formSchema = Yup.object().shape({
   message: Yup.string().required("Required")
 });
 
-const ContactPage = ({contact, sitecontact}) => {
+const ContactPage = ({contact}) => {
   const {image} = contact
-  const { logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic } = sitecontact
   const [serverState, setServerState] = useState();
   const handleServerResponse = (ok, msg) => {
     setServerState({ok, msg});
@@ -68,17 +57,7 @@ const ContactPage = ({contact, sitecontact}) => {
         <title>Contact - Million Startups Podcast</title>
         </Head>
         <MainContainer 
-          logo={logo} 
           navpagetitle='Contact us'
-          facebook={facebook}
-          twitter={twitter}
-          youtube={youtube}
-          linkedin={linkedin}
-          googlepodcast={googlepodcast}
-          applepodcast={applepodcast} 
-          spotify={spotify} 
-          tiktok={tiktok} 
-          amazonmusic={amazonmusic}
         >
           <Flex>
           <Container30>
@@ -149,12 +128,13 @@ const ContactPage = ({contact, sitecontact}) => {
 export default ContactPage
 
 export async function getStaticProps() {
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('site', getSiteData)
   const contact = await getClient().fetch(contactQuery);
-  const sitecontact = await getClient().fetch(siteContactQuery);
   return {
       props: {
           contact: contact,
-          sitecontact: sitecontact,
+          dehydratedState: dehydrate(queryClient),
       },
       revalidate: 1,
    }

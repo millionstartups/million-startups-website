@@ -1,7 +1,7 @@
 {
   "root": true,
   "api": {
-    "projectId": "PLACEHOLDER_ENV_VARIABLES_WILL_HANDLE_FOR_US",
+    "projectId": "fml2iyjg",
     "dataset": "production"
   },
   "project": {

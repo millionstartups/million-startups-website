@@ -17,19 +17,7 @@ export default {
       title: "Small Brand Logo",
       description: "Best choice is to use an SVG where the color are set with currentColor",
       name: "logo",
-      type: "image",
-      options: { hotspot: true, lqip: true },
-      fields: [ 
-        {
-          name: "alt",
-          type: "string",
-          title: "Alternative text",
-          description: "Important for SEO and accessiblity.",
-          options: {
-            isHighlighted: true,
-          },
-        },
-      ],
+      type: "mainImage",
     },
     {
       name: 'linkedin',

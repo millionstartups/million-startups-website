@@ -7,7 +7,10 @@ import MainContainer from '../../components/layout/MainContainer'
 import { groq } from 'next-sanity'
 import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
-import { getClient, imageBuilder } from '../../lib/sanity'
+import { QueryClient } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
+import { getSiteData } from '../../lib/api'
+import { imageBuilder } from '../../lib/sanity'
 import { getAllEpisodesForHome } from '../../lib/api'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
@@ -71,8 +74,7 @@ const animatedicons = {
 }
 
 
-const EpisodesPage = ({siteepisode, allEpisodes, preview}) => {
-  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = siteepisode
+const EpisodesPage = ({ allEpisodes, preview}) => {
   const homeEpisode = allEpisodes[0]
   const episode = homeEpisode
   const {title, episodeNumber, image, description} = episode
@@ -83,16 +85,7 @@ const EpisodesPage = ({siteepisode, allEpisodes, preview}) => {
         </Head>
         <MainContainer 
           navpagetitle='Episodes' 
-          logo={logo}
-          facebook={facebook}
-          twitter={twitter}
-          youtube={youtube}
-          linkedin={linkedin}
-          googlepodcast={googlepodcast}
-          applepodcast={applepodcast} 
-          spotify={spotify} 
-          tiktok={tiktok} 
-          amazonmusic={amazonmusic}
+          
         >
         <Flex>
         <AnimatePresence>
@@ -140,10 +133,13 @@ const EpisodesPage = ({siteepisode, allEpisodes, preview}) => {
 export default EpisodesPage
 
 export async function getStaticProps({ preview = false }) {
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('site', getSiteData)
   const allEpisodes = await getAllEpisodesForHome(preview)
-  const siteepisode = await getClient().fetch(siteEpisodeQuery);
+  
   return {
-    props: { allEpisodes, siteepisode, preview },
+    props: { allEpisodes, preview, dehydratedState: dehydrate(queryClient) },
+    
     revalidate: 1
    }
 }

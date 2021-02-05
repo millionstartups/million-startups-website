@@ -1,4 +1,8 @@
 import { groq } from 'next-sanity'
+
+import { QueryClient } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
+import { getSiteData } from '../lib/api'
 import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../lib/sanity'
@@ -15,39 +19,17 @@ const indexQuery = groq`*[_type == "frontpage"][0]{
    mainlogo
  }`
 
- const siteQuery = groq`*[_type == "siteConfig"][0]{
-   'siteTitle':title,
-   logo,
-   facebook, 
-   twitter, 
-   linkedin, 
-   youtube,
-   googlepodcast, 
-   applepodcast, 
-   spotify, 
-   tiktok, 
-   amazonmusic
- }`
 
-const IndexPage = ({index, site}) => {
+
+const IndexPage = ({index}) => {
     const {body, image, title} = index
-    const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = site
     return (
         <Fragment>
         <Head>
         <title>{title}</title>
         </Head>
         <MainContainer 
-          logo={logo}
-          facebook={facebook}
-          twitter={twitter}
-          youtube={youtube}
-          linkedin={linkedin}
-          googlepodcast={googlepodcast}
-          applepodcast={applepodcast} 
-          spotify={spotify} 
-          tiktok={tiktok} 
-          amazonmusic={amazonmusic}
+
         >
           <Flex>
            <ContainerLeft60>
@@ -82,12 +64,13 @@ export default IndexPage
 
 
 export async function getStaticProps() {
+  const queryClient = new QueryClient()
+   await queryClient.prefetchQuery('site', getSiteData)
   const index = await getClient().fetch(indexQuery);
-  const site = await getClient().fetch(siteQuery);
   return {
       props: {
           index: index,
-          site: site,
+          dehydratedState: dehydrate(queryClient),
       },
       revalidate: 1,
    }

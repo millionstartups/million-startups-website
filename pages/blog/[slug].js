@@ -8,6 +8,8 @@ import MoreStories from '../../components/blog/more-stories'
 import HeroPost from '../../components/blog/hero-post'
 import Comments from '../../components/blog/comments'
 import SectionSeparator from '../../components/blog/section-separator'
+import { QueryClient } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
 import { getAllPostsWithSlug, getPostAndMorePosts, getSiteData } from '../../lib/api'
 import PostTitle from '../../components/blog/post-title'
 import Head from 'next/head'
@@ -63,11 +65,12 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  const siteblogslug = await getSiteData(params.slug)
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('site', getSiteData)
   const data = await getPostAndMorePosts(params.slug)
   return {
     props: {
-      sitedata: siteblogslug?.sitedata || null,
+      dehydratedState: dehydrate(queryClient),
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },

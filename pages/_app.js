@@ -1,7 +1,11 @@
 
 import NextApp from 'next/app'
 import {AnimatePresence} from 'framer-motion'
-import styled, { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { Hydrate } from 'react-query/hydration'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+
 const GlobalStyle = createGlobalStyle`
   * {
     margin: 0;
@@ -35,15 +39,23 @@ const theme = {
   },
 }
 
+
+
+const queryClient = new QueryClient()
 export default class App extends NextApp {
   render() {
     const { Component, pageProps, router } = this.props;
     return (
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
+        <QueryClientProvider client={queryClient}>
+         <Hydrate state={pageProps.dehydratedState}>
               <AnimatePresence exitBeforeEnter>
-              <Component {...pageProps} key={router.route} />
+                  <Component {...pageProps} key={router.route} />
               </AnimatePresence>
+              </Hydrate>
+              <ReactQueryDevtools initialIsOpen={false} />
+           </QueryClientProvider>
         </ThemeProvider>
     );
   }

@@ -7,6 +7,7 @@ import schemaTypes from 'all:part:@sanity/base/schema-type'
 // We import object schemas
 import blockContent from './objects/blockContent'
 import videoEmbed from './objects/videoEmbed'
+import mainImage from './objects/mainImage'
 
 // We import document schemas
 import episode from './documents/episode'
@@ -28,6 +29,7 @@ export default createSchema({
     // The following are document types which will appear
     // in the studio.
     siteConfig,
+    comment,
     frontpage,
     contact,
     post,
@@ -38,6 +40,6 @@ export default createSchema({
     // { type: 'typename' } in other document schemas
     blockContent,
     videoEmbed,
-    comment
+    mainImage,
   ])
 })

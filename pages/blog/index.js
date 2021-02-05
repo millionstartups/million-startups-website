@@ -1,49 +1,23 @@
 import Container from '../../components/blog/container'
 import MoreStories from '../../components/blog/more-stories'
-import {Flex} from '../../components/layout/pageStyles'
 import HeroPost from '../../components/blog/hero-post'
-import { groq } from 'next-sanity'
-import Image from 'next/image'
-import { getClient, imageBuilder } from '../../lib/sanity'
+import { QueryClient } from 'react-query'
+import { dehydrate } from 'react-query/hydration'
+import { getSiteData } from '../../lib/api'
 import { getAllPostsForHome } from '../../lib/api'
 import Head from 'next/head'
 import MainContainer from '../../components/layout/MainContainer'
 
-const siteBlogQuery = groq`*[_type == "siteConfig"][0]{
-  'siteTitle':title,
-  logo,
-  facebook, 
-  twitter, 
-  linkedin, 
-  youtube, 
-  googlepodcast, 
-  applepodcast, 
-  spotify, 
-  tiktok, 
-  amazonmusic
-}`
 
 
-export default function Index({ siteblog, allPosts, preview }) {
+export default function Index({ allPosts, preview }) {
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1)//1,4
   const TablePosts = allPosts
-  const { logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic } = siteblog
   return (
     <>
       <MainContainer 
-        logo={logo} 
         navpagetitle='Blog' 
-        preview={preview}
-        facebook={facebook}
-        twitter={twitter}
-        youtube={youtube}
-        linkedin={linkedin}
-        googlepodcast={googlepodcast}
-        applepodcast={applepodcast} 
-        spotify={spotify} 
-        tiktok={tiktok} 
-        amazonmusic={amazonmusic} 
       >
         <Head>
           <title>Blog - The Million Startups</title>
@@ -68,10 +42,12 @@ export default function Index({ siteblog, allPosts, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
+  const queryClient = new QueryClient()
+  await queryClient.prefetchQuery('site', getSiteData)
   const allPosts = await getAllPostsForHome(preview)
-  const siteblog = await getClient().fetch(siteBlogQuery);
+  
   return {
-    props: { allPosts, siteblog, preview },
+    props: { allPosts, preview, dehydratedState: dehydrate(queryClient) },
     revalidate: 1
   }
 }

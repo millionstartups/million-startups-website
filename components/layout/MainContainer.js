@@ -1,4 +1,6 @@
 import {Fragment, useState} from 'react'
+import {useQuery} from 'react-query'
+import { getSiteData } from '../../lib/api'
 import CookieConsent from "react-cookie-consent";
 import {GA_TRACKING_ID} from '../../lib/gtag'
 import NextHead from 'next/head'
@@ -194,7 +196,9 @@ const overlay = {
     },
   }
 
-const MainContainer = ({preview, children, logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, navpagetitle}) => { 
+const MainContainer = ({preview, children, navpagetitle }) => { 
+  const site = useQuery('site', getSiteData)
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = site.data
   const [isOpen, setIsOpen] = useState(false);
     return (
         <Fragment>
