@@ -1,5 +1,4 @@
 import { groq } from 'next-sanity'
-
 import { QueryClient } from 'react-query'
 import { dehydrate } from 'react-query/hydration'
 import { getSiteData } from '../lib/api'
