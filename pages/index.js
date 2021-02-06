@@ -64,7 +64,7 @@ export default IndexPage
 
 export async function getStaticProps() {
   const queryClient = new QueryClient()
-   await queryClient.prefetchQuery('site', getSiteData)
+   await queryClient.prefetchQuery('site', getSiteData, {staleTime: 10000, cacheTime: Infinity, refetchOnReconnect: "always"})
   const index = await getClient().fetch(indexQuery);
   return {
       props: {
