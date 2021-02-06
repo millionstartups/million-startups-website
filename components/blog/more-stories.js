@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Flex } from '../layout/pageStyles'
 
 const Grid = styled.div`
-width: 95%;
+width: 85%;
 display: grid;
 grid-template-columns: repeat(1, minmax(0, 1fr));
 row-gap: 5rem;
