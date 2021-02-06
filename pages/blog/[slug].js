@@ -67,7 +67,7 @@ export default function Post({ post, morePosts, preview }) {
 export async function getStaticProps({ params }) {
   const queryClient = new QueryClient()
   await queryClient.prefetchQuery('site', getSiteData, 
-  {cacheTime: 5000, staleTime: 10000, refetchOnMount: 'always', retry: 'always'}
+  {cacheTime: 500000, staleTime: 1000000, refetchOnMount: 'always', retry: 'always'}
   )
   const data = await getPostAndMorePosts(params.slug)
   return {

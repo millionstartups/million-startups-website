@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import Container from '../../components/blog/container'
 import MoreStories from '../../components/blog/more-stories'
 import HeroPost from '../../components/blog/hero-post'
@@ -44,7 +45,7 @@ export default function Index({ allPosts, preview }) {
 export async function getStaticProps({ preview = false }) {
   const queryClient = new QueryClient()
   await queryClient.prefetchQuery('site', getSiteData, 
-  {cacheTime: 5000, staleTime: 10000, refetchOnMount: 'always', retry: 'always'}
+  {cacheTime: 500000, staleTime: 1000000, refetchOnMount: 'always', retry: 'always'}
   )
   const allPosts = await getAllPostsForHome(preview)
   
