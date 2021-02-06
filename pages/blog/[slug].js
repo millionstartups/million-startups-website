@@ -8,8 +8,6 @@ import MoreStories from '../../components/blog/more-stories'
 import HeroPostSlug from '../../components/blog/hero-post-slug'
 import Comments from '../../components/blog/comments'
 import SectionSeparator from '../../components/blog/section-separator'
-import { QueryClient } from 'react-query'
-import { dehydrate } from 'react-query/hydration'
 import { getAllPostsWithSlug, getPostAndMorePosts, getSiteData } from '../../lib/api'
 import PostTitle from '../../components/blog/post-title'
 import Head from 'next/head'
@@ -23,11 +21,11 @@ export default function Post({ post, morePosts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+  
    return (
     <MainContainer 
      navpagetitle='Blog'
      preview={preview} 
-  
     >
       <Container>
         {router.isFallback ? (
@@ -65,14 +63,9 @@ export default function Post({ post, morePosts, preview }) {
 }
 
 export async function getStaticProps({ params }) {
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData, 
-  {cacheTime: 500000, staleTime: 1000000, refetchOnMount: 'always', retry: 'always'}
-  )
   const data = await getPostAndMorePosts(params.slug)
   return {
     props: {
-      dehydratedState: dehydrate(queryClient),
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },

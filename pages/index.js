@@ -20,15 +20,25 @@ const indexQuery = groq`*[_type == "frontpage"][0]{
 
 
 
-const IndexPage = ({index}) => {
+const IndexPage = ({index, site}) => {
     const {body, image, title} = index
+    const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
     return (
         <Fragment>
         <Head>
         <title>{title}</title>
         </Head>
         <MainContainer 
-
+          logo={logo}
+          facebook={facebook} 
+          twitter={twitter}
+          linkedin={linkedin}
+          youtube={youtube} 
+          googlepodcast={googlepodcast} 
+          applepodcast={applepodcast} 
+          spotify={spotify}  
+          tiktok={tiktok}  
+          amazonmusic={amazonmusic}
         >
           <Flex>
            <ContainerLeft60>
@@ -63,15 +73,12 @@ export default IndexPage
 
 
 export async function getStaticProps() {
-  const queryClient = new QueryClient()
-   await queryClient.prefetchQuery('site', getSiteData, 
-   {cacheTime: 500000, staleTime: 1000000,  refetchOnMount: 'always', retry: 'always'}
-   )
+  const site = await getSiteData() 
   const index = await getClient().fetch(indexQuery);
   return {
       props: {
           index: index,
-          dehydratedState: dehydrate(queryClient),
+          site: site,
       },
       revalidate: 1,
    }

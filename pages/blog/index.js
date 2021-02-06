@@ -11,14 +11,25 @@ import MainContainer from '../../components/layout/MainContainer'
 
 
 
-export default function Index({ allPosts, preview }) {
+export default function Index({ site, allPosts, preview }) {
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
   const heroPost = allPosts[0]
-  const morePosts = allPosts.slice(1)//1,4
+  const morePosts = allPosts.slice(1,4)
   const TablePosts = allPosts
   return (
     <>
       <MainContainer 
         navpagetitle='Blog' 
+        logo={logo}
+        facebook={facebook} 
+        twitter={twitter}
+        linkedin={linkedin}
+        youtube={youtube} 
+        googlepodcast={googlepodcast} 
+        applepodcast={applepodcast} 
+        spotify={spotify}  
+        tiktok={tiktok}  
+        amazonmusic={amazonmusic}
       >
         <Head>
           <title>Blog - The Million Startups</title>
@@ -43,14 +54,11 @@ export default function Index({ allPosts, preview }) {
 }
 
 export async function getStaticProps({ preview = false }) {
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData, 
-  {cacheTime: 500000, staleTime: 1000000, refetchOnMount: 'always', retry: 'always'}
-  )
+  const site = await getSiteData()
   const allPosts = await getAllPostsForHome(preview)
   
   return {
-    props: { allPosts, preview, dehydratedState: dehydrate(queryClient) },
+    props: { allPosts, preview, site },
     revalidate: 1
   }
 }

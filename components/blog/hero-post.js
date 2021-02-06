@@ -93,7 +93,7 @@ export default function HeroPost({
         
       </div>
       <div className='margin'>
-      <CoverImage slug={slug} imageObject={coverImage} title={title} url={coverImage} />
+      <CoverImage slug={slug} imageObject={coverImage} width={410} height={380} title={title} url={coverImage} />
     </div>
     </Section>
   )

@@ -196,10 +196,8 @@ const overlay = {
     },
   }
 
-const MainContainer = ({preview, children, navpagetitle }) => { 
-  const site =  useQuery('site', getSiteData, {cacheTime: 5000, staleTime: 1000000, retry: 'always', refetchOnMount: 'always'})
-  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = site.data
-  const [isOpen, setIsOpen] = useState(false);
+  const MainContainer = ({preview, children, logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, navpagetitle}) => { 
+   const [isOpen, setIsOpen] = useState(false);
     return (
         <Fragment>
         <NextHead>

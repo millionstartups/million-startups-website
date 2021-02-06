@@ -74,9 +74,10 @@ const animatedicons = {
 }
 
 
-const EpisodesPage = ({ allEpisodes, preview}) => {
+const EpisodesPage = ({ allEpisodes, site, preview}) => {
   const homeEpisode = allEpisodes[0]
   const episode = homeEpisode
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
   const {title, episodeNumber, image, description} = episode
     return (
         <Fragment>
@@ -85,7 +86,17 @@ const EpisodesPage = ({ allEpisodes, preview}) => {
         </Head>
         <MainContainer 
           navpagetitle='Episodes' 
-          
+          logo={logo}
+          facebook={facebook} 
+          twitter={twitter}
+          linkedin={linkedin}
+          youtube={youtube} 
+          googlepodcast={googlepodcast} 
+          applepodcast={applepodcast} 
+          spotify={spotify}  
+          tiktok={tiktok}  
+          amazonmusic={amazonmusic}
+
         >
         <Flex>
         <AnimatePresence>
@@ -133,14 +144,11 @@ const EpisodesPage = ({ allEpisodes, preview}) => {
 export default EpisodesPage
 
 export async function getStaticProps({ preview = false }) {
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData,
-  {cacheTime: 500000, staleTime: 1000000,  refetchOnMount: 'always', retry: 'always'}
-  )
+  const site = await getSiteData()
   const allEpisodes = await getAllEpisodesForHome(preview)
   
   return {
-    props: { allEpisodes, preview, dehydratedState: dehydrate(queryClient) },
+    props: { allEpisodes, preview, site },
     
     revalidate: 1
    }

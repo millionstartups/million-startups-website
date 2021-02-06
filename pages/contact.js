@@ -1,6 +1,4 @@
 import { useState } from 'react'
-import { QueryClient, useQuery } from 'react-query'
-import { dehydrate } from 'react-query/hydration'
 import { getSiteData } from '../lib/api'
 import axios from "axios";
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -29,7 +27,7 @@ const formSchema = Yup.object().shape({
   message: Yup.string().required("Required")
 });
 
-const ContactPage = ({contact}) => {
+const ContactPage = ({contact, site}) => {
   const {image} = contact
   const [serverState, setServerState] = useState();
   const handleServerResponse = (ok, msg) => {
@@ -51,6 +49,7 @@ const ContactPage = ({contact}) => {
         handleServerResponse(false, error.response.data.error);
       });
   };
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
     return (
         <Fragment>
         <Head>
@@ -58,6 +57,16 @@ const ContactPage = ({contact}) => {
         </Head>
         <MainContainer 
           navpagetitle='Contact us'
+          logo={logo}
+          facebook={facebook} 
+          twitter={twitter}
+          linkedin={linkedin}
+          youtube={youtube} 
+          googlepodcast={googlepodcast} 
+          applepodcast={applepodcast} 
+          spotify={spotify}  
+          tiktok={tiktok}  
+          amazonmusic={amazonmusic}
         >
           <Flex>
           <Container30>
@@ -128,15 +137,12 @@ const ContactPage = ({contact}) => {
 export default ContactPage
 
 export async function getStaticProps() {
-  const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData, 
-  {cacheTime: 500000, staleTime: 1000000,  refetchOnMount: 'always', retry: 'always'}
-  )
+  const site = await getSiteData()
   const contact = await getClient().fetch(contactQuery);
   return {
       props: {
           contact: contact,
-          dehydratedState: dehydrate(queryClient),
+          site: site,
       },
       revalidate: 1,
    }

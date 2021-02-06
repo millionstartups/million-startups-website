@@ -6,6 +6,8 @@ import {imageBuilder} from '../../lib/sanity'
 export default function PostPreview({
   title,
   coverImage,
+  width,
+  height,
   date,
   excerpt,
   author,
@@ -14,7 +16,7 @@ export default function PostPreview({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} imageObject={coverImage} url={imageBuilder(coverImage).url()} />
+        <CoverImage slug={slug} title={title} imageObject={coverImage} width={width} height={height} url={imageBuilder(coverImage).url()} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug">
         <Link as={`/blog/${slug}`} href="/blog/[slug]">
