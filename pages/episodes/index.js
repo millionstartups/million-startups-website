@@ -134,7 +134,9 @@ export default EpisodesPage
 
 export async function getStaticProps({ preview = false }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData, {cacheTime: 5000, staleTime: 10000})
+  await queryClient.prefetchQuery('site', getSiteData,
+  {cacheTime: 5000, staleTime: 10000, refetchOnMount: 'always', retry: 'always'}
+  )
   const allEpisodes = await getAllEpisodesForHome(preview)
   
   return {
