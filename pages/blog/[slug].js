@@ -5,7 +5,7 @@ import {Flex} from '../../components/layout/pageStyles'
 import Container from '../../components/blog/container'
 import PostBody from '../../components/blog/post-body'
 import MoreStories from '../../components/blog/more-stories'
-import HeroPost from '../../components/blog/hero-post'
+import HeroPostSlug from '../../components/blog/hero-post-slug'
 import Comments from '../../components/blog/comments'
 import SectionSeparator from '../../components/blog/section-separator'
 import { QueryClient } from 'react-query'
@@ -43,7 +43,7 @@ export default function Post({ post, morePosts, preview }) {
               </Head>
               <Flex>
         
-              <HeroPost
+              <HeroPostSlug
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
@@ -66,7 +66,7 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData, { cacheTime: Infinity, refetchOnReconnect: "always"})
+  await queryClient.prefetchQuery('site', getSiteData, {cacheTime: 5000, staleTime: 10000})
   const data = await getPostAndMorePosts(params.slug)
   return {
     props: {

@@ -43,7 +43,7 @@ export default function Index({ allPosts, preview }) {
 
 export async function getStaticProps({ preview = false }) {
   const queryClient = new QueryClient()
-  await queryClient.prefetchQuery('site', getSiteData, { cacheTime: Infinity, refetchOnReconnect: "always"})
+  await queryClient.prefetchQuery('site', getSiteData, {cacheTime: 5000, staleTime: 10000})
   const allPosts = await getAllPostsForHome(preview)
   
   return {

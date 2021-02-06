@@ -1,6 +1,8 @@
+import React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import { ServerStyleSheet } from 'styled-components'
-export default class PCDocument extends Document {
+
+export default class MsDocument extends Document {
   static async getInitialProps(ctx) {
     const sheet = new ServerStyleSheet()
     const originalRenderPage = ctx.renderPage
@@ -13,6 +15,7 @@ export default class PCDocument extends Document {
         })
 
       const initialProps = await Document.getInitialProps(ctx)
+
       return {
         ...initialProps,
         styles: (
@@ -26,15 +29,16 @@ export default class PCDocument extends Document {
       sheet.seal()
     }
   }
-render() {
-  return (
-    <Html lang="en">
-     <Head/>
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
- }
+
+  render() {
+    return (
+      <Html>
+        <Head />
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    )
+  }
 }

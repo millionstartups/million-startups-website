@@ -197,7 +197,7 @@ const overlay = {
   }
 
 const MainContainer = ({preview, children, navpagetitle }) => { 
-  const site =  useQuery('site', getSiteData, { refetchOnReconnect: "always", cacheTime: 1000})
+  const site =  useQuery('site', getSiteData, {cacheTime: 5000, staleTime: 10000})
   const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic} = site.data
   const [isOpen, setIsOpen] = useState(false);
     return (
