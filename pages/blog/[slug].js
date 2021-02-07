@@ -64,9 +64,11 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const data = await getPostAndMorePosts(params.slug)
+  const sitedata = await getSiteData(params.slug)
+  const dataAndSite = { ...data, ...sitedata }
   return {
     props: {
-      post: data?.post || null,
+      post: dataAndSite?.post || null,
       morePosts: data?.morePosts || null,
     },
     revalidate: 1
