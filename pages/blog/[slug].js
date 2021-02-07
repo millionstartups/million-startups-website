@@ -1,4 +1,4 @@
-import {Fragment} from 'react'
+import {Fragment, createContext} from 'react'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
 import {Flex} from '../../components/layout/pageStyles'
@@ -21,7 +21,9 @@ export default function Post({ post, site, morePosts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
+  const MsSite = createContext(site)
    return (
+    <MsSite.Provider value={MsSite} >
     <MainContainer 
      navpagetitle='Blog'
      preview={preview}
@@ -36,6 +38,7 @@ export default function Post({ post, site, morePosts, preview }) {
      tiktok={site.tiktok}  
      amazonmusic={site.amazonmusic}
     >
+    {console.log(MsSite)}
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
@@ -68,6 +71,7 @@ export default function Post({ post, site, morePosts, preview }) {
         )}
       </Container>
     </MainContainer>
+    </MsSite.Provider>
   )
 }
 
