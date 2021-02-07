@@ -32,9 +32,11 @@ flex-direction: column;
 export const Container30 = styled.div`
 box-sizing: border-box;
 width: 30%;
+min-height: 200px;
 display: flex;
 justify-content: center;
 align-items: center;
+flex-direction: column-reverse;
 @media (min-width: 768px) {
     width: 100%;
   }
@@ -225,4 +227,10 @@ margin-right: 1rem;}
 `
 export const Grid = styled.div`
 display: grid;
+`
+
+export const Content = styled.div`
+max-width: 60rem;
+margin-left: auto;
+margin-right: auto;
 `

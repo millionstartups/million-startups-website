@@ -1,34 +1,42 @@
 import PostPreview from './post-preview'
 import styled from 'styled-components'
-import { Flex } from '../layout/pageStyles'
+import { Flex, Content } from '../layout/pageStyles'
 
 const Grid = styled.div`
-width: 85%;
+width: 75%;
 display: grid;
 grid-template-columns: repeat(1, minmax(0, 1fr));
 row-gap: 5rem;
 margin-bottom: 4rem;
+margin-left: auto;
+margin-right: auto;
 @media (min-width: 768px) { 
-  width: 55%;
+  width: 60%;
   grid-template-columns: repeat(1, minmax(0, 1fr));
   column-gap: 8rem;
   row-gap: 8rem;
+  margin-right: 3rem;
  } //md
 
 @media (min-width: 1024px) {
-  width: 75%; 
+  width: 85%; 
   grid-template-columns: repeat(3, minmax(0, 1fr));
   column-gap: 4rem;
+  margin-left: 2rem;
   }//lg
+`
+
+const StoryHeading = styled.h2`
+margin: 2rem 0;
 `
 
 export default function MoreStories({ posts }) {
   return (
-    <section>
-      <h2 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+   
+    <section><Content>
+      <StoryHeading className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
         More Stories
-      </h2>
-      <Flex>
+      </StoryHeading><Flex>
       <Grid>
         {posts.map((post) => (
           <PostPreview
@@ -41,8 +49,8 @@ export default function MoreStories({ posts }) {
             excerpt={post.excerpt}
           />
         ))}
-      </Grid>
-      </Flex>
+      </Grid></Flex> </Content>
     </section>
+    
   )
 }

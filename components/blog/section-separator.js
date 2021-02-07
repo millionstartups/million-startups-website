@@ -1,3 +1,7 @@
+import {Content} from '../layout/pageStyles'
+
 export default function SectionSeparator() {
-  return <hr />
+  return (
+    <Content><hr /></Content>
+    )
 }

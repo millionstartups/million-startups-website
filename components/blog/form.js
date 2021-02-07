@@ -1,11 +1,11 @@
-import {FormWrapper} from '../layout/pageStyles'
-import { useState } from 'react'
+import {FormWrapper, Content} from '../layout/pageStyles'
+import { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup";    
 
 const Container = styled.div`
-max-width: 860px;
+max-width: 360px;
 margin-bottom: 2rem;
 align-self: center;
 `
@@ -40,7 +40,7 @@ export default function CommentForm ({_id}) {
     }
   };
   return (
-    
+    <Content>
     <FormWrapper>
       <Container>
            <Formik
@@ -49,8 +49,11 @@ export default function CommentForm ({_id}) {
            validationSchema={formSchema}
          >
            {({ isSubmitting }) => (
-             <Form id="fs-frm" noValidate>
-             
+            <Fragment>
+             {!serverState && (<Form id="fs-frm" noValidate>
+              <div className='group'>
+              <h4>Post a Comment</h4>
+              </div>
               <div className='group'>
               <Field type="hidden" name="_id" value={_id}/>
                <label className='shrink' htmlFor="name">Name</label>
@@ -69,20 +72,23 @@ export default function CommentForm ({_id}) {
                <Field id="comment" name="comment" component="textarea" />
                <ErrorMessage name="comment" className="errorMsg" component="p" />
                </div>
+            
+               <button className="custom-button" type="submit" disabled={isSubmitting}>
+                 Submit
+               </button>
+                
+             </Form>)}
                {serverState && (
                 <p className={!serverState.ok ? "errorMsg" : ""}>
                   {serverState.msg}
                 </p>
               )}
-               <button className="custom-button" type="submit" disabled={isSubmitting}>
-                 Submit
-               </button>
-               
-             </Form>
+              </Fragment>
            )}
          </Formik> 
          </Container>
          </FormWrapper>
+         </Content>
         
 )
 }

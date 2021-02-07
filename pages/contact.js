@@ -68,7 +68,7 @@ const ContactPage = ({contact, site}) => {
           tiktok={tiktok}  
           amazonmusic={amazonmusic}
         >
-          <Flex>
+          <Flex smFlexDir='column-reverse'>
           <Container30>
            <ImageContainer>
            {image && 
@@ -86,7 +86,7 @@ const ContactPage = ({contact, site}) => {
             />
               }
             </ImageContainer>
-            Fill out the form to contact us
+            
            </Container30>
            <ContainerLeft60>
            <FormWrapper>

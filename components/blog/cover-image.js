@@ -8,10 +8,10 @@ export default function CoverImage({ title, url, imageObject, slug }) {
    
     <Image
       width={410}
-      height={380}
+      height={290}
       layout='intrinsic'
       alt={`Cover Image for ${title}`}
-      src={imageBuilder(imageObject).auto('format').width(410).height(380).url()}
+      src={imageBuilder(imageObject).auto('format').fit('fillmax').width(410).height(300).url()}
     />
 
   )

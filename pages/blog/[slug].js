@@ -21,11 +21,19 @@ export default function Post({ post, morePosts, preview }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-  
+  const logo= {
+    _type: 'image',
+    alt: 'Million Startups',
+    asset: {
+    _ref: 'image-e5201d7ecbad440610b9068aba7f27c2f15d108a-180x180-svg',
+    _type: 'reference'
+   }
+  }
    return (
     <MainContainer 
      navpagetitle='Blog'
-     preview={preview} 
+     preview={preview}
+     logo={logo} 
     >
       <Container>
         {router.isFallback ? (
