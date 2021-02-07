@@ -16,24 +16,25 @@ import Form from '../../components/blog/form'
 
 
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, site, morePosts, preview }) {
    const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
-  }
-  const logo= {
-    _type: 'image',
-    alt: 'Million Startups',
-    asset: {
-    _ref: 'image-e5201d7ecbad440610b9068aba7f27c2f15d108a-180x180-svg',
-    _type: 'reference'
-   }
   }
    return (
     <MainContainer 
      navpagetitle='Blog'
      preview={preview}
-     logo={logo} 
+     logo={site.logo}
+     facebook={site.facebook} 
+     twitter={site.twitter}
+     linkedin={site.linkedin}
+     youtube={site.youtube} 
+     googlepodcast={site.googlepodcast} 
+     applepodcast={site.applepodcast} 
+     spotify={site.spotify}  
+     tiktok={site.tiktok}  
+     amazonmusic={site.amazonmusic}
     >
       <Container>
         {router.isFallback ? (
@@ -73,10 +74,10 @@ export default function Post({ post, morePosts, preview }) {
 export async function getStaticProps({ params }) {
   const data = await getPostAndMorePosts(params.slug)
   const sitedata = await getSiteData(params.slug)
-  const dataAndSite = { ...data, ...sitedata }
   return {
     props: {
-      post: dataAndSite?.post || null,
+      post: data?.post || null,
+      site: sitedata || null,
       morePosts: data?.morePosts || null,
     },
     revalidate: 1
