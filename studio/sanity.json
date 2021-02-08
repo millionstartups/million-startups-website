@@ -21,9 +21,9 @@
     "asset-source-unsplash",
     "dashboard-widget-document-list",
     "dashboard-widget-vercel",
-    "seo-tools",
     "content-calendar",
-    "minesweeper"
+    "minesweeper",
+    "seo-tools"
   ],
   "env": {
     "development": {

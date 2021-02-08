@@ -49,7 +49,7 @@ const ContactPage = ({contact, site}) => {
         handleServerResponse(false, error.response.data.error);
       });
   };
-  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
     return (
         <Fragment>
         <Head>
@@ -67,6 +67,7 @@ const ContactPage = ({contact, site}) => {
           spotify={spotify}  
           tiktok={tiktok}  
           amazonmusic={amazonmusic}
+          soundcloud={soundcloud}
         >
           <Flex smFlexDir='column-reverse'>
           <Container30>

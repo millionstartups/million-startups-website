@@ -22,7 +22,7 @@ const indexQuery = groq`*[_type == "frontpage"][0]{
 
 const IndexPage = ({index, site}) => {
     const {body, image, title} = index
-    const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
+    const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
     return (
         <Fragment>
         <Head>
@@ -39,6 +39,7 @@ const IndexPage = ({index, site}) => {
           spotify={spotify}  
           tiktok={tiktok}  
           amazonmusic={amazonmusic}
+          soundcloud={soundcloud}
         >
           <Flex>
            <ContainerLeft60>

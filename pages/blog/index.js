@@ -11,8 +11,8 @@ import MainContainer from '../../components/layout/MainContainer'
 
 
 
-export default function Index({ site, allPosts, preview }) {
-  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
+export default function Index({ site, allPosts }) {
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
   const heroPost = allPosts[0]
   const morePosts = allPosts.slice(1,4)
   const TablePosts = allPosts
@@ -30,6 +30,7 @@ export default function Index({ site, allPosts, preview }) {
         spotify={spotify}  
         tiktok={tiktok}  
         amazonmusic={amazonmusic}
+        soundcloud={soundcloud}
       >
         <Head>
           <title>Blog - The Million Startups</title>

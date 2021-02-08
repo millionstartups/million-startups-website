@@ -32,7 +32,7 @@
     "sanity-plugin-dashboard-widget-vercel": "^0.1.5",
     "sanity-plugin-media": "^1.0.1",
     "sanity-plugin-minesweeper": "^0.0.3",
-    "sanity-plugin-seo-tools": "^1.0.6",
+    "sanity-plugin-seo-tools": "^1.1.0",
     "styled-components": "^5.2.1"
   }
 }
