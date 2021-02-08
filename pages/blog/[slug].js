@@ -16,44 +16,26 @@ import Form from '../../components/blog/form'
 
 
 
-export default function Post({ post, morePosts, preview }) {
+export default function Post({ post, site, morePosts, preview }) {
    const router = useRouter()
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-  const site={
-    amazonmusic: "https://music.amazon.com/podcasts",
-    applepodcast: "https://podcasts.apple.com/",
-    facebook: "https://www.facebook.com",
-    googlepodcast: "https://podcasts.google.com/",
-    linkedin: "https://www.linkedin.com",
-    logo: {_type: "mainImage", alt: "million startups", 
-           asset: {_ref: "image-e5201d7ecbad440610b9068aba7f27c2f15d108a-180x180-svg",
-           _type: "reference",
-          }
-        },
-    siteTitle: "Million Startups",
-    spotify: "https://spotify.com",
-    tiktok: "https://tiktok.com",
-    twitter: "https://www.twitter.com",
-    youtube: "https://www.youtube.com"
-  }
 
    return (
-  
     <MainContainer 
      navpagetitle='Blog'
      preview={preview}
-     logo={post.site.logo}
-     facebook={post.site.facebook} 
-     twitter={post.site.twitter}
-     linkedin={post.site.linkedin}
-     youtube={post.site.youtube} 
-     googlepodcast={post.site.googlepodcast} 
-     applepodcast={post.site.applepodcast} 
-     spotify={post.site.spotify}  
-     tiktok={post.site.tiktok}  
-     amazonmusic={post.site.amazonmusic}
+     logo={site.logo}
+     facebook={site.facebook} 
+     twitter={site.twitter}
+     linkedin={site.linkedin}
+     youtube={site.youtube} 
+     googlepodcast={site.googlepodcast} 
+     applepodcast={site.applepodcast} 
+     spotify={site.spotify}  
+     tiktok={site.tiktok}  
+     amazonmusic={site.amazonmusic}
     >
       <Container>
         {router.isFallback ? (
@@ -92,11 +74,10 @@ export default function Post({ post, morePosts, preview }) {
 
 export async function getStaticProps({ params }) {
   const data = await getPostAndMorePosts(params.slug)
-  const sitedata = await getSiteData()
   return {
     props: {
       post: data?.post || null,
-      site: sitedata || null,
+      site: data?.post.site || null,
       morePosts: data?.morePosts || null,
     },
     revalidate: 1
