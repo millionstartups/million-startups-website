@@ -74,6 +74,12 @@ export default {
       description: 'URL to the website Amazon Music page'
     },
     {
+      name: 'soundcloud',
+      type: 'url',
+      title: 'Soundcloud',
+      description: 'URL to the website Soundcloud page'
+    },
+    {
       name: 'author',
       type: 'reference',
       description: 'Publish an author and set a reference to them here.',
