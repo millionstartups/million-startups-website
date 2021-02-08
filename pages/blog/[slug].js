@@ -44,18 +44,17 @@ export default function Post({ post, morePosts, preview }) {
     <MainContainer 
      navpagetitle='Blog'
      preview={preview}
-     logo={site.logo}
-     facebook={site.facebook} 
-     twitter={site.twitter}
-     linkedin={site.linkedin}
-     youtube={site.youtube} 
-     googlepodcast={site.googlepodcast} 
-     applepodcast={site.applepodcast} 
-     spotify={site.spotify}  
-     tiktok={site.tiktok}  
-     amazonmusic={site.amazonmusic}
+     logo={post.site.logo}
+     facebook={post.site.facebook} 
+     twitter={post.site.twitter}
+     linkedin={post.site.linkedin}
+     youtube={post.site.youtube} 
+     googlepodcast={post.site.googlepodcast} 
+     applepodcast={post.site.applepodcast} 
+     spotify={post.site.spotify}  
+     tiktok={post.site.tiktok}  
+     amazonmusic={post.site.amazonmusic}
     >
-    {console.log(site.logo)}
       <Container>
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
