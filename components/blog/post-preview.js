@@ -3,6 +3,14 @@ import Date from './date'
 import CoverImage from './cover-image'
 import Link from 'next/link'
 import {imageBuilder} from '../../lib/sanity'
+import styled from 'styled-components'
+
+const Card = styled.div`
+max-width: 24rem;
+margin-left: 1rem;
+margin-right: 1rem;
+`
+
 export default function PostPreview({
   title,
   coverImage,
@@ -14,7 +22,7 @@ export default function PostPreview({
   slug,
 }) {
   return (
-    <div>
+    <Card>
       <div className="mb-5">
         <CoverImage slug={slug} title={title} imageObject={coverImage} width={width} height={height} url={imageBuilder(coverImage).url()} />
       </div>
@@ -28,6 +36,6 @@ export default function PostPreview({
         <Date dateString={date} />
       </div>
       <p className="text-lg leading-relaxed mb-4">{excerpt}</p>
-    </div>
+    </Card>
   )
 }

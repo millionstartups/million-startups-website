@@ -196,7 +196,7 @@ const overlay = {
     },
   }
 
-  const MainContainer = ({preview, children, logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, navpagetitle}) => { 
+  const MainContainer = ({preview, children, logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud, navpagetitle}) => { 
    const [isOpen, setIsOpen] = useState(false);
     return (
         <Fragment>
@@ -316,6 +316,7 @@ const overlay = {
               spotify={spotify} 
               tiktok={tiktok} 
               amazonmusic={amazonmusic}
+              soundcloud={soundcloud}
             />
             <CookieConsent
             location="bottom"

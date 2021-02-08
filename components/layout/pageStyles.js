@@ -231,6 +231,6 @@ display: grid;
 
 export const Content = styled.div`
 max-width: 60rem;
-margin-left: auto;
-margin-right: auto;
+padding-left: auto;
+padding-right: auto;
 `

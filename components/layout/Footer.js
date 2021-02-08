@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaAmazon, FaYoutube } from 'react-icons/fa'
+import {FaFacebookSquare, FaTwitterSquare, FaLinkedin, FaAmazon, FaYoutube, FaSoundcloud } from 'react-icons/fa'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts, SiTiktok} from 'react-icons/si'
 import { useState } from 'react'
 import Modal from "../ui/Modal";
@@ -42,7 +42,7 @@ a{
   } 
 }
 `
-const Footer = ({facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic }) => {
+const Footer = ({facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud }) => {
     const [isModal, toggle] = useState(false);
 
     function handlOpenModal(open) {
@@ -64,6 +64,8 @@ const Footer = ({facebook, twitter, linkedin, youtube, googlepodcast, applepodca
           {spotify && ( <a href={spotify} rel="noreferrer noopener"　target="_blank"><SiSpotify /></a> )}
           {applepodcast && ( <a href={applepodcast} rel="noreferrer noopener"　target="_blank"><SiApplepodcasts /></a> )}
           {amazonmusic && ( <a href={amazonmusic} rel="noreferrer noopener"　target="_blank"><FaAmazon /></a> )}
+          {soundcloud && ( <a href={soundcloud} rel="noreferrer noopener"　target="_blank"><FaSoundcloud /></a> )}
+        
         
         </Social>
         <OpenModalButton handlClick={() => handlOpenModal(true)}>

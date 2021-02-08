@@ -10,6 +10,8 @@ const Section = styled.section`
 display: flex;
 justify-content: center;
 align-items: center;
+padding-right: 1.5rem;
+padding-left: 1.5rem;
 
 @media (max-width: 768px) {
     flex-direction: column;
@@ -19,7 +21,7 @@ align-items: center;
 }
 
 .content {
-  min-width: 50%; 
+  min-width: 50%;
   @media (max-width: 768px) {
     text-align: center;
   }
@@ -93,7 +95,7 @@ export default function HeroPost({
         
       </div>
       <div className='margin'>
-      <CoverImage slug={slug} imageObject={coverImage} width={410} height={380} title={title} url={coverImage} />
+      <CoverImage slug={slug} imageObject={coverImage}  title={title} url={coverImage} />
     </div>
     </Section>
   )
