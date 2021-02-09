@@ -5,11 +5,7 @@ export default {
   icon: BsFilePost,
   type: 'document',
   initialValue: () =>({
-    publishedAt: new Date().toISOString(),
-    sitedata: {
-      "_ref": "siteConfig",
-      "_type": "reference"
-    },
+    publishedAt: new Date().toISOString()
   }),
   fields: [
     {
@@ -87,14 +83,6 @@ export default {
           },
           contentSelector: 'body' // (OPTIONAL) option to finetune where Yoast will look for the content. (only applicable for scraping without content function)
       },
-  },
-  {
-    name: 'sitedata',
-    title: 'Persistant Data from Site Config',
-    description: 'Required field for header and footer data',
-    type: 'reference',
-    to: {type: 'siteConfig'},
-    validation: Rule => Rule.required()
   }
   ],
 

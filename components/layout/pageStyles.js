@@ -95,11 +95,15 @@ display: flex;
 justify-content: center;
 align-items: center;
 max-width: 1260px;
-min-height: 550px;
+min-height: 450px;
 padding: 1rem;
 
+
+.image{
+}
+
 .left {
-  min-width: 300px;
+  min-width: 200px;
 }
 
 

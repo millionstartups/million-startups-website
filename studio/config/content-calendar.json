@@ -2,11 +2,13 @@
   "types": [
       {
           "type": "post",
-          "field": "publishedAt"
+          "field": "publishedAt",
+          "titleField": "title" 
       },
       {
-          "type": "frontpage",
-          "field": "publishedAt"
-      }
+        "type": "episode",
+        "field": "publishedAt",
+        "titleField": "title"
+    }
   ]
 }

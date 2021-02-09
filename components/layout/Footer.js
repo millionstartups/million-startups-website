@@ -26,11 +26,14 @@ padding-top: 1rem;
 const Social= styled.div`
 display: flex;
 
-@media (max-width: 725px) {
-         max-width: 350px;
+@media (max-width: 758px) {
+         max-width: 260px;
        }
-@media (max-width: 305px) {
-      max-width: 160px;
+@media (max-width: 500px) {
+      max-width: 180px;
+      }
+@media (max-width: 417px) {
+      max-width: 130px;
       }
 justify-content: space-evenly;
 flex-wrap: wrap;
