@@ -18,15 +18,19 @@ const isProduction = process.env.NODE_ENV === "production";
 const Nav = styled.nav`
 display: flex;
 justify-content: center;
+align-items: center;
 flex-direction: row;
 margin-top: 3rem;
-width: 100%;
+width: 100vw;
 `
 
 const Wrapper = styled.div`
 display: flex;
+justify-content: center;
+align-items: flex-start;
 flex-direction: row;
 width: 95%;
+max-width: 2250px;
 justify-content: space-between;
 `
 
@@ -234,7 +238,7 @@ const overlay = {
         <meta name="application-name" content="The Million Startups"/>
         <meta name="msapplication-TileColor" content="#da532c"/>
         <meta name="msapplication-config" content="/favicons/browserconfig.xml"/>
-        <meta name="theme-color" content="#ffffff"/>
+        <meta name="theme-color" content="#000"/>
         </NextHead>
         <Nav>
          <Wrapper>

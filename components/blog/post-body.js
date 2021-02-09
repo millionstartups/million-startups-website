@@ -3,8 +3,8 @@ import BlockContent from '@sanity/block-content-to-react'
 
 const ContentBody = styled.div`
 max-width: 60rem;
-padding-left: auto;
-padding-right: auto;
+padding-left: 1rem;
+padding-right: 1rem;
 `
 
 export default function PostBody({ content }) {

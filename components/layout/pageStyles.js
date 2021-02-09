@@ -91,7 +91,7 @@ color: black;
 background-color: white;
 border-radius: .7rem;
 flex-direction: column-reverse;
-display: flexbox;
+display: flex;
 justify-content: center;
 align-items: center;
 max-width: 1260px;
@@ -99,8 +99,7 @@ min-height: 550px;
 padding: 1rem;
 
 .left {
-  width: auto;
-  height: auto;
+  min-width: 300px;
 }
 
 
@@ -109,17 +108,22 @@ padding: 1rem;
   justify-self: flex-start;
   margin: 0 .5rem;
   padding: 0 .5rem;
-  min-width: 50%;
-  @media (min-width: 768px){
-    max-width: 300px;
+  max-width: 600px;
+
+
+  @media (max-width: 768px){
+    max-width: 600px;
+  }
+  p{
+    flex-wrap: wrap;
   }
 }
+
 
 `
 
 
 export const FormWrapper = styled.div`
-
 
 .group {
   position: relative;

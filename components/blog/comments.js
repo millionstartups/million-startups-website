@@ -1,37 +1,59 @@
 import styled from 'styled-components'
-import {Content} from '../layout/pageStyles'
 import Date from './date'
+
+const Section = styled.section`
+width: 100%;
+max-width: 1100px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+`
+
+const Content = styled.div`
+width: 85%;
+`
 
 const CommentH2 = styled.h2`
 font-size: 1.7rem;
 margin: 2rem 0;
 `
 const Hr = styled.hr`
+width: 100%;
 margin: 1.25rem 0;
 `
 const H4 = styled.h4`
 margin: 1rem 0;
 `
 const Ul = styled.ul`
+padding: 1rem;
+margin-bottom: 1rem;
+background-color: rgba(200, 200, 200, .1);
 list-style: none;
 `
 export default function Comments({ comments = [] }) {
   return (
+    <Section>
     <Content>
       <CommentH2>Comments:</CommentH2>
       <Ul>
         {comments?.map(({ _id, _createdAt, name, email, comment }) => (
           <li key={_id} className="mb-5">
-            <Hr />
-            <H4 className="mb-2 leading-tight"><a href={`mailto:${email}`}>{name}</a> (
+            <H4><a href={`mailto:${email}`}>{name}</a> (
               <Date
               dateString={_createdAt}
             />)</H4>
+           
             <p>{comment}</p>
             <Hr />
           </li>
         ))}
+        {comments.length === 0 && (
+          <h1>Be the first to post a comment</h1>
+
+        )}
       </Ul>
-    </Content>
+      </Content>
+    </Section>
   )
 }

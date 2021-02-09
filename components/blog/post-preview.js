@@ -6,9 +6,9 @@ import {imageBuilder} from '../../lib/sanity'
 import styled from 'styled-components'
 
 const Card = styled.div`
-max-width: 24rem;
-margin-left: 1rem;
-margin-right: 1rem;
+max-width: 280px;
+padding-left: 1rem;
+padding-right: 1rem;
 `
 
 export default function PostPreview({

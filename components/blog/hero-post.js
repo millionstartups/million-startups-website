@@ -17,7 +17,7 @@ padding-left: 1.5rem;
     flex-direction: column;
   }
 .margin {
-  margin: 36px auto 32px;
+  padding: 36px auto 32px;
 }
 
 .content {

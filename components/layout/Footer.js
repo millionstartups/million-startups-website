@@ -9,6 +9,7 @@ import MailingListForm from '../ui/MailingListForm';
 const Wrapper = styled.div`
 display: flex;
 justify-content: space-between;
+max-width: 2250px;
 width: 90%;
 `
 
@@ -17,15 +18,16 @@ const FooterSection = styled.footer`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 100%;
+width: 100vw;
 margin: 2rem 0;
 padding-top: 1rem;
 `
 
 const Social= styled.div`
 display: flex;
-@media (max-width: 705px) {
-         max-width: 250px;
+
+@media (max-width: 725px) {
+         max-width: 350px;
        }
 @media (max-width: 305px) {
       max-width: 160px;

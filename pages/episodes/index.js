@@ -4,14 +4,11 @@ import {motion, AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
 import { Flex, Card} from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
-import { groq } from 'next-sanity'
 import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
-import { QueryClient } from 'react-query'
-import { dehydrate } from 'react-query/hydration'
 import { getSiteData } from '../../lib/api'
 import { imageBuilder } from '../../lib/sanity'
-import { getAllEpisodesForHome } from '../../lib/api'
+import { getAllEpisodes } from '../../lib/api'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
 const Heading = styled(motion.h1)`
@@ -22,19 +19,6 @@ const PodcastIcons = styled(motion.div)`
 font-size: 2rem;
 margin: 2rem 0;
 `
-
-const siteEpisodeQuery = groq`*[_type == "siteConfig"][0]{
-  logo,
-  facebook, 
-   twitter, 
-   linkedin, 
-   youtube,
-   googlepodcast, 
-   applepodcast, 
-   spotify, 
-   tiktok, 
-   amazonmusic
-}`
 
 
 const animatedcard = {
@@ -74,10 +58,10 @@ const animatedicons = {
 }
 
 
-const EpisodesPage = ({ allEpisodes, site, preview}) => {
+const EpisodesPage = ({ allEpisodes, site}) => {
   const homeEpisode = allEpisodes[0]
   const episode = homeEpisode
-  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic,} = site
+  const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
   const {title, episodeNumber, image, description} = episode
     return (
         <Fragment>
@@ -96,7 +80,7 @@ const EpisodesPage = ({ allEpisodes, site, preview}) => {
           spotify={spotify}  
           tiktok={tiktok}  
           amazonmusic={amazonmusic}
-
+          soundcloud={soundcloud}
         >
         <Flex>
         <AnimatePresence>
@@ -145,7 +129,7 @@ export default EpisodesPage
 
 export async function getStaticProps({ preview = false }) {
   const site = await getSiteData()
-  const allEpisodes = await getAllEpisodesForHome(preview)
+  const allEpisodes = await getAllEpisodes(preview)
   
   return {
     props: { allEpisodes, preview, site },

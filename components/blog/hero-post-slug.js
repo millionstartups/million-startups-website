@@ -15,7 +15,7 @@ max-width: 860px;
     flex-direction: column;
   }
 .margin {
-  margin: 36px auto 32px;
+  padding: 1rem;
 }
 
 .content {
@@ -26,6 +26,7 @@ max-width: 860px;
 }
 
 .author-block {
+  margin: 1rem 0;
   @media (max-width: 768px) {
     display: flex;
     justify-content: center;
@@ -33,9 +34,14 @@ max-width: 860px;
   }
 }
 
-p{
+p {
   margin: 10px 0;
   max-width: 490px;
+  @media (max-width: 768px) {
+    
+    text-align: center;
+    
+  }
 }
 
 .title {

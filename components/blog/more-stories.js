@@ -1,13 +1,11 @@
 import PostPreview from './post-preview'
 import styled from 'styled-components'
-import { Flex } from '../layout/pageStyles'
 
 const Section = styled.section`
 display: flex;
 justify-content: center;
 align-items: center;
-width: 100vw;
-padding-left: 1.5rem; 
+width: 100%;
 flex-direction: column;
 `
 
@@ -16,12 +14,10 @@ display: grid;
 grid-template-columns: repeat(1, minmax(0, 1fr));
 row-gap: 5rem;
 margin-bottom: 4rem;
-padding-left: auto;
-padding-right: auto;
   @media (min-width: 768px) { 
-  grid-template-columns: repeat(1, minmax(0, 1fr));
-  column-gap: 8rem;
-  row-gap: 8rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 2rem;
+  row-gap: 2rem;
  } //md
 
 @media (min-width: 1024px) {
@@ -31,20 +27,25 @@ padding-right: auto;
 `
 
 const Content = styled.div`
-max-width: 1600px;
+max-width: 1100px
 `
 
 const StoryHeading = styled.h2`
 padding: 2rem 0;
-align-self: flex-start
+@media (min-width: 768px) { 
+  align-self: flex-start;
+ } 
+align-self: center;
+
 `
 
 export default function MoreStories({ posts }) {
   return (
    
-    <Section>
+    <Section> 
+   
     <Content>
-      <StoryHeading className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+      <StoryHeading>
         More Stories
       </StoryHeading>
       <Grid>

@@ -5,7 +5,11 @@ import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from "yup";    
 
 const Container = styled.div`
-max-width: 360px;
+display: flex;
+justify-content: center;
+align-items: center;
+min-height: 442px;
+min-width: 95%;
 margin-bottom: 2rem;
 align-self: center;
 `
@@ -40,7 +44,6 @@ export default function CommentForm ({_id}) {
     }
   };
   return (
-    <Content>
     <FormWrapper>
       <Container>
            <Formik
@@ -88,7 +91,6 @@ export default function CommentForm ({_id}) {
          </Formik> 
          </Container>
          </FormWrapper>
-         </Content>
         
 )
 }

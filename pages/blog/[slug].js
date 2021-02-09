@@ -1,7 +1,6 @@
-import {Fragment} from 'react'
+import styled from 'styled-components'
 import { useRouter } from 'next/router'
 import ErrorPage from 'next/error'
-import {Flex} from '../../components/layout/pageStyles'
 import Container from '../../components/blog/container'
 import PostBody from '../../components/blog/post-body'
 import MoreStories from '../../components/blog/more-stories'
@@ -14,7 +13,12 @@ import Head from 'next/head'
 import MainContainer from '../../components/layout/MainContainer'
 import Form from '../../components/blog/form'
 
-
+const Article = styled.article`
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+`
 
 export default function Post({ post, morePosts }) {
   const router = useRouter()
@@ -37,39 +41,39 @@ export default function Post({ post, morePosts }) {
      amazonmusic={nav.amazonmusic}
      soundcloud={nav.soundcloud}
     >
-      <Container>
+      
         {router.isFallback ? (
           <PostTitle>Loading…</PostTitle>
         ) : (
-          <Fragment>
-            <article>
+          <Container>
+            
               <Head>
                 <title>
                   {post.title} | The Million Startups
                 </title>
                 {/* <meta property="og:image" content={post.ogImage.url} /> */}
               </Head>
+              <Article>
               
-              <Flex>
         
               <HeroPostSlug
                 title={post.title}
                 coverImage={post.coverImage}
                 date={post.date}
                 author={post.author}
-              /></Flex>
+              />
               <PostBody content={post.body} />
-            </article>
-
+           
             <Comments comments={post.comments} />
             <Form _id={post._id} />
 
             <SectionSeparator />
-            {morePosts.length > 0 && <MoreStories posts={morePosts} />}
-         
-          </Fragment>
+            {morePosts.length > 0 && <MoreStories posts={morePosts} />} 
+            </Article>
+
+          </Container>
         )}
-      </Container>
+     
     </MainContainer>
   )
 }
