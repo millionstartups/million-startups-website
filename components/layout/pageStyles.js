@@ -10,12 +10,12 @@ width: 100vw;
 `
 export const Flex = styled.div`
 display: flex;
-flex-direction: row;
+flex-direction: ${props => props.flexDir || `row`};
 justify-content: center;
 align-items: center;
 width: 90vw;
 @media (max-width: 768px) {
-    flex-direction: ${props => props.smFlexDir || `column`};;
+    flex-direction: ${props => props.smFlexDir || `column`};
   }
 `
 export const HalfContainer = styled.div`
@@ -95,15 +95,19 @@ display: flex;
 justify-content: center;
 align-items: center;
 max-width: 1260px;
+
 min-height: 450px;
 padding: 1rem;
 
+.wrapper{
+  max-width: 1000px;
+}
 
 .image{
 }
 
 .left {
-  min-width: 200px;
+  min-width: 250px;
 }
 
 

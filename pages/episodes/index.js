@@ -11,6 +11,30 @@ import { imageBuilder } from '../../lib/sanity'
 import { getAllEpisodes } from '../../lib/api'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
+const ListItem = styled.li`
+min-width: 2rem;
+list-style: none;
+`
+
+const Content = styled.article`
+max-width: 1100px;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+pre {max-width: 400px}
+`
+
+const H2 = styled.h2`
+margin-top: 2rem;
+margin-bottom: 2rem;
+`
+
+const H4 = styled.h4`
+margin-top: 1rem;
+margin-bottom: 1rem;
+`
+
 const Heading = styled(motion.h1)`
 font-size: 2rem;
 `
@@ -82,12 +106,13 @@ const EpisodesPage = ({ allEpisodes, site}) => {
           amazonmusic={amazonmusic}
           soundcloud={soundcloud}
         >
+        <Content>
         <Flex>
         <AnimatePresence>
          <Card variants={animatedcard}
           >
           <Flex smFlexDir='column-reverse'>
-          <motion.div
+          <motion.div 
            className='left image'
            initial={{opacity:0, y:35, transition: {duration: 1.5}}} 
            animate={{opacity: 1, y:0, transition: {duration: 1.5}}}
@@ -118,8 +143,31 @@ const EpisodesPage = ({ allEpisodes, site}) => {
               
            </Flex>
           </Card>
-          </AnimatePresence>
+          </AnimatePresence> 
+          
+        
         </Flex>
+            {/* 
+        <H2>View the Next episode  </H2>
+        
+        <H4>List of all episodes</H4>
+        
+        <Flex flexDir='row' smFlexDir='row'>
+        <ul> 
+         {allEpisodes.map((elist) => (
+          <>
+          <ListItem>{elist.episodeNumber}</ListItem>
+          <ListItem>{elist.title}</ListItem>
+          <ListItem>{elist.slug}</ListItem>
+          <br/>
+          </>
+        ))}
+        </ul>
+        </Flex>
+        */}
+        </Content>
+
+      
          </MainContainer>
          </Fragment>
     )

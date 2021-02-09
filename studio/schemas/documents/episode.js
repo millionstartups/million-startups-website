@@ -1,3 +1,4 @@
+
 import {ImHeadphones} from 'react-icons/im'
 
 export default {
@@ -31,7 +32,8 @@ export default {
     {
       name: 'episodeNumber',
       title: 'Episode Number',
-      type: 'number'
+      type: 'number',
+      validation: Rule => Rule.required().positive().greaterThan(0)
     },
     {
       name: 'image',
