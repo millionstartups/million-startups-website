@@ -9,6 +9,7 @@ display: flex;
 justify-content: center;
 align-items: center;
 max-width: 860px;
+min-height: 300px;
 
 
 @media (max-width: 768px) {
@@ -19,7 +20,11 @@ max-width: 860px;
 }
 
 .content {
-  min-width: 50%; 
+  min-width: 50%;
+  
+@media (min-width: 768px) {
+   min-width: 470px;
+  } 
   @media (max-width: 768px) {
     text-align: center;
   }

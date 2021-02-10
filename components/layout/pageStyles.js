@@ -13,7 +13,8 @@ display: flex;
 flex-direction: ${props => props.flexDir || `row`};
 justify-content: center;
 align-items: center;
-width: 90vw;
+width: ${props => props.width || `90vw`};
+justify-content: center;
 @media (max-width: 768px) {
     flex-direction: ${props => props.smFlexDir || `column`};
   }

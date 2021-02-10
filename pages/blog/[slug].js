@@ -8,7 +8,6 @@ import HeroPostSlug from '../../components/blog/hero-post-slug'
 import Comments from '../../components/blog/comments'
 import SectionSeparator from '../../components/blog/section-separator'
 import { getAllPostsWithSlug, getPostAndMorePosts } from '../../lib/api'
-import PostTitle from '../../components/blog/post-title'
 import Head from 'next/head'
 import MainContainer from '../../components/layout/MainContainer'
 import Form from '../../components/blog/form'
@@ -42,9 +41,6 @@ export default function Post({ post, morePosts }) {
      soundcloud={nav.soundcloud}
     >
       
-        {router.isFallback ? (
-          <PostTitle>Loading…</PostTitle>
-        ) : (
           <Container>
             
               <Head>
@@ -72,7 +68,7 @@ export default function Post({ post, morePosts }) {
             </Article>
 
           </Container>
-        )}
+      
      
     </MainContainer>
   )

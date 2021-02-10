@@ -28,9 +28,19 @@ margin: 1rem 0;
 const Ul = styled.ul`
 padding: 1rem;
 margin-bottom: 1rem;
-background-color: rgba(200, 200, 200, .1);
 list-style: none;
 `
+
+const Li = styled.li`
+padding: 1rem;
+border-radius: 1.5rem;
+margin-bottom: 1rem;
+background-color: rgba(200, 200, 200, .1);
+`
+const H1 = styled.h1`
+text-align: center;
+`
+
 export default function Comments({ comments = [] }) {
   return (
     <Section>
@@ -38,7 +48,7 @@ export default function Comments({ comments = [] }) {
       <CommentH2>Comments:</CommentH2>
       <Ul>
         {comments?.map(({ _id, _createdAt, name, email, comment }) => (
-          <li key={_id} className="mb-5">
+          <Li key={_id} className="mb-5">
             <H4><a href={`mailto:${email}`}>{name}</a> (
               <Date
               dateString={_createdAt}
@@ -46,10 +56,12 @@ export default function Comments({ comments = [] }) {
            
             <p>{comment}</p>
             <Hr />
-          </li>
+          </Li>
         ))}
         {comments.length === 0 && (
-          <h1>Be the first to post a comment</h1>
+          <Li>
+          <H1>Be the first to post a comment</H1>
+          </Li>
 
         )}
       </Ul>

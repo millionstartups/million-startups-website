@@ -9,11 +9,30 @@ import BlockContent from '@sanity/block-content-to-react'
 import { getSiteData } from '../../lib/api'
 import { imageBuilder } from '../../lib/sanity'
 import { getAllEpisodes } from '../../lib/api'
+import Date from '../../components/blog/date'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
-const ListItem = styled.li`
-min-width: 2rem;
-list-style: none;
+const Grid = styled.div`
+display: grid;
+grid-template-columns: repeat(1, minmax(0, 1fr));
+row-gap: .2rem;
+
+`
+const InnerGrid = styled.div`
+display: grid;
+width: 100%;
+grid-template-columns: repeat(4, minmax(0, 1fr));
+column-gap: 0;
+`
+
+const ListItem = styled.div`
+background-color: rgba(55,55,55,.2);
+
+display: flex;
+justify-content: center;
+align-items: center;
+text-align: center;
+padding: 1rem;
 `
 
 const Content = styled.article`
@@ -147,27 +166,34 @@ const EpisodesPage = ({ allEpisodes, site}) => {
           
         
         </Flex>
-            {/* 
+      
         <H2>View the Next episode  </H2>
         
         <H4>List of all episodes</H4>
         
-        <Flex flexDir='row' smFlexDir='row'>
-        <ul> 
+        <Flex width='90vw' flexDir='row' smFlexDir='row'>
+        <Grid>
+        <InnerGrid>
+          <ListItem>Episode Number</ListItem>
+
+          <ListItem>Published On</ListItem>
+          <ListItem>Title</ListItem>
+          <ListItem>Link</ListItem>
+        </InnerGrid>
+       
          {allEpisodes.map((elist) => (
-          <>
+          <InnerGrid key={elist._id}>
           <ListItem>{elist.episodeNumber}</ListItem>
+          <ListItem><Date dateString={elist.date} /></ListItem>
           <ListItem>{elist.title}</ListItem>
           <ListItem>{elist.slug}</ListItem>
-          <br/>
-          </>
+          </InnerGrid>
         ))}
-        </ul>
+        </Grid>
         </Flex>
-        */}
-        </Content>
-
       
+        </Content>
+    
          </MainContainer>
          </Fragment>
     )
@@ -181,7 +207,6 @@ export async function getStaticProps({ preview = false }) {
   
   return {
     props: { allEpisodes, preview, site },
-    
     revalidate: 1
    }
 }
