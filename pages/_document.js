@@ -32,7 +32,7 @@ export default class MsDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='en'>
         <Head />
         <body>
           <Main />
