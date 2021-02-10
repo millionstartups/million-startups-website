@@ -1,6 +1,5 @@
 
 import NextApp from 'next/app'
-import Head from 'next/head'
 import {AnimatePresence} from 'framer-motion'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
@@ -42,15 +41,7 @@ export default class App extends NextApp {
   render() {
     const { Component, pageProps, router } = this.props;
     return (
-      <>
-      <Head>
-      <meta charSet="utf-8" />
-      <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
-      <meta
-        name="viewport"
-        content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"
-      />
-      </Head>
+      
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
               <AnimatePresence exitBeforeEnter>
@@ -59,7 +50,7 @@ export default class App extends NextApp {
                   key={router.route} />
               </AnimatePresence>
         </ThemeProvider>
-        </>
+      
     );
   }
 }
