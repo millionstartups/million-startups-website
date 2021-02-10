@@ -205,8 +205,8 @@ const overlay = {
     return (
         <Fragment>
         <Head>
-        <link rel="preconnect" href="./fonts"/>
-        <link rel="preload" as="style" href="./fonts/fonts.css" rel="stylesheet"/> 
+        <link rel="preconnect" href="/fonts"/>
+        <link rel="preload" as="style" href="/fonts/fonts.css" rel="stylesheet"/> 
         {isProduction && (
         <>
         <script
@@ -349,15 +349,14 @@ const overlay = {
               soundcloud={soundcloud}
             />
             <CookieConsent
-            location="bottom"
-            buttonText="Ok, I like cookies."
+            location='bottom'
+            buttonText='I am fine with cookies'
             cookieName="my-cookieConsent"
-            style={{ background: "dodgerblue" }}
-            enableDeclineButton
-            buttonStyle={{ color: "#4e503b", fontSize: "13px" }}
+            style={{ background: 'rgba(10,1,115,.93)' }}
+            buttonStyle={{  padding: '1rem', marginBottom: '2rem', borderRadius: '1.8rem', color: 'black', backgroundColor: 'whitesmoke', fontSize: '13px' }}
             expires={150}
           >
-            We use cookies to make our website better for you. Please tell us your preference.
+            We use cookies to make our website better for you. Learn about how we use cookies and your data privacy on our <Link href='/cookies'><a>cookie policy page</a></Link>.
           </CookieConsent>
             </Fragment>
     )
