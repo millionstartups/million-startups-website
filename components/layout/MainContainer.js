@@ -148,6 +148,12 @@ min-width: 100%;
 min-height: 95px;
 `
 
+const CookieText = styled.p`
+max-width: 800px;
+margin: 1rem;
+padding: 1rem 2rem;
+`
+
 const MobileLinks = styled.div`
 display: flex;
 justify-content: top;
@@ -206,7 +212,9 @@ const overlay = {
         <Fragment>
         <Head>
         <link rel="preconnect" href="/fonts"/>
-        <link rel="preload" as="style" href="/fonts/fonts.css" rel="stylesheet"/> 
+        <link rel="preload" as="style" href="/fonts/montserrat.css" rel="stylesheet"/> 
+        <link rel="preload" as="style" href="/fonts/opensans.css" rel="stylesheet"/> 
+        
         {isProduction && (
         <>
         <script
@@ -352,12 +360,12 @@ const overlay = {
             location='bottom'
             buttonText='I am fine with cookies'
             cookieName="my-cookieConsent"
-            style={{ background: 'rgba(10,1,115,.93)' }}
-            buttonStyle={{  padding: '1rem', marginBottom: '2rem', borderRadius: '1.8rem', color: 'black', backgroundColor: 'whitesmoke', fontSize: '13px' }}
+            style={{ minHeight: '150px', background: 'rgba(10,1,115,.93)' }}
+            buttonStyle={{  padding: '1rem', marginBottom: '2rem', borderRadius: '1.2rem', color:'#022', fontSize: '13px' }}
             expires={150}
           >
-            We use cookies to make our website better for you. Learn about how we use cookies and your data privacy on our <Link href='/cookies'><a>cookie policy page</a></Link>.
-          </CookieConsent>
+            <CookieText>We use cookies to make our website better for you. Learn about how we use cookies and your data privacy on our <Link href='/cookies'><a>cookie policy page</a></Link>.</CookieText> 
+            </CookieConsent>
             </Fragment>
     )
 }
