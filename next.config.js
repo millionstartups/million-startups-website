@@ -7,7 +7,6 @@ const STUDIO_REWRITE = {
 }
 const withPWA = require('next-pwa')
 const runtimeCaching = require('next-pwa/cache')
-runtimeCaching[0].handler = 'StaleWhileRevalidate'
 
 module.exports = withPWA({  
   pwa: {
@@ -15,8 +14,7 @@ module.exports = withPWA({
     dest: 'public',
     publicExcludes: ['!studio/*',],
     sw: 'million-startups-service-worker.js',
-    register: false,
-    skipWaiting: false,
+    register: true,
     runtimeCaching,
   },
   images: {
