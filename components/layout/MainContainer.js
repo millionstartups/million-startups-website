@@ -3,7 +3,7 @@ import { useQuery} from 'react-query'
 import { getSiteData } from '../../lib/api'
 import CookieConsent from "react-cookie-consent";
 import {GA_TRACKING_ID} from '../../lib/gtag'
-import NextHead from 'next/head'
+import Head from 'next/head'
 import styled from 'styled-components'
 import Link from 'next/link'
 import {Main} from './pageStyles'
@@ -204,7 +204,7 @@ const overlay = {
    const [isOpen, setIsOpen] = useState(false);
     return (
         <Fragment>
-        <NextHead>
+        <Head>
         <link rel="preconnect" href="https://fonts.gstatic.com"/>
         <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet"/> 
         {isProduction && (
@@ -228,18 +228,42 @@ const overlay = {
           </>
         )}
 
+      <meta name='apple-mobile-web-app-capable' content='yes' />
+      <meta name='apple-mobile-web-app-status-bar-style' content='default' />
+      <meta name='apple-mobile-web-app-title' content='The Million Startups' />
+      <meta name='description' content='A podcast with up-and-coming startups and their pitch.' />
+      <meta name='format-detection' content='telephone=no' />
+      <meta name='mobile-web-app-capable' content='yes' />
+      <meta name='msapplication-tap-highlight' content='no' />
+
+      <meta name="apple-mobile-web-app-title" content="The Million Startups"/>
+      <meta name="application-name" content="The Million Startups"/>
+      <meta name="msapplication-TileColor" content="#da532c"/>
+      <meta name="theme-color" content="#000"/>
+
         <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
         <link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png"/>
         <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
-        <link rel="manifest" href="/favicons/site.webmanifest"/>
+        
+      <link rel="manifest" href="/manifest.webmanifest" crossOrigin="use-credentials"/>
         <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5"/>
         <link rel="shortcut icon" href="/favicons/favicon.ico"/>
-        <meta name="apple-mobile-web-app-title" content="The Million Startups"/>
-        <meta name="application-name" content="The Million Startups"/>
-        <meta name="msapplication-TileColor" content="#da532c"/>
-        <meta name="msapplication-config" content="/favicons/browserconfig.xml"/>
-        <meta name="theme-color" content="#000"/>
-        </NextHead>
+        
+        
+        <meta name='twitter:card' content='summary' />
+        <meta name='twitter:url' content='https://themillionstartups.com' />
+        <meta name='twitter:title' content='The Million Startups' />
+        <meta name='twitter:description' content='A podcast with up-and-coming startups and their pitch.' />
+        //<meta name='twitter:image' content='https://yourdomain.com/static/icons/android-chrome-192x192.png' />
+        //<meta name='twitter:creator' content='@josebonilla' />
+        <meta property='og:type' content='website' />
+        <meta property='og:title' content='The Million Startups' />
+        <meta property='og:description' content='A podcast with up-and-coming startups and their pitch.' />
+        <meta property='og:site_name' content='The Million Startups' />
+        <meta property='og:url' content='https://themillionstartups.com' />
+        <meta property='og:image' content='https://themillionstartups.com/favicons/apple-touch-icon.png' />
+
+        </Head>
         <Nav>
          <Wrapper>
           <Brand>

@@ -1,12 +1,9 @@
+import {Fragment, useEffect} from 'react'
 import { groq } from 'next-sanity'
-import { QueryClient } from 'react-query'
-import { dehydrate } from 'react-query/hydration'
 import { getSiteData } from '../lib/api'
 import Image from 'next/image'
-import {useEffect} from 'react'
 import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../lib/sanity'
-import {Fragment} from 'react'
 import Head from 'next/head'
 import { Flex, Container30, ContainerLeft60, ImageContainer, TitleHeading } from '../components/layout/pageStyles'
 import MainContainer from '../components/layout/MainContainer'
@@ -26,76 +23,77 @@ const IndexPage = ({index, site}) => {
     const {body, image, title} = index
     const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
     
+
     useEffect(() => {
-      if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined) {
-        const wb = window.workbox
-        // add event listeners to handle any of PWA lifecycle event
-        // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-window.Workbox#events
-        wb.addEventListener('installed', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-    
-        wb.addEventListener('controlling', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-    
-        wb.addEventListener('activated', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-    
-        // A common UX pattern for progressive web apps is to show a banner when a service worker has updated and waiting to install.
-        // NOTE: MUST set skipWaiting to false in next.config.js pwa object
-        // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
-        const promptNewVersionAvailable = event => {
-          // `event.wasWaitingBeforeRegister` will be false if this is the first time the updated service worker is waiting.
-          // When `event.wasWaitingBeforeRegister` is true, a previously updated service worker is still waiting.
-          // You may want to customize the UI prompt accordingly.
-          if (confirm('We have new content, Do you want to reload to update?')) {
-            wb.addEventListener('controlling', event => {
-              window.location.reload()
-            })
-    
-            // Send a message to the waiting service worker, instructing it to activate.
-            wb.messageSW({ type: 'SKIP_WAITING' })
-          } else {
-            console.log(
-              'Rejected to reload, so old version is used. The new content is available on reload'
-            )
-          }
+    if (typeof window !== 'undefined' && 'serviceWorker' in navigator && window.workbox !== undefined) {
+      const wb = window.workbox
+      // add event listeners to handle any of PWA lifecycle event
+      // https://developers.google.com/web/tools/workbox/reference-docs/latest/module-workbox-window.Workbox#events
+      wb.addEventListener('installed', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+
+      wb.addEventListener('controlling', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+
+      wb.addEventListener('activated', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+
+      // A common UX pattern for progressive web apps is to show a banner when a service worker has updated and waiting to install.
+      // NOTE: MUST set skipWaiting to false in next.config.js pwa object
+      // https://developers.google.com/web/tools/workbox/guides/advanced-recipes#offer_a_page_reload_for_users
+      const promptNewVersionAvailable = event => {
+        // `event.wasWaitingBeforeRegister` will be false if this is the first time the updated service worker is waiting.
+        // When `event.wasWaitingBeforeRegister` is true, a previously updated service worker is still waiting.
+        // You may want to customize the UI prompt accordingly.
+        if (confirm('New content is available, reload to update?')) {
+          wb.addEventListener('controlling', event => {
+            window.location.reload()
+          })
+
+          // Send a message to the waiting service worker, instructing it to activate.
+          wb.messageSW({ type: 'SKIP_WAITING' })
+        } else {
+          console.log(
+            'Rejected reload; using old version. New version is available after a refresh.'
+          )
         }
-    
-        wb.addEventListener('waiting', promptNewVersionAvailable)
-        wb.addEventListener('externalwaiting', promptNewVersionAvailable)
-    
-        // ISSUE - this is not working as expected, why?
-        // I could only make message event listenser work when I manually add this listenser into sw.js file
-        wb.addEventListener('message', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-    
-        /*
-        wb.addEventListener('redundant', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-        wb.addEventListener('externalinstalled', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-        wb.addEventListener('externalactivated', event => {
-          console.log(`Event ${event.type} is triggered.`)
-          console.log(event)
-        })
-        */
-    
-        // never forget to call register as auto register is turned off in next.config.js
-        wb.register()
       }
-    }, [])
+
+      wb.addEventListener('waiting', promptNewVersionAvailable)
+      wb.addEventListener('externalwaiting', promptNewVersionAvailable)
+
+      // ISSUE - this is not working as expected, why?
+      // I could only make message event listenser work when I manually add this listenser into sw.js file
+      wb.addEventListener('message', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+
+      /*
+      wb.addEventListener('redundant', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+      wb.addEventListener('externalinstalled', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+      wb.addEventListener('externalactivated', event => {
+        console.log(`Event ${event.type} is triggered.`)
+        console.log(event)
+      })
+      */
+
+      // never forget to call register as auto register is turned off in next.config.js
+      wb.register()
+    }
+  }, [])
     
 
     return (
