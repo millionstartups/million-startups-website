@@ -152,8 +152,9 @@ const EpisodesPage = ({ allEpisodes, site}) => {
               }
               </motion.div>
               <div className='right'>
-              <Heading initial={{opacity:0, y:35, transition: {duration: 1}}} animate={{opacity: 1, y:0, transition: {duration: 1}}}>{title}</Heading>Episode number:{episodeNumber}
-              <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
+              <Heading initial={{opacity:0, y:35, transition: {duration: 1}}} animate={{opacity: 1, y:0, transition: {duration: 1}}}>{title}</Heading>
+               <p>Episode Number: {episodeNumber} </p>
+              {description && ( <BlockContent blocks={description} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} /> )}
               <PodcastIcons variants={animatedicons}>
               <h6>Listen to the Episode</h6>
               <SiGooglepodcasts/> <SiSpotify/> <SiApplepodcasts/>
@@ -168,7 +169,9 @@ const EpisodesPage = ({ allEpisodes, site}) => {
         </Flex>
       
         <H2>View the Next episode  </H2>
-        
+      {allEpisodes && (
+        <Fragment>
+
         <H4>List of all episodes</H4>
         
         <Flex width='90vw' flexDir='row' smFlexDir='row'>
@@ -180,7 +183,7 @@ const EpisodesPage = ({ allEpisodes, site}) => {
           <ListItem>Title</ListItem>
           <ListItem>Link</ListItem>
         </InnerGrid>
-       
+     
          {allEpisodes.map((elist) => (
           <InnerGrid key={elist._id}>
           <ListItem>{elist.episodeNumber}</ListItem>
@@ -191,7 +194,9 @@ const EpisodesPage = ({ allEpisodes, site}) => {
         ))}
         </Grid>
         </Flex>
-      
+        
+        </Fragment>
+      )}
         </Content>
     
          </MainContainer>
