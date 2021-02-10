@@ -6,7 +6,6 @@ const STUDIO_REWRITE = {
       : '/studio/index.html',
 }
 const withPWA = require('next-pwa')
-const runtimeCaching = require('next-pwa/cache')
 
 module.exports = withPWA({  
   pwa: {
@@ -15,7 +14,6 @@ module.exports = withPWA({
     publicExcludes: ['!studio/*',],
     sw: 'million-startups-service-worker.js',
     register: true,
-    runtimeCaching,
   },
   images: {
     domains: ['cdn.sanity.io'],
