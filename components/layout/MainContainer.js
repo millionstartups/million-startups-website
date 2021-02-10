@@ -205,8 +205,8 @@ const overlay = {
     return (
         <Fragment>
         <Head>
-        <link rel="preconnect" href="https://fonts.gstatic.com"/>
-        <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet"/> 
+        <link rel="preconnect" href="./fonts"/>
+        <link rel="preload" as="style" href="./fonts/fonts.css" rel="stylesheet"/> 
         {isProduction && (
         <>
         <script
@@ -240,7 +240,7 @@ const overlay = {
 
       <meta name="apple-mobile-web-app-title" content="The Million Startups"/>
       <meta name="application-name" content="The Million Startups"/>
-      <meta name="msapplication-TileColor" content="#da532c"/>
+      <meta name="msapplication-TileColor" content="#000"/>
       <meta name="theme-color" content="#000"/>
 
         <link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png"/>
@@ -248,7 +248,7 @@ const overlay = {
         <link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png"/>
         
       <link rel="manifest" href="/manifest.webmanifest" crossOrigin="use-credentials"/>
-        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#5bbad5"/>
+        <link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#000"/>
         <link rel="shortcut icon" href="/favicons/favicon.ico"/>
         
         

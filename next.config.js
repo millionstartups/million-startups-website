@@ -11,7 +11,7 @@ module.exports = withPWA({
   pwa: {
     disable: process.env.NODE_ENV === 'development',
     dest: 'public',
-    publicExcludes: ['!studio/*',],
+    publicExcludes: ['!studio/*', '!fonts/*',],
     sw: 'million-startups-service-worker.js',
     register: true,
   },

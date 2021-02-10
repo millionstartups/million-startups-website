@@ -4,7 +4,8 @@ import {AnimatePresence} from 'framer-motion'
 import { createGlobalStyle, ThemeProvider } from 'styled-components'
 
 const GlobalStyle = createGlobalStyle`
-  * {
+
+* {
     margin: 0;
     padding: 0;
   }
@@ -15,7 +16,8 @@ const GlobalStyle = createGlobalStyle`
       color: #E4E6EB;
       font-size: 1.02rem;
       overflow-x: hidden;
-      font-family: 'Montserrat', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+      font-weight: normal;
+      font-family: 'Montserrat',  sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue";
   }
   a{
     color: #a7a9be;
