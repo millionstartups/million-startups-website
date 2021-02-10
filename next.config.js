@@ -5,23 +5,11 @@ const STUDIO_REWRITE = {
       ? 'http://localhost:3333/studio/:path*'
       : '/studio/index.html',
 }
-const withPWA = require('next-pwa')
-const runtimeCaching = require('next-pwa/cache')
-runtimeCaching[0].handler = 'StaleWhileRevalidate'
 
-module.exports = withPWA({  
-  pwa: {
-    disable: process.env.NODE_ENV === 'development',
-    dest: 'public',
-    publicExcludes: ['!studio/*',],
-    sw: 'million-startups-service-worker.js',
-    register: false,
-    skipWaiting: false,
-    runtimeCaching,
-  },
+module.exports = {  
+
   images: {
     domains: ['cdn.sanity.io'],
   },
   rewrites: () => [STUDIO_REWRITE],
  }
-)
