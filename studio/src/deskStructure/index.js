@@ -2,12 +2,14 @@ import S from "@sanity/desk-tool/structure-builder";
 import { MdWeb, MdSettings, MdWebAsset, MdContactMail } from "react-icons/md";
 import {BiWorld} from 'react-icons/bi'
 import { ImHeadphones } from "react-icons/im";
+import {FaCookieBite} from 'react-icons/fa'
 // Hide document types that we already have a structure definition for
 const hiddenDocTypes = (listItem) =>
   ![
     "siteConfig",
     "frontpage",
     "contact",
+    "cookies",
     "author",
     "post",
     "comment",
@@ -52,6 +54,15 @@ export default () =>
                     .title("Contact")
                     .schemaType("contact")
                     .documentId("contact")
+                ),
+                S.listItem()
+                .title("Cookie Policy")
+                .icon(FaCookieBite)
+                .child(
+                  S.document()
+                    .title("Cookie Policy")
+                    .schemaType("cookies")
+                    .documentId("cookies")
                 ),
             ]),
         ),

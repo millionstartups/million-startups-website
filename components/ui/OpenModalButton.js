@@ -26,14 +26,16 @@ const OpenModalButton = styled(motion.button)`
   }
   &:focus {
       outline: none;
-      box-shadow: 0 0 5px 0 white;  
+      -webkit-box-shadow: 0px 1px 0px 4px dodgerblue;
+      -moz-box-shadow: 0px 1px 0px 4px dodgerblue;
+       box-shadow:0px 1px 0px 4px dodgerblue; 
   }
 `;
 const animatedOpenButton = ({ children, handlClick }) => {
   return (
     <OpenModalButton
       onClick={handlClick}
-      whileHover={{ scale: 1.05 }}
+      whileHover={{ scale: 1.02 }}
       whileTap={{ scale: 0.98 }}
     >
       {children}

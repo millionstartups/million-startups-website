@@ -1,34 +1,39 @@
 import {Fragment} from 'react'
+import styled from 'styled-components'
 import { groq } from 'next-sanity'
 import { getSiteData } from '../lib/api'
 import Image from 'next/image'
 import BlockContent from '@sanity/block-content-to-react'
 import { getClient, imageBuilder } from '../lib/sanity'
 import Head from 'next/head'
-import { Flex, Container30, ContainerLeft60, ImageContainer, TitleHeading } from '../components/layout/pageStyles'
+import { Flex } from '../components/layout/pageStyles'
 import MainContainer from '../components/layout/MainContainer'
 
+const ContentBody = styled.div`
+max-width: 60rem;
+padding-left: 1rem;
+padding-right: 1rem;
+`
 
 
-const cookiesQuery = groq`*[_type == "frontpage"][0]{
+const cookiesQuery = groq`*[_type == "cookies"][0]{
    title,
    body,
-   image,
-   mainlogo
+   image
  }`
 
 
-
-const CookiesPage = ({index, site}) => {
-    const {body, image, title} = index
+const CookiesPage = ({cookies, site}) => {
+    const {body, image, title} = cookies
     const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
 
     return (
         <Fragment>
         <Head>
-        <title>{title}</title>
+        <title>{title} - The Million Startups</title>
         </Head>
         <MainContainer 
+          navpagetitle={title}
           logo={logo}
           facebook={facebook} 
           twitter={twitter}
@@ -42,7 +47,9 @@ const CookiesPage = ({index, site}) => {
           soundcloud={soundcloud}
         >
           <Flex>
-           <h1>Make cookie policy</h1>
+          <ContentBody>
+          <BlockContent blocks={body} projectId={process.env.NEXT_PUBLIC_SANITY_PROJECT_ID} dataset={process.env.NEXT_PUBLIC_SANITY_DATASET} />
+          </ContentBody>
           </Flex>
          </MainContainer>
          </Fragment>
@@ -54,10 +61,10 @@ export default CookiesPage
 
 export async function getStaticProps() {
   const site = await getSiteData() 
-  const index = await getClient().fetch(cookiesQuery);
+  const cookies = await getClient().fetch(cookiesQuery);
   return {
       props: {
-          index: index,
+          cookies: cookies,
           site: site,
       },
       revalidate: 1,

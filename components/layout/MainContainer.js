@@ -358,12 +358,14 @@ const overlay = {
             <CookieConsent
             location='bottom'
             buttonText='I am fine with cookies'
-            cookieName="my-cookieConsent"
+            cookieName="millionstatups-cookieConsent"
             style={{ minHeight: '150px', background: 'rgba(10,1,115,.96)' }}
-            buttonStyle={{  padding: '1rem', margin: '1.3rem 3rem ', marginBottom: '2rem', borderRadius: '1.2rem', color:'#022', fontSize: '15px' }}
+            enableDeclineButton
+            declineButtonStyle={{  padding: '1rem', margin: '1.3rem 1rem', marginBottom: '2rem', borderRadius: '1.2rem', color:'#022', fontSize: '15px'}}
+            buttonStyle={{  padding: '1rem', margin: '1.3rem 1rem', marginBottom: '2rem', borderRadius: '1.2rem', color:'#022', fontSize: '15px' }}
             expires={150}
           >
-            <CookieText>We use cookies to make our website better for you. Learn about how we use cookies and your data privacy on our <Link href='/cookies'><a>cookie policy page</a></Link>.</CookieText> 
+            <CookieText>We use cookies to make our website better for you. Learn about how we use cookies and how it relates to your data privacy on our <Link href='/cookies'><a>cookie policy page</a></Link>.</CookieText> 
             </CookieConsent>
             </Fragment>
     )

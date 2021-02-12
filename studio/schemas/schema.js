@@ -14,6 +14,7 @@ import episode from './documents/episode'
 import siteConfig from './documents/siteConfig'
 import contact from './documents/contact'
 import frontpage from './documents/frontpage'
+import cookies from './documents/cookies'
 import category from './documents/category'
 import post from './documents/post'
 import author from './documents/author'
@@ -32,6 +33,7 @@ export default createSchema({
     comment,
     frontpage,
     contact,
+    cookies,
     post,
     author,
     category,

@@ -70,6 +70,7 @@ align-items: center;
 
 export const ImageContainer = styled.div`
 display: flex;
+min-width: 200px;
 justify-content: center;
 height: auto;
 `

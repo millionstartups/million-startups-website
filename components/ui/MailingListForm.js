@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment, useState, useCallback } from 'react'
 import styled from 'styled-components'
 import { shrinkLabel } from '../../styles/mixin'
 import { Formik, Form, Field, ErrorMessage } from 'formik'
@@ -113,6 +113,11 @@ export const MailFormWrapper = styled.div`
 }
 `
 
+const Message = styled.p`
+max-width: 300px;
+text-align: center;
+`
+
 const formSchema = Yup.object().shape({
   name: Yup.string().required("Required"),
   email: Yup.string()
@@ -135,17 +140,17 @@ export default function MailingListForm () {
       .then(
       actions.setSubmitting(false),
       actions.resetForm(),
-      handleServerResponse(true, "Thanks for subscribing! We promise not to send spam."))
+      handleServerResponse(true, "Thanks for subscribing!"))
     } catch (err) {
       actions.setSubmitting(false);
       handleServerResponse(false, error.response.data.error);
     }
   };
-  return (
+    return (
     
     <MailFormWrapper>
       <Container>
-           <h4>Sign up for the mailing list</h4>
+           
            <Formik
            initialValues={{ name: "", email: ""}}
            onSubmit={handleOnSubmit}
@@ -155,32 +160,36 @@ export default function MailingListForm () {
            {({ isSubmitting }) => (
               <Fragment>
               {!serverState && (
-             <Form id="fs-frm" noValidate>
+              <Fragment>
+              <h4>Sign up for the mailing list</h4>
+            
+              <Form id="fs-frm" noValidate>
              
               <div className='group'>
                <label className='shrink' htmlFor="name">Name</label>
-               <Field id="name" type="text" name="name" />
+               <Field tabIndex='0' id="name" type="text" name="name" />
                <ErrorMessage name="name" className="errorMsg" component="p" />
                </div>
                
                <div className='group'>
                <label className="shrink" htmlFor="email">Email</label>
-               <Field id="email" type="email" name="email" />
+               <Field tabIndex='0' id="email" type="email" name="email" />
                <ErrorMessage name="email" className="errorMsg" component="p" />
                </div>
             
            
-               <button className="custom-button" type="submit" disabled={isSubmitting}>
+               <button className="custom-button" tabIndex='0' type="submit" disabled={isSubmitting}>
                  Sign Up
                </button>
-               
+              
              </Form>
+             </Fragment>
               )}
 
              {serverState && (
-              <p className={!serverState.ok ? "errorMsg" : ""}>
+              <Message className={!serverState.ok ? "errorMsg" : ""}>
                 {serverState.msg}
-              </p>
+              </Message>
             )}
            </Fragment>
            )} 

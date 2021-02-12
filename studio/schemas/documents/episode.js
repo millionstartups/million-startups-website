@@ -38,12 +38,15 @@ export default {
     {
       name: 'image',
       title: 'Image',
+      description: 'Use this if you do not have a video yet. It will show if you have entered the Episode Video Clip url as well',
       type: 'mainImage',
     },
     {
       name: 'videoClip',
       title: 'Episode Video Clip',
-      type: 'videoEmbed'
+      type: 'videoEmbed',
+      description: 'supports YouTube and Viemo. Enter the full url.',
+     
     },
     {
       name: 'materials',

@@ -10,6 +10,7 @@ import { getSiteData } from '../../lib/api'
 import { imageBuilder } from '../../lib/sanity'
 import { getAllEpisodes } from '../../lib/api'
 import Date from '../../components/blog/date'
+import Video from '../../components/ui/video'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
 const Grid = styled.div`
@@ -52,6 +53,25 @@ margin-bottom: 2rem;
 const H4 = styled.h4`
 margin-top: 1rem;
 margin-bottom: 1rem;
+`
+const ContentSpacer = styled.div`
+
+@media (max-width: 1900px) and (min-width: 488px) {
+  width: 460px;
+  height: 1px;
+  }
+  @media (max-width: 487px) and (min-width: 380px) {
+  width: 380px;
+  height: 1px;
+  }
+  @media (max-width: 360px) and (min-width: 281px) {
+  width: 300px;
+  height: 1px;
+  }
+  @media (max-width: 279px) {
+ display: none;
+  }
+
 `
 
 const Heading = styled(motion.h1)`
@@ -105,12 +125,13 @@ const EpisodesPage = ({ allEpisodes, site}) => {
   const homeEpisode = allEpisodes[0]
   const episode = homeEpisode
   const {logo, facebook, twitter, linkedin, youtube, googlepodcast, applepodcast, spotify, tiktok, amazonmusic, soundcloud} = site
-  const {title, episodeNumber, image, description} = episode
+  const {title, episodeNumber, image, video, description} = episode
   
     return (
         <Fragment>
         <Head>
         <title>Episodes - Million Startups</title>
+        <link rel="preconnect" href="https://youtube.com"/>
         </Head>
         <MainContainer 
           navpagetitle='Episodes' 
@@ -133,24 +154,27 @@ const EpisodesPage = ({ allEpisodes, site}) => {
           >
           <Flex smFlexDir='column-reverse'>
           <motion.div 
-           className='left image'
+           className='left'
            initial={{opacity:0, y:35, transition: {duration: 1.5}}} 
            animate={{opacity: 1, y:0, transition: {duration: 1.5}}}
            >
-           {image && 
+           <ContentSpacer>{' '}</ContentSpacer>
            
-           
-           <Image
-              src={imageBuilder(image)
-                    .height(450)
-                    .width(450)
-                    .url()}
-              height={450}
-              width={450}
-              layout='intrinsic'
-              alt={image.alt}
-            />  
-              }
+           {video &&
+                <Video url={video} />  
+           }
+
+                   {image && (<Image
+                       src={imageBuilder(image)
+                             .height(450)
+                             .width(450)
+                             .url()}
+                       height={450}
+                       width={450}
+                       layout='intrinsic'
+                       alt={image.alt}
+                     /> 
+                     )}
               </motion.div>
               <div className='right'>
               <Heading initial={{opacity:0, y:35, transition: {duration: 1}}} animate={{opacity: 1, y:0, transition: {duration: 1}}}>{title}</Heading>

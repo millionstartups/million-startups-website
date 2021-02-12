@@ -21,9 +21,6 @@ flex-direction: column;
 
 export default function Post({ post, morePosts }) {
   const router = useRouter()
-  if (!router.isFallback && !post?.slug) {
-    return <ErrorPage statusCode={404} />
-  }
   const nav = post.site
      return (
     <MainContainer 
