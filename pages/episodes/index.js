@@ -10,7 +10,7 @@ import { getSiteData } from '../../lib/api'
 import { imageBuilder } from '../../lib/sanity'
 import { getAllEpisodes } from '../../lib/api'
 import Date from '../../components/blog/date'
-import Video from '../../components/ui/video'
+import Video from '../../components/ui/Video'
 import {SiGooglepodcasts, SiSpotify, SiApplepodcasts} from 'react-icons/si'
 
 const Grid = styled.div`
