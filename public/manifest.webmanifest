@@ -18,6 +18,29 @@
     "theme_color": "#000",
     "background_color": "#000",
     "start_url": "/",
+    "shortcuts": [
+        {
+            "name":"The Million Startups Blog",
+            "short_name": "blog",
+            "description": "View the latest blog posts",
+            "url": "/blog"
+        
+        },
+        {
+            "name":"Podcast Episodes",
+            "short_name": "episodes",
+            "description": "View the latest episodes from the podcast",
+            "url": "/episodes"
+        
+        },
+        {
+            "name":"Contact The Million Startups",
+            "short_name": "contact",
+            "description": "Contact Us",
+            "url": "/contact"
+        
+        }
+    ],
     "display": "standalone",
     "orientation": "portrait"
 }
