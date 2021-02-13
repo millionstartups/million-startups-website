@@ -23,22 +23,28 @@
             "name":"The Million Startups Blog",
             "short_name": "blog",
             "description": "View the latest blog posts",
-            "url": "/blog"
-        
+            "url": "/blog",
+            "icons": [
+                { "src": "/icons/blog.svg", "sizes": "192x192", "type": "image/svg" }
+              ]
         },
         {
             "name":"Podcast Episodes",
             "short_name": "episodes",
             "description": "View the latest episodes from the podcast",
-            "url": "/episodes"
-        
+            "url": "/episodes",
+            "icons": [
+                { "src": "/icons/episode.svg", "sizes": "192x192", "type": "image/svg" }
+              ]
         },
         {
             "name":"Contact The Million Startups",
             "short_name": "contact",
             "description": "Contact Us",
-            "url": "/contact"
-        
+            "url": "/contact",
+            "icons": [
+                { "src": "/icons/mail.svg", "sizes": "192x192", "type": "image/svg" }
+              ]
         }
     ],
     "display": "standalone",

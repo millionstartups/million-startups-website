@@ -20,7 +20,6 @@ flex-direction: column;
 `
 
 export default function Post({ post, morePosts }) {
-  const router = useRouter()
   const nav = post.site
      return (
     <MainContainer 
