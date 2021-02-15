@@ -21,29 +21,29 @@
     "shortcuts": [
         {
             "name":"The Million Startups Blog",
-            "short_name": "blog",
+            "short_name": "Blog Posts",
             "description": "View the latest blog posts",
             "url": "/blog",
             "icons": [
-                { "src": "/icons/blog.svg", "sizes": "192x192", "type": "image/svg" }
+                { "src": "/icons/blog.png", "sizes": "192x192", "type": "image/png" }
               ]
         },
         {
             "name":"Podcast Episodes",
-            "short_name": "episodes",
+            "short_name": "Episodes",
             "description": "View the latest episodes from the podcast",
             "url": "/episodes",
             "icons": [
-                { "src": "/icons/episode.svg", "sizes": "192x192", "type": "image/svg" }
+                { "src": "/icons/episode.png", "sizes": "192x192", "type": "image/png" }
               ]
         },
         {
             "name":"Contact The Million Startups",
-            "short_name": "contact",
+            "short_name": "Contact Us",
             "description": "Contact Us",
             "url": "/contact",
             "icons": [
-                { "src": "/icons/mail.svg", "sizes": "192x192", "type": "image/svg" }
+                { "src": "/icons/mail.png", "sizes": "192x192", "type": "image/png" }
               ]
         }
     ],
