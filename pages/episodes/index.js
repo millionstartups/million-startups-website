@@ -1,4 +1,5 @@
 import {Fragment} from 'react'
+import Link from 'next/link'
 import styled from 'styled-components'
 import {motion, AnimatePresence } from 'framer-motion'
 import Head from 'next/head'
@@ -214,7 +215,7 @@ const EpisodesPage = ({ allEpisodes, site}) => {
           <ListItem>{elist.episodeNumber}</ListItem>
           <ListItem><Date dateString={elist.date} /></ListItem>
           <ListItem>{elist.title}</ListItem>
-          <ListItem>{elist.slug}</ListItem>
+          <ListItem><Link href={`/episodes/${elist.slug}`}><a>view</a></Link></ListItem>
           </InnerGrid>
         ))}
         </Grid>
