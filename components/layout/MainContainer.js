@@ -341,7 +341,7 @@ const overlay = {
             )}
             </AnimatePresence>
 
-            <Main exit={{opacity: 0}} initial='initial' animate='animate'>{children}</Main>
+            <Main exit={{opacity: 0, transition: {duration: 0.2}}} initial={{opacity: 0}} animate={{opacity: 1, transition: {duration: 0.2}}}>{children}</Main>
             <Space/>
             <Footer
               facebook={facebook}
