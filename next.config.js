@@ -10,14 +10,6 @@ const runtimeCaching = require('next-pwa/cache')
 runtimeCaching[0].handler = 'StaleWhileRevalidate'
 
 module.exports = withPWA({  
-  future: {
-    webpack5: true
-  },
-  webpack: function (config, options) {
-    console.log('webpack ' + options.webpack.version); // 5.18.0
-    config.experiments = {};
-    return config;
-  },
   pwa: {
     disable: process.env.NODE_ENV === 'development',
     dest: 'public',
