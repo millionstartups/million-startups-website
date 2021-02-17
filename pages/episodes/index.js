@@ -151,8 +151,8 @@ const EpisodesPage = ({ allEpisodes, site}) => {
         <Content>
         <Flex>
         <AnimatePresence>
-         <Card variants={animatedcard}
-          >
+        
+         <Card variants={animatedcard}>
           <Flex smFlexDir='column-reverse'>
           <motion.div 
            className='left'
@@ -161,8 +161,8 @@ const EpisodesPage = ({ allEpisodes, site}) => {
            >
            <ContentSpacer>{' '}</ContentSpacer>
            
-           {video &&
-                <Video url={video} />  
+           {video && 
+            (<Video url={video} />)  
            }
 
                    {image && (<Image
@@ -189,6 +189,7 @@ const EpisodesPage = ({ allEpisodes, site}) => {
               
            </Flex>
           </Card>
+
           </AnimatePresence> 
           
         

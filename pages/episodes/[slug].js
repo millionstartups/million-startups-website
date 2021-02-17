@@ -127,7 +127,6 @@ const EpisodesPage = ({ episode, allEpisodes, site}) => {
   
     return (
         <Fragment>
-        {console.log(episode)}
         <Head>
         <title>{title} - Million Startups</title>
         <link rel="preconnect" href="https://youtube.com"/>

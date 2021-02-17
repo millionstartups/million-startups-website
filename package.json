@@ -36,8 +36,8 @@
     "formik": "^2.2.6",
     "framer-motion": "^3.3.0",
     "get-video-id": "^3.1.9",
-    "next": "10.0.5",
-    "next-pwa": "3.1.5",
+    "next": "^10.0.7",
+    "next-pwa": "^5.0.5",
     "next-sanity": "^0.1.10",
     "node-mailjet": "^3.3.1",
     "react": "^17.0.1",
@@ -51,10 +51,14 @@
     "swr": "^0.4.2",
     "yup": "^0.32.8"
   },
+  "resolutions": {
+    "webpack": "5.18.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.12.16",
     "@sanity/cli": "^2.2.6",
-    "babel-plugin-styled-components": "^1.12.0"
+    "babel-plugin-styled-components": "^1.12.0",
+    "webpack": "5.18.0"
   },
   "repository": {
     "url": "https://github.com/millionstartups/million-startups-website"
