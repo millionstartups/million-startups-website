@@ -46,11 +46,11 @@ export default class App extends NextApp {
       
       <ThemeProvider theme={theme}>
         <GlobalStyle/>
-              <AnimatePresence exitBeforeEnter>
+                <AnimatePresence ExitBeforeEnter>
                   <Component 
                   {...pageProps} 
                   key={router.route} />
-              </AnimatePresence>
+                </AnimatePresence>
         </ThemeProvider>
       
     );

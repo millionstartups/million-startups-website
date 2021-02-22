@@ -1,6 +1,6 @@
 import {Fragment} from 'react'
 import styled from 'styled-components'
-import {motion, AnimatePresence } from 'framer-motion'
+import {motion, AnimateSharedLayout } from 'framer-motion'
 import Head from 'next/head'
 import { Flex, Card} from '../../components/layout/pageStyles'
 import MainContainer from '../../components/layout/MainContainer'
@@ -147,8 +147,8 @@ const EpisodesPage = ({ episode, allEpisodes, site}) => {
         >
         <Content>
         <Flex>
-        <AnimatePresence>
-         <Card variants={animatedcard}
+        <AnimateSharedLayout>
+         <Card layoutId='cardHome' variants={animatedcard}
           >
           <Flex smFlexDir='column-reverse'>
           <motion.div 
@@ -186,7 +186,7 @@ const EpisodesPage = ({ episode, allEpisodes, site}) => {
               
            </Flex>
           </Card>
-          </AnimatePresence> 
+          </AnimateSharedLayout> 
           
         
         </Flex>
