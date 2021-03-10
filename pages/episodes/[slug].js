@@ -191,7 +191,7 @@ const EpisodesPage = ({ episode, allEpisodes, site}) => {
         
         </Flex>
       
-        <H2>View the Next episode  </H2>
+        <H2>View the next episode  </H2>
       {allEpisodes && (
         <Fragment>
 
