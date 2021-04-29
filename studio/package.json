@@ -10,15 +10,15 @@
     "sanity"
   ],
   "dependencies": {
-    "@sanity/base": "^2.7.1",
+    "@sanity/base": "^2.10.0",
     "@sanity/components": "^2.2.6",
-    "@sanity/core": "^2.7.1",
+    "@sanity/core": "^2.10.0",
     "@sanity/dashboard": "^2.7.0",
-    "@sanity/default-layout": "^2.7.1",
-    "@sanity/default-login": "^2.7.0",
-    "@sanity/desk-tool": "^2.7.1",
+    "@sanity/default-layout": "^2.10.0",
+    "@sanity/default-login": "^2.8.0",
+    "@sanity/desk-tool": "^2.10.1",
     "@sanity/ui": "^0.33.0",
-    "@sanity/vision": "^2.7.0",
+    "@sanity/vision": "^2.10.0",
     "get-video-id": "^3.1.9",
     "prop-types": "^15.6",
     "react": "^17.0.1",
@@ -33,6 +33,6 @@
     "sanity-plugin-media": "^1.0.1",
     "sanity-plugin-minesweeper": "^0.0.3",
     "sanity-plugin-seo-tools": "^1.1.0",
-    "styled-components": "^5.2.1"
+    "styled-components": "^5.2.3"
   }
 }
