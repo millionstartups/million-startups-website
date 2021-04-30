@@ -10,14 +10,6 @@ const runtimeCaching = require('next-pwa/cache')
 runtimeCaching[0].handler = 'StaleWhileRevalidate'
 
 module.exports = withPWA({  
-  pwa: {
-    disable: process.env.NODE_ENV === 'development',
-    dest: 'public',
-    publicExcludes: ['!studio/*', '!fonts/*',],
-    sw: 'million-startups-service-worker.js',
-    register: true,
-    runtimeCaching
-  },
   images: {
     domains: ['cdn.sanity.io'],
   },
