@@ -1,5 +1,4 @@
 import {Fragment, useState} from 'react'
-import { useQuery} from 'react-query'
 import { getSiteData } from '../../lib/api'
 import CookieConsent from "react-cookie-consent";
 import {GA_TRACKING_ID} from '../../lib/gtag'
